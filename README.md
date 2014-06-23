@@ -1,5 +1,4 @@
 ##Asus Q501LA Hackintosh##
------
 Hello,
 
 My laptop, Asus Q501LA, hackintosh is near 100% stable. Thanks to Maciasl and InsanelyMac (and TonyMacOSx86). Without their help, I would never get my hackintosh 100% stable. 
@@ -9,7 +8,6 @@ At this moment, I am redoing DSDT and SSDT (I have encountered some bugs). Bare 
 This is just educational purposes.
 
 ##Table of Content##
--------
 - [Changelog](#Changelog)
 - [Requirements](#Requirements)
 - [Instructions](#Instructions)
@@ -18,19 +16,16 @@ This is just educational purposes.
 - [FAQs](#FAQs)
 
 ##Changelog##
---------
 - Beta 1.0
     - Patched GFXO -> IGPU
     - Haswell Brightness Fix
     - Haswell HD4400/HD4600/HD5000
 
 ##Requirements##
---------
 - Asus Q501LA ( http://www.amazon.com/Asus-Q501LA-BBI5T03-15-6-Touch-Screen-Laptop/dp/B00FRSXJKI ) 
 - MaciASL ( http://sourceforge.net/projects/maciasl/files/ )
 
 ##Instructions##
---------
 This DSDT and SSDT only works in **Asus Q501LA**. This will **not work** on other laptop, there is a chance that it can mess up your hardware.
 
 **How to open EFI parition:**
@@ -55,7 +50,6 @@ This DSDT and SSDT only works in **Asus Q501LA**. This will **not work** on othe
 Before you reboot, you will need to install certain `kexts`, so your laptop can run close to 100%.
 
 ##Kexts##
--------
 There are about 10 kexts that you will need to install. I do not recommend using Multibeast to install your kexts. I would install invidual. 
 
 In `kexts` folder, you find:
@@ -74,7 +68,6 @@ I recommend you install both AppleHDA and EAPDFix directly into `/System/Library
 Then reboot, you should have close to 100% stable hackintosh.
 
 ##Credit##
-------
 I wanted to say thanks to
 - Creator of MaciASL
 - Creatof of BootLoader
@@ -84,7 +77,6 @@ I wanted to say thanks to
 Without you guys, I will never get stable hackintosh.
 
 ##FAQs##
--------
 **I cannot boot to Mac... now what?**
 - Boot to Clover --> Options --> Arguments --> `-x DSDT=no DropSSDT=Yes`. Then you should able to boot into mac and either fix (in terms of patch) or remove DSDT and SSDT from ``cd /Volumes/efi/EFI/CLOVER/ACPI/patched/`.
 
