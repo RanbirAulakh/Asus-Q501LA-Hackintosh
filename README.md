@@ -3,7 +3,7 @@ Hello,
 
 My laptop, Asus Q501LA, hackintosh is near 100% stable. Thanks to Maciasl and InsanelyMac (and TonyMacOSx86). Without their help, I would never get my hackintosh 100% stable. 
 
-At this moment, I am redoing DSDT and SSDT (I have encountered some bugs). Bare with me. **Check the changelog before you download it!**
+At this moment, I am redoing the **WHOLE** DSDT and SSDT (I have encountered some bugs). Bare with me. **Check the changelog before you download it!**
 
 This is just educational purposes.
 
@@ -17,12 +17,18 @@ This is just educational purposes.
 
 ##Changelog##
 - Beta 1.0
-    - Patched GFXO -> IGPU
-    - Haswell Brightness Fix
-    - Haswell HD4400/HD4600/HD5000
+    - Patched Graphics + Brightness
+        - GFXO -> IGPU
+        - Haswell Brightness Fix
+        - Haswell HD4400/HD4600/HD5000
 - Beta 1.1
-    - Patched Audio Layout 12
+    - Patched Audio
         - Changed the Layout from 12 to 28.
+- Beta 1.4
+    - Patched Battery Indicator
+        - Asus N55SL/VivoBook
+        - Fix Mutex with non-zero symbol
+        - Fix PNOT/PPNT
 
 ##Requirements##
 - Asus Q501LA ( http://www.amazon.com/Asus-Q501LA-BBI5T03-15-6-Touch-Screen-Laptop/dp/B00FRSXJKI ) 
