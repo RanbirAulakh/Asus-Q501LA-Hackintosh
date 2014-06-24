@@ -96,3 +96,10 @@ Without you guys, I will never get stable hackintosh.
 
 **How come this does not work?**
 - Bare with me, I am trying to get everything to work. 
+
+**Why do I have like 9 SSDTs?**
+- Each one represents something (I know some and currently researching each SSDT(s). 
+    - SSDT 1, 2, 3 are CPU related.
+    - SSDT 4 is ....
+    - SSDT 5 is Graphics related.
+    - SSDT 6, 7, 8, 9 are ....
