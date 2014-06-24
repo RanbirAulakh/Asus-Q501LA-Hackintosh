@@ -17,7 +17,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			i+sCJihNjfOvp4AJ0/NbmqiAvZg=
+			bFmnVnb/Vp6jtuPdtDDh3aru78I=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -348,14 +348,14 @@
 		</data>
 		<key>version.plist</key>
 		<data>
-		wt1FsdPrMt4uAwIqAULiYQZOs1o=
+		2KGlec+lazGih/y9FmI+JqZ6H60=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
 		<key>Info.plist</key>
 		<data>
-		BnWzmrtdSa/fXq1sEw4l33hFH3g=
+		0kdn7gIhRta59aUFcAns7NzDHjA=
 		</data>
 		<key>Resources/English.lproj/Localizable.strings</key>
 		<dict>
@@ -370,7 +370,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			i+sCJihNjfOvp4AJ0/NbmqiAvZg=
+			bFmnVnb/Vp6jtuPdtDDh3aru78I=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -701,7 +701,7 @@
 		</data>
 		<key>version.plist</key>
 		<data>
-		wt1FsdPrMt4uAwIqAULiYQZOs1o=
+		2KGlec+lazGih/y9FmI+JqZ6H60=
 		</data>
 	</dict>
 	<key>rules</key>
