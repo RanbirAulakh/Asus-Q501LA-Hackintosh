@@ -2,27 +2,34 @@ These are the files I extracted from Ubuntu Live-CD. Those files are correctly d
 
 **How do I extract my DSDT and SSDT from Ubuntu Live-CD?**
 - Run these commands in Terminal (Ubuntu Live-CD)
-`cd ~/Desktop
-sudo apt-get update
-sudo apt-get install acpidump
-sudo acpidump > acpidump.out
-sudo acpixtract -a acpidump.out`
+`cd ~/Desktop`
+
+`sudo apt-get update`
+
+`sudo apt-get install acpidump`
+
+`sudo acpidump > acpidump.out`
+
+`sudo acpixtract -a acpidump.out`
 
 Then you will see like a lot of files created in your desktop. Take those and put it in a folder, then place them in your Hackintosh desktop.
 
 After it got placed. You will need to download iasl (which can disassemble them correctly). 
-Download Link: http://ge.tt/9Vk2wwl1/v/0?c 
+Download Link: `http://ge.tt/9Vk2wwl1/v/0?c`
 
 I recommend placing iasl in the folder that contains extracted DSDT and SSDT!
 
 Run these commands in Terminal (Hackintosh)
-`cd ~/Desktop/[your folder name]
-./iasl -da *.aml`
+
+`cd ~/Desktop/[your folder name]`
+
+`./iasl -da *.aml`
 
 If you got an error, make sure you have **ONLY** DSDT and SSDT in that folder, everything else, just delete them.
 
 
 Below is, I just quickly printed out what is my specific hardware. It can be useful. 
+
 `ubuntu@ubuntu:~$ lspci -nn
 00:00.0 Host bridge [0600]: Intel Corporation Haswell-ULT DRAM Controller [8086:0a04] (rev 09)
 00:02.0 VGA compatible controller [0300]: Intel Corporation Haswell-ULT Integrated Graphics Controller [8086:0a16] (rev 09)
