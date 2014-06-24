@@ -20,6 +20,9 @@ This is just educational purposes.
     - Patched GFXO -> IGPU
     - Haswell Brightness Fix
     - Haswell HD4400/HD4600/HD5000
+- Beta 1.1
+    - Patched Audio Layout 12
+        - Changed the Layout from 12 to 28.
 
 ##Requirements##
 - Asus Q501LA ( http://www.amazon.com/Asus-Q501LA-BBI5T03-15-6-Touch-Screen-Laptop/dp/B00FRSXJKI ) 
@@ -50,7 +53,7 @@ This DSDT and SSDT only works in **Asus Q501LA**. This will **not work** on othe
 Before you reboot, you will need to install certain `kexts`, so your laptop can run close to 100%.
 
 ##Kexts##
-There are about 10 kexts that you will need to install. I do not recommend using Multibeast to install your kexts. I would install invidual. 
+There are about 11 kexts that you will need to install. I do not recommend using Multibeast to install your kexts. I would install individual. 
 
 In `kexts` folder, you find:
 - ACPIBacklight.kext
@@ -62,8 +65,9 @@ In `kexts` folder, you find:
 - GenericUSBXHCI.kext
 - RealtekRTL8111.kext
 - AppleHDA.kext
+- HDAEnabler.kext
 
-I recommend you install both AppleHDA and EAPDFix directly into `/System/Library/Extensions/`. And the rest goes to `/Volumes/efi/EFI/CLOVER/kexts/Other/`. Then fix permissions (using kext utility).
+I recommend you install both AppleHDA, HDAEnabler and EAPDFix directly into `/System/Library/Extensions/`. And the rest goes to `/Volumes/efi/EFI/CLOVER/kexts/Other/`. Then fix permissions (using kext utility).
 
 Then reboot, you should have close to 100% stable hackintosh.
 
@@ -73,6 +77,7 @@ I wanted to say thanks to
 - Creatof of BootLoader
 - InsanelyMac Forum
 - TonyMacOSx86 Forum
+- Rehabman Repo
 
 Without you guys, I will never get stable hackintosh.
 
@@ -81,7 +86,7 @@ Without you guys, I will never get stable hackintosh.
 - Boot to Clover --> Options --> Arguments --> `-x DSDT=no DropSSDT=Yes`. Then you should able to boot into mac and either fix (in terms of patch) or remove DSDT and SSDT from ``cd /Volumes/efi/EFI/CLOVER/ACPI/patched/`.
 
 **I got kernel panic bro. What should I do now?**
-- It is most likey has to do with your kexts. If you have Voodoo or anything related to Voodoo, just remove that and fix permissions using kext utility. 
+- It is most likey has to do with your kexts. If you have Voodoo or anything related to Voodoo, just remove that and fix permissions using kext utility. You do not need Voodoo. 
 
 **How come this does not work?**
 - Bare with me, I am trying to get everything to work. 
