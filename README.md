@@ -40,7 +40,8 @@ This is just educational purposes.
 	- Patched IRQ Fix
 	- Added Config.plist
 	- Fixed Audio
-	- 
+
+
 ##Requirements##
 - Asus Q501LA ( http://www.amazon.com/Asus-Q501LA-BBI5T03-15-6-Touch-Screen-Laptop/dp/B00FRSXJKI ) 
 - MaciASL ( http://sourceforge.net/projects/maciasl/files/ )
