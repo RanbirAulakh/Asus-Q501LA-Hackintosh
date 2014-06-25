@@ -29,10 +29,14 @@ This is just educational purposes.
         - Asus N55SL/VivoBook
         - Fix Mutex with non-zero symbol
         - Fix PNOT/PPNT
+- Beta 1.5
+    - Patched Asus FN Keys
+        - Asus Fn keys
 
 ##Requirements##
 - Asus Q501LA ( http://www.amazon.com/Asus-Q501LA-BBI5T03-15-6-Touch-Screen-Laptop/dp/B00FRSXJKI ) 
 - MaciASL ( http://sourceforge.net/projects/maciasl/files/ )
+- Running 10.9.3 (Mavericks)
 
 ##Instructions##
 This DSDT and SSDT only works in **Asus Q501LA**. This will **not work** on other laptop, there is a chance that it can mess up your hardware.
