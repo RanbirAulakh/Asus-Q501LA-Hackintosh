@@ -32,18 +32,15 @@ This is just educational purposes.
 - Beta 1.5
     - Patched Asus FN Keys
         - Asus Fn keys
-<<<<<<< HEAD
+- Beta 1.6
+    - Patched Rename
+        - GFXO -> IGPU
 - Beta 1.7
 	- Removed HDAEnabler.kext
 	- Patched IRQ Fix
 	- Added Config.plist
 	- Fixed Audio
-=======
-- Beta 1.6
-    - Patched Rename
-        - GFXO -> IGPU
->>>>>>> FETCH_HEAD
-
+	- 
 ##Requirements##
 - Asus Q501LA ( http://www.amazon.com/Asus-Q501LA-BBI5T03-15-6-Touch-Screen-Laptop/dp/B00FRSXJKI ) 
 - MaciASL ( http://sourceforge.net/projects/maciasl/files/ )
@@ -86,9 +83,8 @@ In `kexts` folder, you find:
 - GenericUSBXHCI.kext
 - RealtekRTL8111.kext
 - AppleHDA.kext
-- HDAEnabler.kext
 
-I recommend you install both AppleHDA, HDAEnabler and EAPDFix directly into `/System/Library/Extensions/`. And the rest goes to `/Volumes/efi/EFI/CLOVER/kexts/Other/`. Then fix permissions (using kext utility).
+I recommend you install both AppleHDA and EAPDFix directly into `/System/Library/Extensions/`. And the rest goes to `/Volumes/efi/EFI/CLOVER/kexts/Other/`. Then fix permissions (using kext utility).
 
 Then reboot, you should have close to 100% stable hackintosh.
 
