@@ -32,6 +32,9 @@ This is just educational purposes.
 - Beta 1.5
     - Patched Asus FN Keys
         - Asus Fn keys
+- Beta 1.6
+    - Patched Rename
+        - GFXO -> IGPU
 
 ##Requirements##
 - Asus Q501LA ( http://www.amazon.com/Asus-Q501LA-BBI5T03-15-6-Touch-Screen-Laptop/dp/B00FRSXJKI ) 
