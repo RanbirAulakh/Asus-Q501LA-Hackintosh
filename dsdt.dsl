@@ -16049,6 +16049,48 @@ BB1C,8,BB1D,8,BB1E,8,BB1F,8
 
                 Return (Zero)
             }
+            Name (BOFF, Zero)
+            Method (SKBL, 1, NotSerialized)
+            {
+                If (Or (LEqual (Arg0, 0xED), LEqual (Arg0, 0xFD)))
+                {
+                    If (LEqual(Arg0, BOFF))
+                    {
+                        Store (Zero, Local0)
+                    }
+                    Else
+                    {
+                        Return (One)
+                    }
+                }
+                Else
+                {
+                    If(Or (LEqual (Arg0, 0xEA), LEqual (Arg0, 0xFA)))
+                    {
+                        Store (KBLV, Local0)
+                        If (LEqual(Arg0, 0xEA))
+                        {
+                            Store (0xED, BOFF)
+                        }
+                        Else
+                        {
+                            Store (0xFD, BOFF)
+                        }
+                    }
+                    Else
+                    {
+                        Store (Arg0, Local0)
+                        Store (Arg0, KBLV)
+                    }
+                }
+                Store (DerefOf (Index (PWKB, Local0)), Local1)
+                ^^PCI0.LPCB.EC0.WRAM (0x04B1, Local1)
+                Return (One)
+            }
+            Method (GKBL, 1, NotSerialized)
+            {
+                Return (KBLV)
+            }
         }
     }
 
