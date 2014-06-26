@@ -20,7 +20,7 @@ This is just educational purposes.
 - Sleep
 - SD Card Reader (not tested)
 
-##Changelog##
+# <a name="Changelog"></a> Changelog
 - Beta 1.0
     - Patched Graphics + Brightness
         - GFXO -> IGPU
@@ -58,12 +58,12 @@ This is just educational purposes.
 
 
 
-##Requirements##
+# <a name="Requirements"></a> Requirements
 - Asus Q501LA ( http://www.amazon.com/Asus-Q501LA-BBI5T03-15-6-Touch-Screen-Laptop/dp/B00FRSXJKI ) 
 - MaciASL ( http://sourceforge.net/projects/maciasl/files/ )
 - Running 10.9.3 (Mavericks)
 
-##Instructions##
+# <a name="Instructions"></a> Instructions
 This DSDT and SSDT only works in **Asus Q501LA**. This will **not work** on other laptop, there is a chance that it can mess up your hackintosh, laptop, or hardware.
 
 **How to open EFI parition:**
@@ -93,7 +93,7 @@ This DSDT and SSDT only works in **Asus Q501LA**. This will **not work** on othe
     
 Before you reboot, you will need to install certain `kexts`, so your laptop can run close to 100%.
 
-##Kexts##
+# <a name="Kexts"></a> Kexts
 There are about 9 kexts that you will need to install. I do not recommend using Multibeast to install your kexts. I would install individual. 
 
 In `kexts` folder, you find:
@@ -111,7 +111,7 @@ I recommend you install both `AppleHDA` and `EAPDFix` directly into `/System/Lib
 
 Then reboot, you should have close to 100% stable hackintosh.
 
-##Credit##
+# <a name="Credit"></a> Credit
 I wanted to say thanks to
 - Creator of MaciASL
 - Creatof of BootLoader
@@ -121,7 +121,7 @@ I wanted to say thanks to
 
 Without you guys, I will never get stable hackintosh.
 
-##FAQs##
+# <a name="FAQs"></a> FAQs
 **I cannot boot to Mac... now what?**
 - Boot to Clover --> Options --> Arguments --> `-x`. Then you should able to boot into mac and either fix (in terms of patch) or remove DSDT and SSDT from ``cd /Volumes/efi/EFI/CLOVER/ACPI/patched/`.
 
