@@ -8,12 +8,17 @@ My laptop, Asus Q501LA, hackintosh is near 100% stable.
 This is just educational purposes.
 
 ##Table of Content##
-- [Changelog](#Changelog)
-- [Requirements](#Requirements)
-- [Instructions](#Instructions)
-- [Kexts](#Kexts)
-- [Credit](#Credit)
-- [FAQs](#FAQs)
+* [Issues](#Issues)
+* [Changelog](#Changelog)
+* [Requirements](#Requirements)
+* [Instructions](#Instructions)
+* [Kexts](#Kexts)
+* [Credit](#Credit)
+* [FAQs](#FAQs)
+
+# <a name="Issues"></a> Issues
+- Sleep
+- SD Card Reader (not tested)
 
 ##Changelog##
 - Beta 1.0
@@ -40,6 +45,17 @@ This is just educational purposes.
 	- Patched IRQ Fix
 	- Added Config.plist
 	- Fixed Audio
+- Beta 2.0
+	- Disassembled DSDT and SSDT with latest iasl
+	- Remapped FN Keys (Brightness now works)
+	- In DSDT, patched the following
+		- IRQ Fix
+		- SMBUS Fix
+		- RTC Fix
+		- HPET Fix
+		- OS Check Fix
+		- Fix _Wak ARg0 v2
+
 
 
 ##Requirements##
