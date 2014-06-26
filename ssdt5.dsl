@@ -1,9 +1,9 @@
 /*
  * Intel ACPI Component Architecture
- * AML Disassembler version 20131115-64 [Dec  1 2013]
- * Copyright (c) 2000 - 2013 Intel Corporation
+ * AML Disassembler version 20140424-64 [Jun 25 2014]
+ * Copyright (c) 2000 - 2014 Intel Corporation
  * 
- * Disassembly of ssdt5.aml, Sun Jun 22 22:50:27 2014
+ * Disassembly of ssdt5.dat, Thu Jun 26 11:37:01 2014
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -21,14 +21,25 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
     /*
      * iASL Warning: There were 9 external control methods found during
      * disassembly, but only 6 were resolved (3 unresolved). Additional
-     * ACPI tables are required to properly disassemble the code. This
+     * ACPI tables may be required to properly disassemble the code. This
      * resulting disassembler output file may not compile because the
      * disassembler did not know how many arguments to assign to the
      * unresolved methods.
+     *
+     * If necessary, the -fe option can be used to specify a file containing
+     * control method external declarations with the associated method
+     * argument counts. Each line of the file must be of the form:
+     *     External (<method pathname>, MethodObj, <argument count>)
+     * Invocation:
+     *     iasl -fe refs.txt -d dsdt.aml
+     *
+     * The following methods were unresolved and many not compile properly
+     * because the disassembler had to guess at the number of arguments
+     * required for each:
      */
-    External (HDOS, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (HNOT, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
-    External (IDAB, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
+    External (HDOS, MethodObj)    // Warning: Unresolved method, guessing 0 arguments
+    External (HNOT, MethodObj)    // Warning: Unresolved method, guessing 1 arguments
+    External (IDAB, MethodObj)    // Warning: Unresolved method, guessing 0 arguments
 
     External (_SB_.BRTI, FieldUnitObj)
     External (_SB_.CSTE, FieldUnitObj)
@@ -39,7 +50,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
     External (_SB_.PCI0, DeviceObj)
     External (_SB_.PCI0.LPCB.EC0_.PWAC, BuffObj)
     External (_SB_.PCI0.LPCB.EC0_.STBR, MethodObj)    // 0 Arguments
-    External (_SB_.PEPD)
+    External (_SB_.PEPD, UnknownObj)
     External (_SB_.SFUN, FieldUnitObj)
     External (_SB_.SSTE, FieldUnitObj)
     External (_SB_.VBIF, FieldUnitObj)
@@ -210,8 +221,8 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 If (LAnd (LNotEqual (ABAR, Ones), LNotEqual (And (ABAR, 
                     0xFFFFC000), Zero)))
                 {
-                    And (ABAR, 0xFFFFFFF0, BBAR)
-                    Add (BBAR, 0x1000, BBAR)
+                    And (ABAR, 0xFFFFFFF0, BBAR) /* \BBAR */
+                    Add (BBAR, 0x1000, BBAR) /* \BBAR */
                     OperationRegion (RPCY, SystemMemory, BBAR, 0x25)
                     Field (RPCY, DWordAcc, NoLock, Preserve)
                     {
@@ -222,9 +233,9 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                         ADWA,   32
                     }
 
-                    Store (AUDA, EMWA)
-                    Store (AUDB, ADWA)
-                    Store (AUDC, EM4W)
+                    Store (AUDA, EMWA) /* \_SB_.PCI0.B0D3.ASTR.EMWA */
+                    Store (AUDB, ADWA) /* \_SB_.PCI0.B0D3.ASTR.ADWA */
+                    Store (AUDC, EM4W) /* \_SB_.PCI0.B0D3.ASTR.EM4W */
                 }
             }
 
@@ -232,7 +243,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
             {
                 Name (CONT, 0x03E8)
                 Name (ADDR, 0x80000000)
-                Store (Arg0, ADDR)
+                Store (Arg0, ADDR) /* \_SB_.PCI0.B0D3.VSTR.ADDR */
                 OperationRegion (CCDC, SystemMemory, ADDR, 0x04)
                 Field (CCDC, ByteAcc, NoLock, Preserve)
                 {
@@ -244,7 +255,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LNotEqual (CDEC, Zero))
                     {
-                        And (ABAR, 0xFFFFFFF0, BBAR)
+                        And (ABAR, 0xFFFFFFF0, BBAR) /* \BBAR */
                         OperationRegion (IPCV, SystemMemory, BBAR, 0x70)
                         Field (IPCV, DWordAcc, NoLock, Preserve)
                         {
@@ -254,7 +265,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                             AIRS,   16
                         }
 
-                        Store (0x03E8, CONT)
+                        Store (0x03E8, CONT) /* \_SB_.PCI0.B0D3.VSTR.CONT */
                         While (LAnd (LEqual (And (AIRS, One), One), LNotEqual (
                             CONT, Zero)))
                         {
@@ -262,10 +273,10 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                             Decrement (CONT)
                         }
 
-                        Or (AIRS, 0x02, AIRS)
-                        Store (CDEC, AVIC)
-                        Or (AIRS, One, AIRS)
-                        Store (0x03E8, CONT)
+                        Or (AIRS, 0x02, AIRS) /* \_SB_.PCI0.B0D3.VSTR.AIRS */
+                        Store (CDEC, AVIC) /* \_SB_.PCI0.B0D3.VSTR.AVIC */
+                        Or (AIRS, One, AIRS) /* \_SB_.PCI0.B0D3.VSTR.AIRS */
+                        Store (0x03E8, CONT) /* \_SB_.PCI0.B0D3.VSTR.CONT */
                         While (LAnd (LEqual (And (AIRS, One), One), LNotEqual (
                             CONT, Zero)))
                         {
@@ -281,11 +292,11 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 Name (IDDX, 0x80000000)
                 If (LAnd (LNotEqual (CCSA, Zero), LNotEqual (CCNT, Zero)))
                 {
-                    Store (CCSA, IDDX)
+                    Store (CCSA, IDDX) /* \_SB_.PCI0.B0D3.CXDC.IDDX */
                     While (LLess (IDDX, Add (CCSA, Multiply (CCNT, 0x04))))
                     {
                         VSTR (IDDX)
-                        Add (IDDX, 0x04, IDDX)
+                        Add (IDDX, 0x04, IDDX) /* \_SB_.PCI0.B0D3.CXDC.IDDX */
                     }
                 }
             }
@@ -296,7 +307,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 If (LAnd (LNotEqual (ABAR, Ones), LNotEqual (And (ABAR, 
                     0xFFFFC000), Zero)))
                 {
-                    And (ABAR, 0xFFFFFFF0, BBAR)
+                    And (ABAR, 0xFFFFFFF0, BBAR) /* \BBAR */
                     OperationRegion (IPCV, SystemMemory, BBAR, 0x70)
                     Field (IPCV, DWordAcc, NoLock, Preserve)
                     {
@@ -311,8 +322,8 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                         AIRS,   16
                     }
 
-                    Or (GCTL, One, GCTL)
-                    Store (0x03E8, CONT)
+                    Or (GCTL, One, GCTL) /* \_SB_.PCI0.B0D3.AINI.GCTL */
+                    Store (0x03E8, CONT) /* \_SB_.PCI0.B0D3.AINI.CONT */
                     While (LAnd (LEqual (And (GCTL, One), One), LNotEqual (
                         CONT, Zero)))
                     {
@@ -320,10 +331,10 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                         Decrement (CONT)
                     }
 
-                    And (GCAP, 0xFFFF, GCAP)
-                    Or (SSTS, 0x0F, SSTS)
-                    And (GCTL, 0xFFFFFFFE, GCTL)
-                    Store (0x03E8, CONT)
+                    And (GCAP, 0xFFFF, GCAP) /* \_SB_.PCI0.B0D3.AINI.GCAP */
+                    Or (SSTS, 0x0F, SSTS) /* \_SB_.PCI0.B0D3.AINI.SSTS */
+                    And (GCTL, 0xFFFFFFFE, GCTL) /* \_SB_.PCI0.B0D3.AINI.GCTL */
+                    Store (0x03E8, CONT) /* \_SB_.PCI0.B0D3.AINI.CONT */
                     While (LAnd (LEqual (And (GCTL, One), One), LNotEqual (
                         CONT, Zero)))
                     {
@@ -331,8 +342,8 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                         Decrement (CONT)
                     }
 
-                    Or (GCTL, One, GCTL)
-                    Store (0x03E8, CONT)
+                    Or (GCTL, One, GCTL) /* \_SB_.PCI0.B0D3.AINI.GCTL */
+                    Store (0x03E8, CONT) /* \_SB_.PCI0.B0D3.AINI.CONT */
                     While (LAnd (LEqual (And (GCTL, One), One), LNotEqual (
                         CONT, Zero)))
                     {
@@ -372,7 +383,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
 
             Method (_DOS, 1, NotSerialized)  // _DOS: Disable Output Switching
             {
-                Store (And (Arg0, 0x07), DSEN)
+                Store (And (Arg0, 0x07), DSEN) /* External reference */
                 If (LEqual (And (Arg0, 0x03), Zero))
                 {
                     If (CondRefOf (HDOS))
@@ -383,9 +394,9 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
 
                 If (DRDY)
                 {
-                    And (Arg0, 0x03, DOSF)
-                    Store (ShiftRight (Arg0, 0x02), BRNC)
-                    And (BRNC, One, BRNC)
+                    And (Arg0, 0x03, DOSF) /* \_SB_.PCI0.IGPU.DOSF */
+                    Store (ShiftRight (Arg0, 0x02), BRNC) /* \_SB_.PCI0.IGPU.BRNC */
+                    And (BRNC, One, BRNC) /* \_SB_.PCI0.IGPU.BRNC */
                 }
             }
 
@@ -397,80 +408,80 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 }
                 Else
                 {
-                    Store (Zero, NDID)
+                    Store (Zero, NDID) /* \NDID */
                     If (LNotEqual (DIDL, Zero))
                     {
-                        Store (SDDL (DDL2), DID1)
+                        Store (SDDL (DDL2), DID1) /* \DID1 */
                     }
 
                     If (LNotEqual (DDL2, Zero))
                     {
-                        Store (SDDL (DIDL), DID2)
+                        Store (SDDL (DIDL), DID2) /* \DID2 */
                     }
 
                     If (LNotEqual (DDL3, Zero))
                     {
-                        Store (SDDL (DDL3), DID3)
+                        Store (SDDL (DDL3), DID3) /* \DID3 */
                     }
 
                     If (LNotEqual (DDL4, Zero))
                     {
-                        Store (SDDL (DDL4), DID4)
+                        Store (SDDL (DDL4), DID4) /* \DID4 */
                     }
 
                     If (LNotEqual (DDL5, Zero))
                     {
-                        Store (SDDL (DDL5), DID5)
+                        Store (SDDL (DDL5), DID5) /* \DID5 */
                     }
 
                     If (LNotEqual (DDL6, Zero))
                     {
-                        Store (SDDL (DDL6), DID6)
+                        Store (SDDL (DDL6), DID6) /* \DID6 */
                     }
 
                     If (LNotEqual (DDL7, Zero))
                     {
-                        Store (SDDL (DDL7), DID7)
+                        Store (SDDL (DDL7), DID7) /* \DID7 */
                     }
 
                     If (LNotEqual (DDL8, Zero))
                     {
-                        Store (SDDL (DDL8), DID8)
+                        Store (SDDL (DDL8), DID8) /* \DID8 */
                     }
 
                     If (LNotEqual (DDL9, Zero))
                     {
-                        Store (SDDL (DDL9), DID9)
+                        Store (SDDL (DDL9), DID9) /* \DID9 */
                     }
 
                     If (LNotEqual (DD10, Zero))
                     {
-                        Store (SDDL (DD10), DIDA)
+                        Store (SDDL (DD10), DIDA) /* \DIDA */
                     }
 
                     If (LNotEqual (DD11, Zero))
                     {
-                        Store (SDDL (DD11), DIDB)
+                        Store (SDDL (DD11), DIDB) /* \DIDB */
                     }
 
                     If (LNotEqual (DD12, Zero))
                     {
-                        Store (SDDL (DD12), DIDC)
+                        Store (SDDL (DD12), DIDC) /* \DIDC */
                     }
 
                     If (LNotEqual (DD13, Zero))
                     {
-                        Store (SDDL (DD13), DIDD)
+                        Store (SDDL (DD13), DIDD) /* \DIDD */
                     }
 
                     If (LNotEqual (DD14, Zero))
                     {
-                        Store (SDDL (DD14), DIDE)
+                        Store (SDDL (DD14), DIDE) /* \DIDE */
                     }
 
                     If (LNotEqual (DD15, Zero))
                     {
-                        Store (SDDL (DD15), DIDF)
+                        Store (SDDL (DD15), DIDF) /* \DIDF */
                     }
                 }
 
@@ -481,7 +492,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                         Ones
                     })
                     Store (Or (0x00010000, DID1), Index (TMP1, Zero))
-                    Return (TMP1)
+                    Return (TMP1) /* \_SB_.PCI0.IGPU._DOD.TMP1 */
                 }
 
                 If (LEqual (NDID, 0x02))
@@ -493,7 +504,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     })
                     Store (Or (0x00010000, DID1), Index (TMP2, Zero))
                     Store (Or (0x00010000, DID2), Index (TMP2, One))
-                    Return (TMP2)
+                    Return (TMP2) /* \_SB_.PCI0.IGPU._DOD.TMP2 */
                 }
 
                 If (LEqual (NDID, 0x03))
@@ -507,7 +518,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     Store (Or (0x00010000, DID1), Index (TMP3, Zero))
                     Store (Or (0x00010000, DID2), Index (TMP3, One))
                     Store (Or (0x00010000, DID3), Index (TMP3, 0x02))
-                    Return (TMP3)
+                    Return (TMP3) /* \_SB_.PCI0.IGPU._DOD.TMP3 */
                 }
 
                 If (LEqual (NDID, 0x04))
@@ -523,7 +534,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     Store (Or (0x00010000, DID2), Index (TMP4, One))
                     Store (Or (0x00010000, DID3), Index (TMP4, 0x02))
                     Store (Or (0x00010000, DID4), Index (TMP4, 0x03))
-                    Return (TMP4)
+                    Return (TMP4) /* \_SB_.PCI0.IGPU._DOD.TMP4 */
                 }
 
                 If (LEqual (NDID, 0x05))
@@ -541,7 +552,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     Store (Or (0x00010000, DID3), Index (TMP5, 0x02))
                     Store (Or (0x00010000, DID4), Index (TMP5, 0x03))
                     Store (Or (0x00010000, DID5), Index (TMP5, 0x04))
-                    Return (TMP5)
+                    Return (TMP5) /* \_SB_.PCI0.IGPU._DOD.TMP5 */
                 }
 
                 If (LEqual (NDID, 0x06))
@@ -561,7 +572,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     Store (Or (0x00010000, DID4), Index (TMP6, 0x03))
                     Store (Or (0x00010000, DID5), Index (TMP6, 0x04))
                     Store (Or (0x00010000, DID6), Index (TMP6, 0x05))
-                    Return (TMP6)
+                    Return (TMP6) /* \_SB_.PCI0.IGPU._DOD.TMP6 */
                 }
 
                 If (LEqual (NDID, 0x07))
@@ -583,7 +594,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     Store (Or (0x00010000, DID5), Index (TMP7, 0x04))
                     Store (Or (0x00010000, DID6), Index (TMP7, 0x05))
                     Store (Or (0x00010000, DID7), Index (TMP7, 0x06))
-                    Return (TMP7)
+                    Return (TMP7) /* \_SB_.PCI0.IGPU._DOD.TMP7 */
                 }
 
                 If (LEqual (NDID, 0x08))
@@ -607,7 +618,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     Store (Or (0x00010000, DID6), Index (TMP8, 0x05))
                     Store (Or (0x00010000, DID7), Index (TMP8, 0x06))
                     Store (Or (0x00010000, DID8), Index (TMP8, 0x07))
-                    Return (TMP8)
+                    Return (TMP8) /* \_SB_.PCI0.IGPU._DOD.TMP8 */
                 }
 
                 If (LEqual (NDID, 0x09))
@@ -633,7 +644,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     Store (Or (0x00010000, DID7), Index (TMP9, 0x06))
                     Store (Or (0x00010000, DID8), Index (TMP9, 0x07))
                     Store (Or (0x00010000, DID9), Index (TMP9, 0x08))
-                    Return (TMP9)
+                    Return (TMP9) /* \_SB_.PCI0.IGPU._DOD.TMP9 */
                 }
 
                 If (LEqual (NDID, 0x0A))
@@ -661,7 +672,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     Store (Or (0x00010000, DID8), Index (TMPA, 0x07))
                     Store (Or (0x00010000, DID9), Index (TMPA, 0x08))
                     Store (Or (0x00010000, DIDA), Index (TMPA, 0x09))
-                    Return (TMPA)
+                    Return (TMPA) /* \_SB_.PCI0.IGPU._DOD.TMPA */
                 }
 
                 If (LEqual (NDID, 0x0B))
@@ -691,7 +702,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     Store (Or (0x00010000, DID9), Index (TMPB, 0x08))
                     Store (Or (0x00010000, DIDA), Index (TMPB, 0x09))
                     Store (Or (0x00010000, DIDB), Index (TMPB, 0x0A))
-                    Return (TMPB)
+                    Return (TMPB) /* \_SB_.PCI0.IGPU._DOD.TMPB */
                 }
 
                 If (LEqual (NDID, 0x0C))
@@ -723,7 +734,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     Store (Or (0x00010000, DIDA), Index (TMPC, 0x09))
                     Store (Or (0x00010000, DIDB), Index (TMPC, 0x0A))
                     Store (Or (0x00010000, DIDC), Index (TMPC, 0x0B))
-                    Return (TMPC)
+                    Return (TMPC) /* \_SB_.PCI0.IGPU._DOD.TMPC */
                 }
 
                 If (LEqual (NDID, 0x0D))
@@ -757,7 +768,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     Store (Or (0x00010000, DIDB), Index (TMPD, 0x0A))
                     Store (Or (0x00010000, DIDC), Index (TMPD, 0x0B))
                     Store (Or (0x00010000, DIDD), Index (TMPD, 0x0C))
-                    Return (TMPD)
+                    Return (TMPD) /* \_SB_.PCI0.IGPU._DOD.TMPD */
                 }
 
                 If (LEqual (NDID, 0x0E))
@@ -793,7 +804,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     Store (Or (0x00010000, DIDC), Index (TMPE, 0x0B))
                     Store (Or (0x00010000, DIDD), Index (TMPE, 0x0C))
                     Store (Or (0x00010000, DIDE), Index (TMPE, 0x0D))
-                    Return (TMPE)
+                    Return (TMPE) /* \_SB_.PCI0.IGPU._DOD.TMPE */
                 }
 
                 If (LEqual (NDID, 0x0F))
@@ -831,7 +842,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     Store (Or (0x00010000, DIDD), Index (TMPF, 0x0C))
                     Store (Or (0x00010000, DIDE), Index (TMPF, 0x0D))
                     Store (Or (0x00010000, DIDF), Index (TMPF, 0x0E))
-                    Return (TMPF)
+                    Return (TMPF) /* \_SB_.PCI0.IGPU._DOD.TMPF */
                 }
 
                 Return (Package (0x01)
@@ -846,9 +857,9 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (0x0F00, DID1), 0x0400))
                     {
-                        Store (One, EDPV)
-                        Store (NXD1, NXDX)
-                        Store (DID1, DIDX)
+                        Store (One, EDPV) /* \EDPV */
+                        Store (NXD1, NXDX) /* \NXDX */
+                        Store (DID1, DIDX) /* \DIDX */
                         Return (One)
                     }
 
@@ -872,7 +883,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
                         )))
                     {
-                        Return (NXD1)
+                        Return (NXD1) /* \NXD1 */
                     }
 
                     Return (NDDS (DID1))
@@ -882,7 +893,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
                     {
-                        Store (NSTE, CSTE)
+                        Store (NSTE, CSTE) /* External reference */
                     }
                 }
             }
@@ -893,9 +904,9 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (0x0F00, DID2), 0x0400))
                     {
-                        Store (0x02, EDPV)
-                        Store (NXD2, NXDX)
-                        Store (DID2, DIDX)
+                        Store (0x02, EDPV) /* \EDPV */
+                        Store (NXD2, NXDX) /* \NXDX */
+                        Store (DID2, DIDX) /* \DIDX */
                         Return (0x02)
                     }
 
@@ -924,7 +935,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
                         )))
                     {
-                        Return (NXD2)
+                        Return (NXD2) /* \NXD2 */
                     }
 
                     Return (NDDS (DID2))
@@ -934,7 +945,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
                     {
-                        Store (NSTE, CSTE)
+                        Store (NSTE, CSTE) /* External reference */
                     }
                 }
             }
@@ -945,9 +956,9 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (0x0F00, DID3), 0x0400))
                     {
-                        Store (0x03, EDPV)
-                        Store (NXD3, NXDX)
-                        Store (DID3, DIDX)
+                        Store (0x03, EDPV) /* \EDPV */
+                        Store (NXD3, NXDX) /* \NXDX */
+                        Store (DID3, DIDX) /* \DIDX */
                         Return (0x03)
                     }
 
@@ -978,7 +989,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
                         )))
                     {
-                        Return (NXD3)
+                        Return (NXD3) /* \NXD3 */
                     }
 
                     Return (NDDS (DID3))
@@ -988,7 +999,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
                     {
-                        Store (NSTE, CSTE)
+                        Store (NSTE, CSTE) /* External reference */
                     }
                 }
             }
@@ -999,9 +1010,9 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (0x0F00, DID4), 0x0400))
                     {
-                        Store (0x04, EDPV)
-                        Store (NXD4, NXDX)
-                        Store (DID4, DIDX)
+                        Store (0x04, EDPV) /* \EDPV */
+                        Store (NXD4, NXDX) /* \NXDX */
+                        Store (DID4, DIDX) /* \DIDX */
                         Return (0x04)
                     }
 
@@ -1032,7 +1043,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
                         )))
                     {
-                        Return (NXD4)
+                        Return (NXD4) /* \NXD4 */
                     }
 
                     Return (NDDS (DID4))
@@ -1042,7 +1053,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
                     {
-                        Store (NSTE, CSTE)
+                        Store (NSTE, CSTE) /* External reference */
                     }
                 }
             }
@@ -1053,9 +1064,9 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (0x0F00, DID5), 0x0400))
                     {
-                        Store (0x05, EDPV)
-                        Store (NXD5, NXDX)
-                        Store (DID5, DIDX)
+                        Store (0x05, EDPV) /* \EDPV */
+                        Store (NXD5, NXDX) /* \NXDX */
+                        Store (DID5, DIDX) /* \DIDX */
                         Return (0x05)
                     }
 
@@ -1086,7 +1097,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
                         )))
                     {
-                        Return (NXD5)
+                        Return (NXD5) /* \NXD5 */
                     }
 
                     Return (NDDS (DID5))
@@ -1096,7 +1107,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
                     {
-                        Store (NSTE, CSTE)
+                        Store (NSTE, CSTE) /* External reference */
                     }
                 }
             }
@@ -1107,9 +1118,9 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (0x0F00, DID6), 0x0400))
                     {
-                        Store (0x06, EDPV)
-                        Store (NXD6, NXDX)
-                        Store (DID6, DIDX)
+                        Store (0x06, EDPV) /* \EDPV */
+                        Store (NXD6, NXDX) /* \NXDX */
+                        Store (DID6, DIDX) /* \DIDX */
                         Return (0x06)
                     }
 
@@ -1140,7 +1151,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
                         )))
                     {
-                        Return (NXD6)
+                        Return (NXD6) /* \NXD6 */
                     }
 
                     Return (NDDS (DID6))
@@ -1150,7 +1161,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
                     {
-                        Store (NSTE, CSTE)
+                        Store (NSTE, CSTE) /* External reference */
                     }
                 }
             }
@@ -1161,9 +1172,9 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (0x0F00, DID7), 0x0400))
                     {
-                        Store (0x07, EDPV)
-                        Store (NXD7, NXDX)
-                        Store (DID7, DIDX)
+                        Store (0x07, EDPV) /* \EDPV */
+                        Store (NXD7, NXDX) /* \NXDX */
+                        Store (DID7, DIDX) /* \DIDX */
                         Return (0x07)
                     }
 
@@ -1194,7 +1205,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
                         )))
                     {
-                        Return (NXD7)
+                        Return (NXD7) /* \NXD7 */
                     }
 
                     Return (NDDS (DID7))
@@ -1204,7 +1215,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
                     {
-                        Store (NSTE, CSTE)
+                        Store (NSTE, CSTE) /* External reference */
                     }
                 }
             }
@@ -1215,9 +1226,9 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (0x0F00, DID8), 0x0400))
                     {
-                        Store (0x08, EDPV)
-                        Store (NXD8, NXDX)
-                        Store (DID8, DIDX)
+                        Store (0x08, EDPV) /* \EDPV */
+                        Store (NXD8, NXDX) /* \NXDX */
+                        Store (DID8, DIDX) /* \DIDX */
                         Return (0x08)
                     }
 
@@ -1248,7 +1259,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
                         )))
                     {
-                        Return (NXD8)
+                        Return (NXD8) /* \NXD8 */
                     }
 
                     Return (NDDS (DID8))
@@ -1258,7 +1269,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
                     {
-                        Store (NSTE, CSTE)
+                        Store (NSTE, CSTE) /* External reference */
                     }
                 }
             }
@@ -1269,9 +1280,9 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (0x0F00, DID9), 0x0400))
                     {
-                        Store (0x09, EDPV)
-                        Store (NXD8, NXDX)
-                        Store (DID9, DIDX)
+                        Store (0x09, EDPV) /* \EDPV */
+                        Store (NXD8, NXDX) /* \NXDX */
+                        Store (DID9, DIDX) /* \DIDX */
                         Return (0x09)
                     }
 
@@ -1302,7 +1313,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
                         )))
                     {
-                        Return (NXD8)
+                        Return (NXD8) /* \NXD8 */
                     }
 
                     Return (NDDS (DID9))
@@ -1312,7 +1323,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
                     {
-                        Store (NSTE, CSTE)
+                        Store (NSTE, CSTE) /* External reference */
                     }
                 }
             }
@@ -1323,9 +1334,9 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (0x0F00, DIDA), 0x0400))
                     {
-                        Store (0x0A, EDPV)
-                        Store (NXD8, NXDX)
-                        Store (DIDA, DIDX)
+                        Store (0x0A, EDPV) /* \EDPV */
+                        Store (NXD8, NXDX) /* \NXDX */
+                        Store (DIDA, DIDX) /* \DIDX */
                         Return (0x0A)
                     }
 
@@ -1356,7 +1367,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
                         )))
                     {
-                        Return (NXD8)
+                        Return (NXD8) /* \NXD8 */
                     }
 
                     Return (NDDS (DIDA))
@@ -1366,7 +1377,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
                     {
-                        Store (NSTE, CSTE)
+                        Store (NSTE, CSTE) /* External reference */
                     }
                 }
             }
@@ -1377,9 +1388,9 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (0x0F00, DIDB), 0x0400))
                     {
-                        Store (0x0B, EDPV)
-                        Store (NXD8, NXDX)
-                        Store (DIDB, DIDX)
+                        Store (0x0B, EDPV) /* \EDPV */
+                        Store (NXD8, NXDX) /* \NXDX */
+                        Store (DIDB, DIDX) /* \DIDX */
                         Return (0x0B)
                     }
 
@@ -1410,7 +1421,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
                         )))
                     {
-                        Return (NXD8)
+                        Return (NXD8) /* \NXD8 */
                     }
 
                     Return (NDDS (DIDB))
@@ -1420,7 +1431,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
                     {
-                        Store (NSTE, CSTE)
+                        Store (NSTE, CSTE) /* External reference */
                     }
                 }
             }
@@ -1431,9 +1442,9 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (0x0F00, DIDC), 0x0400))
                     {
-                        Store (0x0C, EDPV)
-                        Store (NXD8, NXDX)
-                        Store (DIDC, DIDX)
+                        Store (0x0C, EDPV) /* \EDPV */
+                        Store (NXD8, NXDX) /* \NXDX */
+                        Store (DIDC, DIDX) /* \DIDX */
                         Return (0x0C)
                     }
 
@@ -1464,7 +1475,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
                         )))
                     {
-                        Return (NXD8)
+                        Return (NXD8) /* \NXD8 */
                     }
 
                     Return (NDDS (DIDC))
@@ -1474,7 +1485,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
                     {
-                        Store (NSTE, CSTE)
+                        Store (NSTE, CSTE) /* External reference */
                     }
                 }
             }
@@ -1485,9 +1496,9 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (0x0F00, DIDD), 0x0400))
                     {
-                        Store (0x0D, EDPV)
-                        Store (NXD8, NXDX)
-                        Store (DIDD, DIDX)
+                        Store (0x0D, EDPV) /* \EDPV */
+                        Store (NXD8, NXDX) /* \NXDX */
+                        Store (DIDD, DIDX) /* \DIDX */
                         Return (0x0D)
                     }
 
@@ -1518,7 +1529,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
                         )))
                     {
-                        Return (NXD8)
+                        Return (NXD8) /* \NXD8 */
                     }
 
                     Return (NDDS (DIDD))
@@ -1528,7 +1539,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
                     {
-                        Store (NSTE, CSTE)
+                        Store (NSTE, CSTE) /* External reference */
                     }
                 }
             }
@@ -1539,9 +1550,9 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (0x0F00, DIDE), 0x0400))
                     {
-                        Store (0x0E, EDPV)
-                        Store (NXD8, NXDX)
-                        Store (DIDE, DIDX)
+                        Store (0x0E, EDPV) /* \EDPV */
+                        Store (NXD8, NXDX) /* \NXDX */
+                        Store (DIDE, DIDX) /* \DIDX */
                         Return (0x0E)
                     }
 
@@ -1572,7 +1583,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
                         )))
                     {
-                        Return (NXD8)
+                        Return (NXD8) /* \NXD8 */
                     }
 
                     Return (NDDS (DIDE))
@@ -1582,7 +1593,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
                     {
-                        Store (NSTE, CSTE)
+                        Store (NSTE, CSTE) /* External reference */
                     }
                 }
             }
@@ -1593,9 +1604,9 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (0x0F00, DIDF), 0x0400))
                     {
-                        Store (0x0F, EDPV)
-                        Store (NXD8, NXDX)
-                        Store (DIDF, DIDX)
+                        Store (0x0F, EDPV) /* \EDPV */
+                        Store (NXD8, NXDX) /* \NXDX */
+                        Store (DIDF, DIDX) /* \DIDX */
                         Return (0x0F)
                     }
 
@@ -1626,7 +1637,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
                         )))
                     {
-                        Return (NXD8)
+                        Return (NXD8) /* \NXD8 */
                     }
 
                     Return (NDDS (DIDF))
@@ -1636,7 +1647,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
                     {
-                        Store (NSTE, CSTE)
+                        Store (NSTE, CSTE) /* External reference */
                     }
                 }
             }
@@ -1672,7 +1683,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                     If (LAnd (LEqual (And (SGMD, 0x7F), One), CondRefOf (SNXD
                         )))
                     {
-                        Return (NXDX)
+                        Return (NXDX) /* \NXDX */
                     }
 
                     Return (NDDS (DIDX))
@@ -1682,7 +1693,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                 {
                     If (LEqual (And (Arg0, 0xC0000000), 0xC0000000))
                     {
-                        Store (NSTE, CSTE)
+                        Store (NSTE, CSTE) /* External reference */
                     }
                 }
 
@@ -1693,11 +1704,11 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                         Store (BRTI, Local1)
                         ShiftLeft (Local1, 0x04, Local1)
                         Store (DerefOf (Index (\_SB.PCI0.LPCB.EC0.PWAC, Local1)), Local0)
-                        Or (TCHE, 0x08, TCHE)
-                        Or (ASLC, 0x08, ASLC)
-                        Store (Local0, PFMB)
-                        Or (PFMB, 0x0100, PFMB)
-                        Store (One, ASLE)
+                        Or (TCHE, 0x08, TCHE) /* \_SB_.PCI0.IGPU.TCHE */
+                        Or (ASLC, 0x08, ASLC) /* \_SB_.PCI0.IGPU.ASLC */
+                        Store (Local0, PFMB) /* \_SB_.PCI0.IGPU.PFMB */
+                        Or (PFMB, 0x0100, PFMB) /* \_SB_.PCI0.IGPU.PFMB */
+                        Store (One, ASLE) /* \_SB_.PCI0.IGPU.ASLE */
                     }
                 }
 
@@ -1728,7 +1739,7 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                         }
 
                         MINB ()
-                        Return (BRPP)
+                        Return (BRPP) /* \_SB_.PCI0.IGPU.LCDD._BCL.BRPP */
                     }
                     Else
                     {
@@ -1747,15 +1758,15 @@ DefinitionBlock ("ssdt5.aml", "SSDT", 1, "SaSsdt", "SaSsdt ", 0x00003000)
                         }
 
                         MINB ()
-                        Return (PCTG)
+                        Return (PCTG) /* \_SB_.PCI0.IGPU.PCTG */
                     }
                 }
 
                 Method (_BCM, 1, NotSerialized)  // _BCM: Brightness Control Method
                 {
-                    Store (One, BCMD)
+                    Store (One, BCMD) /* \_SB_.PCI0.IGPU.BCMD */
                     Store (GCBL (Arg0), Local0)
-                    Subtract (0x0A, Local0, LBTN)
+                    Subtract (0x0A, Local0, LBTN) /* External reference */
                     If (BRNC)
                     {
                         \_SB.PCI0.IGPU.AINT (One, Arg0)
@@ -2192,117 +2203,117 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                 {
                     If (LEqual (GESF, Zero))
                     {
-                        Store (0x0659, PARM)
-                        Store (Zero, GESF)
-                        Return (SUCC)
+                        Store (0x0659, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, One))
                     {
-                        Store (0x00300482, PARM)
+                        Store (0x00300482, PARM) /* \_SB_.PCI0.IGPU.PARM */
                         If (LEqual (S0ID, One))
                         {
-                            Or (PARM, 0x0100, PARM)
+                            Or (PARM, 0x0100, PARM) /* \_SB_.PCI0.IGPU.PARM */
                         }
 
-                        Store (Zero, GESF)
-                        Return (SUCC)
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x04))
                     {
-                        And (PARM, 0xEFFF0000, PARM)
+                        And (PARM, 0xEFFF0000, PARM) /* \_SB_.PCI0.IGPU.PARM */
                         And (PARM, ShiftLeft (DerefOf (Index (DBTB, IBTT)), 0x10), 
-                            PARM)
-                        Or (IBTT, PARM, PARM)
-                        Store (Zero, GESF)
-                        Return (SUCC)
+                            PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Or (IBTT, PARM, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x05))
                     {
-                        Store (IPSC, PARM)
-                        Or (PARM, ShiftLeft (IPAT, 0x08), PARM)
-                        Add (PARM, 0x0100, PARM)
-                        Or (PARM, ShiftLeft (LIDS, 0x10), PARM)
-                        Add (PARM, 0x00010000, PARM)
-                        Or (PARM, ShiftLeft (IBIA, 0x14), PARM)
-                        Store (Zero, GESF)
-                        Return (SUCC)
+                        Store (IPSC, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Or (PARM, ShiftLeft (IPAT, 0x08), PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Add (PARM, 0x0100, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Or (PARM, ShiftLeft (LIDS, 0x10), PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Add (PARM, 0x00010000, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Or (PARM, ShiftLeft (IBIA, 0x14), PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x07))
                     {
-                        Store (GIVD, PARM)
-                        XOr (PARM, One, PARM)
-                        Or (PARM, ShiftLeft (GMFN, One), PARM)
-                        Or (PARM, 0x1800, PARM)
-                        Or (PARM, ShiftLeft (IDMS, 0x11), PARM)
+                        Store (GIVD, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        XOr (PARM, One, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Or (PARM, ShiftLeft (GMFN, One), PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Or (PARM, 0x1800, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Or (PARM, ShiftLeft (IDMS, 0x11), PARM) /* \_SB_.PCI0.IGPU.PARM */
                         Or (ShiftLeft (DerefOf (Index (DerefOf (Index (CDCT, HVCO)), CDVL
-                            )), 0x15), PARM, PARM)
-                        Store (One, GESF)
-                        Return (SUCC)
+                            )), 0x15), PARM, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Store (One, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x0A))
                     {
-                        Store (Zero, PARM)
+                        Store (Zero, PARM) /* \_SB_.PCI0.IGPU.PARM */
                         If (ISSC)
                         {
-                            Or (PARM, 0x03, PARM)
+                            Or (PARM, 0x03, PARM) /* \_SB_.PCI0.IGPU.PARM */
                         }
 
-                        Store (Zero, GESF)
-                        Return (SUCC)
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x0B))
                     {
-                        Store (KSV0, PARM)
-                        Store (KSV1, GESF)
-                        Return (SUCC)
+                        Store (KSV0, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Store (KSV1, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
-                    Store (Zero, GESF)
-                    Return (CRIT)
+                    Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                    Return (CRIT) /* \_SB_.PCI0.IGPU.CRIT */
                 }
 
                 Method (SBCB, 0, Serialized)
                 {
                     If (LEqual (GESF, Zero))
                     {
-                        Store (Zero, PARM)
-                        Store (0x000F87DD, PARM)
-                        Store (Zero, GESF)
-                        Return (SUCC)
+                        Store (Zero, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Store (0x000F87DD, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, One))
                     {
-                        Store (Zero, GESF)
-                        Store (Zero, PARM)
-                        Return (SUCC)
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Store (Zero, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x03))
                     {
-                        Store (Zero, GESF)
-                        Store (Zero, PARM)
-                        Return (SUCC)
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Store (Zero, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x04))
                     {
-                        Store (Zero, GESF)
-                        Store (Zero, PARM)
-                        Return (SUCC)
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Store (Zero, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x05))
                     {
-                        Store (Zero, GESF)
-                        Store (Zero, PARM)
-                        Return (SUCC)
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Store (Zero, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x07))
@@ -2320,14 +2331,14 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                             Store (CLID, Local0)
                             If (And (0x80000000, Local0))
                             {
-                                And (CLID, 0x0F, CLID)
+                                And (CLID, 0x0F, CLID) /* \_SB_.PCI0.IGPU.CLID */
                                 GLID (CLID)
                             }
                         }
 
-                        Store (Zero, GESF)
-                        Store (Zero, PARM)
-                        Return (SUCC)
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Store (Zero, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x08))
@@ -2341,64 +2352,64 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                             }
                         }
 
-                        Store (Zero, GESF)
-                        Store (Zero, PARM)
-                        Return (SUCC)
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Store (Zero, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x09))
                     {
-                        And (PARM, 0xFF, IBTT)
-                        Store (Zero, GESF)
-                        Store (Zero, PARM)
-                        Return (SUCC)
+                        And (PARM, 0xFF, IBTT) /* \IBTT */
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Store (Zero, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x0A))
                     {
-                        And (PARM, 0xFF, IPSC)
+                        And (PARM, 0xFF, IPSC) /* \IPSC */
                         If (And (ShiftRight (PARM, 0x08), 0xFF))
                         {
-                            And (ShiftRight (PARM, 0x08), 0xFF, IPAT)
+                            And (ShiftRight (PARM, 0x08), 0xFF, IPAT) /* \IPAT */
                             Decrement (IPAT)
                         }
 
-                        And (ShiftRight (PARM, 0x14), 0x07, IBIA)
-                        Store (Zero, GESF)
-                        Store (Zero, PARM)
-                        Return (SUCC)
+                        And (ShiftRight (PARM, 0x14), 0x07, IBIA) /* \IBIA */
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Store (Zero, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x0B))
                     {
-                        And (ShiftRight (PARM, One), One, IF1E)
+                        And (ShiftRight (PARM, One), One, IF1E) /* \IF1E */
                         If (And (PARM, 0x0001E000))
                         {
-                            And (ShiftRight (PARM, 0x0D), 0x0F, IDMS)
+                            And (ShiftRight (PARM, 0x0D), 0x0F, IDMS) /* \IDMS */
                         }
                         Else
                         {
-                            And (ShiftRight (PARM, 0x11), 0x0F, IDMS)
+                            And (ShiftRight (PARM, 0x11), 0x0F, IDMS) /* \IDMS */
                         }
 
-                        Store (Zero, GESF)
-                        Store (Zero, PARM)
-                        Return (SUCC)
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Store (Zero, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x10))
                     {
-                        Store (Zero, GESF)
-                        Store (Zero, PARM)
-                        Return (SUCC)
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Store (Zero, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x11))
                     {
-                        Store (ShiftLeft (LIDS, 0x08), PARM)
-                        Add (PARM, 0x0100, PARM)
-                        Store (Zero, GESF)
-                        Return (SUCC)
+                        Store (ShiftLeft (LIDS, 0x08), PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Add (PARM, 0x0100, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x12))
@@ -2407,37 +2418,37 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                         {
                             If (LEqual (ShiftRight (PARM, One), One))
                             {
-                                Store (One, ISSC)
+                                Store (One, ISSC) /* \ISSC */
                             }
                             Else
                             {
-                                Store (Zero, GESF)
-                                Return (CRIT)
+                                Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                                Return (CRIT) /* \_SB_.PCI0.IGPU.CRIT */
                             }
                         }
                         Else
                         {
-                            Store (Zero, ISSC)
+                            Store (Zero, ISSC) /* \ISSC */
                         }
 
-                        Store (Zero, GESF)
-                        Store (Zero, PARM)
-                        Return (SUCC)
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Store (Zero, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x13))
                     {
-                        Store (Zero, GESF)
-                        Store (Zero, PARM)
-                        Return (SUCC)
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Store (Zero, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x14))
                     {
-                        And (PARM, 0x0F, PAVP)
-                        Store (Zero, GESF)
-                        Store (Zero, PARM)
-                        Return (SUCC)
+                        And (PARM, 0x0F, PAVP) /* \PAVP */
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Store (Zero, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
                     If (LEqual (GESF, 0x15))
@@ -2448,38 +2459,38 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                             \_SB.PCI0.B0D3.ASTR ()
                             \_SB.PCI0.B0D3.AINI ()
                             \_SB.PCI0.B0D3.CXDC ()
-                            Notify (\_SB.PCI0, Zero)
+                            Notify (\_SB.PCI0, Zero) // Bus Check
                         }
 
                         If (LEqual (PARM, Zero))
                         {
                             And (\_SB.PCI0.AUDE, 0xDF, \_SB.PCI0.AUDE)
-                            Notify (\_SB.PCI0, Zero)
+                            Notify (\_SB.PCI0, Zero) // Bus Check
                         }
 
-                        Store (Zero, GESF)
-                        Store (Zero, PARM)
-                        Return (SUCC)
+                        Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                        Store (Zero, PARM) /* \_SB_.PCI0.IGPU.PARM */
+                        Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                     }
 
-                    Store (Zero, GESF)
-                    Return (SUCC)
+                    Store (Zero, GESF) /* \_SB_.PCI0.IGPU.GESF */
+                    Return (SUCC) /* \_SB_.PCI0.IGPU.SUCC */
                 }
 
                 If (LEqual (GEFC, 0x04))
                 {
-                    Store (GBDA (), GXFC)
+                    Store (GBDA (), GXFC) /* \_SB_.PCI0.IGPU.GXFC */
                 }
 
                 If (LEqual (GEFC, 0x06))
                 {
-                    Store (SBCB (), GXFC)
+                    Store (SBCB (), GXFC) /* \_SB_.PCI0.IGPU.GXFC */
                 }
 
-                Store (Zero, GEFC)
-                Store (One, SCIS)
-                Store (Zero, GSSE)
-                Store (Zero, SCIE)
+                Store (Zero, GEFC) /* \_SB_.PCI0.IGPU.GEFC */
+                Store (One, SCIS) /* External reference */
+                Store (Zero, GSSE) /* \_SB_.PCI0.IGPU.GSSE */
+                Store (Zero, SCIE) /* \_SB_.PCI0.IGPU.SCIE */
                 Return (Zero)
             }
 
@@ -2505,8 +2516,8 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                     Return (One)
                 }
 
-                Store (Arg0, CEVT)
-                Store (0x03, CSTS)
+                Store (Arg0, CEVT) /* \_SB_.PCI0.IGPU.CEVT */
+                Store (0x03, CSTS) /* \_SB_.PCI0.IGPU.CSTS */
                 If (LAnd (LEqual (CHPD, Zero), LEqual (Arg1, Zero)))
                 {
                     If (LOr (LGreater (OSYS, 0x07D0), LLess (OSYS, 0x07D6)))
@@ -2525,7 +2536,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                 }
                 Else
                 {
-                    Notify (\_SB.PCI0.IGPU, 0x80)
+                    Notify (\_SB.PCI0.IGPU, 0x80) // Status Change
                 }
 
                 Return (Zero)
@@ -2533,7 +2544,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
 
             Method (GHDS, 1, NotSerialized)
             {
-                Store (Arg0, TIDX)
+                Store (Arg0, TIDX) /* \_SB_.PCI0.IGPU.TIDX */
                 Return (GNOT (One, Zero))
             }
 
@@ -2541,16 +2552,16 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
             {
                 If (LEqual (Arg0, One))
                 {
-                    Store (0x03, CLID)
+                    Store (0x03, CLID) /* \_SB_.PCI0.IGPU.CLID */
                 }
                 Else
                 {
-                    Store (Arg0, CLID)
+                    Store (Arg0, CLID) /* \_SB_.PCI0.IGPU.CLID */
                 }
 
                 If (GNOT (0x02, Zero))
                 {
-                    Or (CLID, 0x80000000, CLID)
+                    Or (CLID, 0x80000000, CLID) /* \_SB_.PCI0.IGPU.CLID */
                     Return (One)
                 }
 
@@ -2559,7 +2570,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
 
             Method (GDCK, 1, NotSerialized)
             {
-                Store (Arg0, CDCK)
+                Store (Arg0, CDCK) /* \_SB_.PCI0.IGPU.CDCK */
                 Return (GNOT (0x04, Zero))
             }
 
@@ -2575,8 +2586,8 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
 
             Method (IUEH, 1, Serialized)
             {
-                And (IUER, 0xC0, IUER)
-                XOr (IUER, ShiftLeft (One, Arg0), IUER)
+                And (IUER, 0xC0, IUER) /* \_SB_.PCI0.IGPU.IUER */
+                XOr (IUER, ShiftLeft (One, Arg0), IUER) /* \_SB_.PCI0.IGPU.IUER */
                 If (LLessEqual (Arg0, 0x04))
                 {
                     Return (AINT (0x05, Zero))
@@ -2601,8 +2612,8 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
 
                 If (LAnd (LGreaterEqual (Arg0, 0x05), LLessEqual (Arg0, 0x07)))
                 {
-                    Store (ShiftLeft (One, Arg0), ASLC)
-                    Store (One, ASLE)
+                    Store (ShiftLeft (One, Arg0), ASLC) /* \_SB_.PCI0.IGPU.ASLC */
+                    Store (One, ASLE) /* \_SB_.PCI0.IGPU.ASLE */
                     Store (Zero, Local2)
                     While (LAnd (LLess (Local2, 0xFA), LNotEqual (ASLC, Zero)))
                     {
@@ -2623,17 +2634,17 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                         {
                             If (And (Local1, 0x06))
                             {
-                                Store (0x06, PFIT)
+                                Store (0x06, PFIT) /* \_SB_.PCI0.IGPU.PFIT */
                             }
                             Else
                             {
                                 If (And (Local1, 0x08))
                                 {
-                                    Store (0x08, PFIT)
+                                    Store (0x08, PFIT) /* \_SB_.PCI0.IGPU.PFIT */
                                 }
                                 Else
                                 {
-                                    Store (One, PFIT)
+                                    Store (One, PFIT) /* \_SB_.PCI0.IGPU.PFIT */
                                 }
                             }
                         }
@@ -2642,17 +2653,17 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                         {
                             If (And (Local1, 0x08))
                             {
-                                Store (0x08, PFIT)
+                                Store (0x08, PFIT) /* \_SB_.PCI0.IGPU.PFIT */
                             }
                             Else
                             {
                                 If (And (Local1, One))
                                 {
-                                    Store (One, PFIT)
+                                    Store (One, PFIT) /* \_SB_.PCI0.IGPU.PFIT */
                                 }
                                 Else
                                 {
-                                    Store (0x06, PFIT)
+                                    Store (0x06, PFIT) /* \_SB_.PCI0.IGPU.PFIT */
                                 }
                             }
                         }
@@ -2661,43 +2672,43 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                         {
                             If (And (Local1, One))
                             {
-                                Store (One, PFIT)
+                                Store (One, PFIT) /* \_SB_.PCI0.IGPU.PFIT */
                             }
                             Else
                             {
                                 If (And (Local1, 0x06))
                                 {
-                                    Store (0x06, PFIT)
+                                    Store (0x06, PFIT) /* \_SB_.PCI0.IGPU.PFIT */
                                 }
                                 Else
                                 {
-                                    Store (0x08, PFIT)
+                                    Store (0x08, PFIT) /* \_SB_.PCI0.IGPU.PFIT */
                                 }
                             }
                         }
                     }
                     Else
                     {
-                        XOr (PFIT, 0x07, PFIT)
+                        XOr (PFIT, 0x07, PFIT) /* \_SB_.PCI0.IGPU.PFIT */
                     }
 
-                    Or (PFIT, 0x80000000, PFIT)
-                    Store (0x04, ASLC)
+                    Or (PFIT, 0x80000000, PFIT) /* \_SB_.PCI0.IGPU.PFIT */
+                    Store (0x04, ASLC) /* \_SB_.PCI0.IGPU.ASLC */
                 }
                 Else
                 {
                     If (LEqual (Arg0, One))
                     {
-                        Store (Divide (Multiply (Arg1, 0xFF), 0x64, ), BCLP)
-                        Or (BCLP, 0x80000000, BCLP)
-                        Store (0x02, ASLC)
+                        Store (Divide (Multiply (Arg1, 0xFF), 0x64, ), BCLP) /* \_SB_.PCI0.IGPU.BCLP */
+                        Or (BCLP, 0x80000000, BCLP) /* \_SB_.PCI0.IGPU.BCLP */
+                        Store (0x02, ASLC) /* \_SB_.PCI0.IGPU.ASLC */
                     }
                     Else
                     {
                         If (LEqual (Arg0, Zero))
                         {
-                            Store (Arg1, ALSI)
-                            Store (One, ASLC)
+                            Store (Arg1, ALSI) /* \_SB_.PCI0.IGPU.ALSI */
+                            Store (One, ASLC) /* \_SB_.PCI0.IGPU.ASLC */
                         }
                         Else
                         {
@@ -2706,7 +2717,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                     }
                 }
 
-                Store (One, ASLE)
+                Store (One, ASLE) /* \_SB_.PCI0.IGPU.ASLE */
                 Return (Zero)
             }
 
@@ -2727,7 +2738,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                 {
                     If (LEqual (Arg0, 0x03))
                     {
-                        Store (ASLS, OPBS)
+                        Store (ASLS, OPBS) /* \_SB_.PCI0.IGPU.OPBS */
                     }
                 }
             }
@@ -2738,8 +2749,8 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                 {
                     If (LEqual (Arg0, 0x03))
                     {
-                        Store (OPBS, ASLS)
-                        Store (One, GSES)
+                        Store (OPBS, ASLS) /* \_SB_.PCI0.IGPU.ASLS */
+                        Store (One, GSES) /* \_SB_.PCI0.IGPU.GSES */
                     }
 
                     Store (One, \_SB.PCI0.IGPU.CLID)
@@ -2750,53 +2761,53 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
             {
                 If (LEqual (CADL, Zero))
                 {
-                    Store (LCDM, \_SB.CSTE)
+                    Store (LCDM, \_SB.CSTE) /* External reference */
                     Return (Zero)
                 }
 
-                Store (OA2D (CADL), \_SB.CSTE)
+                Store (OA2D (CADL), \_SB.CSTE) /* External reference */
                 If (LEqual (CAL2, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (CAL2), \_SB.CSTE, \_SB.CSTE)
+                Or (OA2D (CAL2), \_SB.CSTE, \_SB.CSTE) /* External reference */
                 If (LEqual (CAL3, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (CAL3), \_SB.CSTE, \_SB.CSTE)
+                Or (OA2D (CAL3), \_SB.CSTE, \_SB.CSTE) /* External reference */
                 If (LEqual (CAL4, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (CAL4), \_SB.CSTE, \_SB.CSTE)
+                Or (OA2D (CAL4), \_SB.CSTE, \_SB.CSTE) /* External reference */
                 If (LEqual (CAL5, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (CAL5), \_SB.CSTE, \_SB.CSTE)
+                Or (OA2D (CAL5), \_SB.CSTE, \_SB.CSTE) /* External reference */
                 If (LEqual (CAL6, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (CAL6), \_SB.CSTE, \_SB.CSTE)
+                Or (OA2D (CAL6), \_SB.CSTE, \_SB.CSTE) /* External reference */
                 If (LEqual (CAL7, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (CAL7), \_SB.CSTE, \_SB.CSTE)
+                Or (OA2D (CAL7), \_SB.CSTE, \_SB.CSTE) /* External reference */
                 If (LEqual (CAL8, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (CAL8), \_SB.CSTE, \_SB.CSTE)
+                Or (OA2D (CAL8), \_SB.CSTE, \_SB.CSTE) /* External reference */
                 Return (Zero)
             }
 
@@ -2804,53 +2815,53 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
             {
                 If (LEqual (NADL, Zero))
                 {
-                    Store (LCDM, \_SB.NSTE)
+                    Store (LCDM, \_SB.NSTE) /* External reference */
                     Return (Zero)
                 }
 
-                Store (OA2D (NADL), \_SB.NSTE)
+                Store (OA2D (NADL), \_SB.NSTE) /* External reference */
                 If (LEqual (NDL2, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (NDL2), \_SB.NSTE, \_SB.NSTE)
+                Or (OA2D (NDL2), \_SB.NSTE, \_SB.NSTE) /* External reference */
                 If (LEqual (NDL3, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (NDL3), \_SB.NSTE, \_SB.NSTE)
+                Or (OA2D (NDL3), \_SB.NSTE, \_SB.NSTE) /* External reference */
                 If (LEqual (NDL4, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (NDL4), \_SB.NSTE, \_SB.NSTE)
+                Or (OA2D (NDL4), \_SB.NSTE, \_SB.NSTE) /* External reference */
                 If (LEqual (NDL5, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (NDL5), \_SB.NSTE, \_SB.NSTE)
+                Or (OA2D (NDL5), \_SB.NSTE, \_SB.NSTE) /* External reference */
                 If (LEqual (NDL6, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (NDL6), \_SB.NSTE, \_SB.NSTE)
+                Or (OA2D (NDL6), \_SB.NSTE, \_SB.NSTE) /* External reference */
                 If (LEqual (NDL7, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (NDL7), \_SB.NSTE, \_SB.NSTE)
+                Or (OA2D (NDL7), \_SB.NSTE, \_SB.NSTE) /* External reference */
                 If (LEqual (NDL8, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (NDL8), \_SB.NSTE, \_SB.NSTE)
+                Or (OA2D (NDL8), \_SB.NSTE, \_SB.NSTE) /* External reference */
                 Return (Zero)
             }
 
@@ -2859,53 +2870,53 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                 SOID ()
                 If (LEqual (CPDL, Zero))
                 {
-                    Store (LCDM, \_SB.OCAD)
+                    Store (LCDM, \_SB.OCAD) /* External reference */
                     Return (Zero)
                 }
 
-                Store (OA2D (CPDL), \_SB.OCAD)
+                Store (OA2D (CPDL), \_SB.OCAD) /* External reference */
                 If (LEqual (CPL2, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (CPL2), \_SB.OCAD, \_SB.OCAD)
+                Or (OA2D (CPL2), \_SB.OCAD, \_SB.OCAD) /* External reference */
                 If (LEqual (CPL3, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (CPL3), \_SB.OCAD, \_SB.OCAD)
+                Or (OA2D (CPL3), \_SB.OCAD, \_SB.OCAD) /* External reference */
                 If (LEqual (CPL4, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (CPL4), \_SB.OCAD, \_SB.OCAD)
+                Or (OA2D (CPL4), \_SB.OCAD, \_SB.OCAD) /* External reference */
                 If (LEqual (CPL5, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (CPL5), \_SB.OCAD, \_SB.OCAD)
+                Or (OA2D (CPL5), \_SB.OCAD, \_SB.OCAD) /* External reference */
                 If (LEqual (CPL6, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (CPL6), \_SB.OCAD, \_SB.OCAD)
+                Or (OA2D (CPL6), \_SB.OCAD, \_SB.OCAD) /* External reference */
                 If (LEqual (CPL7, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (CPL7), \_SB.OCAD, \_SB.OCAD)
+                Or (OA2D (CPL7), \_SB.OCAD, \_SB.OCAD) /* External reference */
                 If (LEqual (CPL8, Zero))
                 {
                     Return (Zero)
                 }
 
-                Or (OA2D (CPL8), \_SB.OCAD, \_SB.OCAD)
+                Or (OA2D (CPL8), \_SB.OCAD, \_SB.OCAD) /* External reference */
                 Return (Zero)
             }
 
@@ -2950,32 +2961,32 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                 Store (Zero, Local0)
                 If (And (Arg0, LCDM))
                 {
-                    Return (LFID)
+                    Return (LFID) /* \_SB_.PCI0.IGPU.LFID */
                 }
 
                 If (And (Arg0, CRTM))
                 {
-                    Return (CRID)
+                    Return (CRID) /* \_SB_.PCI0.IGPU.CRID */
                 }
 
                 If (And (Arg0, TVOM))
                 {
-                    Return (TVID)
+                    Return (TVID) /* \_SB_.PCI0.IGPU.TVID */
                 }
 
                 If (And (Arg0, HDMM))
                 {
-                    Return (HDID)
+                    Return (HDID) /* \_SB_.PCI0.IGPU.HDID */
                 }
 
                 If (And (Arg0, DVIM))
                 {
-                    Return (DVID)
+                    Return (DVID) /* \_SB_.PCI0.IGPU.DVID */
                 }
 
                 If (And (Arg0, DPOM))
                 {
-                    Return (DPID)
+                    Return (DPID) /* \_SB_.PCI0.IGPU.DPID */
                 }
 
                 Return (Local0)
@@ -2984,23 +2995,23 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
             Name (DDID, Zero)
             Method (WNDD, 1, NotSerialized)
             {
-                Store (GDOA (Arg0), DDID)
-                Store (DDID, NADL)
-                Store (GDOA (Arg0), DDID)
-                Store (DDID, NDL2)
-                Store (GDOA (Arg0), DDID)
-                Store (DDID, NDL3)
-                Store (GDOA (Arg0), DDID)
-                Store (DDID, NDL4)
-                Store (GDOA (Arg0), DDID)
-                Store (DDID, NDL5)
-                Store (GDOA (Arg0), DDID)
-                Store (DDID, NDL6)
-                Store (GDOA (Arg0), DDID)
-                Store (DDID, NDL7)
-                Store (GDOA (Arg0), DDID)
-                Store (DDID, NDL8)
-                Store (Zero, CONT)
+                Store (GDOA (Arg0), DDID) /* \_SB_.PCI0.IGPU.DDID */
+                Store (DDID, NADL) /* \_SB_.PCI0.IGPU.NADL */
+                Store (GDOA (Arg0), DDID) /* \_SB_.PCI0.IGPU.DDID */
+                Store (DDID, NDL2) /* \_SB_.PCI0.IGPU.NDL2 */
+                Store (GDOA (Arg0), DDID) /* \_SB_.PCI0.IGPU.DDID */
+                Store (DDID, NDL3) /* \_SB_.PCI0.IGPU.NDL3 */
+                Store (GDOA (Arg0), DDID) /* \_SB_.PCI0.IGPU.DDID */
+                Store (DDID, NDL4) /* \_SB_.PCI0.IGPU.NDL4 */
+                Store (GDOA (Arg0), DDID) /* \_SB_.PCI0.IGPU.DDID */
+                Store (DDID, NDL5) /* \_SB_.PCI0.IGPU.NDL5 */
+                Store (GDOA (Arg0), DDID) /* \_SB_.PCI0.IGPU.DDID */
+                Store (DDID, NDL6) /* \_SB_.PCI0.IGPU.NDL6 */
+                Store (GDOA (Arg0), DDID) /* \_SB_.PCI0.IGPU.DDID */
+                Store (DDID, NDL7) /* \_SB_.PCI0.IGPU.NDL7 */
+                Store (GDOA (Arg0), DDID) /* \_SB_.PCI0.IGPU.DDID */
+                Store (DDID, NDL8) /* \_SB_.PCI0.IGPU.NDL8 */
+                Store (Zero, CONT) /* \_SB_.PCI0.IGPU.CONT */
             }
 
             Name (CONT, Zero)
@@ -3033,22 +3044,22 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                 And (Arg0, 0x0F00, Local0)
                 If (LEqual (Local0, 0x0100))
                 {
-                    Store (Arg0, CRID)
+                    Store (Arg0, CRID) /* \_SB_.PCI0.IGPU.CRID */
                 }
 
                 If (LEqual (Local0, 0x0200))
                 {
-                    Store (Arg0, TVID)
+                    Store (Arg0, TVID) /* \_SB_.PCI0.IGPU.TVID */
                 }
 
                 If (LEqual (Local0, 0x0400))
                 {
-                    Store (Arg0, LFID)
+                    Store (Arg0, LFID) /* \_SB_.PCI0.IGPU.LFID */
                 }
 
                 If (LEqual (Arg0, 0x0300))
                 {
-                    Store (Arg0, HDID)
+                    Store (Arg0, HDID) /* \_SB_.PCI0.IGPU.HDID */
                 }
             }
 
@@ -3094,7 +3105,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
 
                 Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
                 {
-                    Return (CRS2)
+                    Return (CRS2) /* \_SB_.MEM2.CRS2 */
                 }
             }
 
@@ -3173,7 +3184,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
 
                 If (LNot (Local0))
                 {
-                    Return (NXTD)
+                    Return (NXTD) /* \_SB_.PCI0.IGPU.NXTD */
                 }
 
                 Return (Local0)
@@ -3182,7 +3193,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
             Method (GCDD, 0, NotSerialized)
             {
                 OGCD ()
-                Return (\_SB.CSTE)
+                Return (\_SB.CSTE) /* External reference */
             }
 
             Method (GCBL, 1, NotSerialized)
@@ -3216,8 +3227,8 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                     }
 
                     Store (CBLV, Local0)
-                    Store (Zero, BCMD)
-                    Notify (LCDD, 0x86)
+                    Store (Zero, BCMD) /* \_SB_.PCI0.IGPU.BCMD */
+                    Notify (LCDD, 0x86) // Device-Specific
                     Store (0x012C, Local2)
                     And (Local0, 0x7FFFFFFF, Local1)
                     If (LGreaterEqual (Local1, DerefOf (Index (PCTG, One))))
@@ -3256,7 +3267,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                         {
                             Store (GCBL (CBLV), Local3)
                             Subtract (0x0A, Local3, Local3)
-                            Store (Local3, LBTN)
+                            Store (Local3, LBTN) /* External reference */
                         }
                     }
                 }
@@ -3268,7 +3279,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                     }
                     Else
                     {
-                        Store (0x0F, LBTN)
+                        Store (0x0F, LBTN) /* External reference */
                     }
 
                     \_SB.PCI0.LPCB.EC0.STBR ()
@@ -3289,8 +3300,8 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                     }
 
                     Store (CBLV, Local0)
-                    Store (Zero, BCMD)
-                    Notify (LCDD, 0x87)
+                    Store (Zero, BCMD) /* \_SB_.PCI0.IGPU.BCMD */
+                    Notify (LCDD, 0x87) // Device-Specific
                     Store (0x012C, Local2)
                     And (Local0, 0x7FFFFFFF, Local1)
                     If (LLessEqual (Local1, DerefOf (Index (PCTG, 0x0A))))
@@ -3329,7 +3340,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                         {
                             Store (GCBL (CBLV), Local3)
                             Subtract (0x0A, Local3, Local3)
-                            Store (Local3, LBTN)
+                            Store (Local3, LBTN) /* External reference */
                         }
                     }
                 }
@@ -3342,7 +3353,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
 
                     If (LGreater (LBTN, 0x0F))
                     {
-                        Store (0x0F, LBTN)
+                        Store (0x0F, LBTN) /* External reference */
                     }
 
                     \_SB.PCI0.LPCB.EC0.STBR ()
@@ -3369,8 +3380,8 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                 {
                     If (UPDN)
                     {
-                        Store (D2AF (\_SB.CSTE), NXTD)
-                        Store (Zero, UPDN)
+                        Store (D2AF (\_SB.CSTE), NXTD) /* \_SB_.PCI0.IGPU.NXTD */
+                        Store (Zero, UPDN) /* \_SB_.PCI0.IGPU.UPDN */
                     }
 
                     Store (Zero, Local0)
@@ -3383,7 +3394,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
 
                     If (And (LEqual (Local2, 0x08), And (\_SB.VGAF, One)))
                     {
-                        And (NXTD, Local1, NXTD)
+                        And (NXTD, Local1, NXTD) /* \_SB_.PCI0.IGPU.NXTD */
                         Store (NXTD, Local0)
                     }
 
@@ -3393,7 +3404,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                         And (NXTD, Local1, Local0)
                     }
 
-                    Return (NXTD)
+                    Return (NXTD) /* \_SB_.PCI0.IGPU.NXTD */
                 }
 
                 Return (GNDD ())
@@ -3402,15 +3413,15 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
             Method (GCAD, 0, NotSerialized)
             {
                 OGCA ()
-                Return (\_SB.OCAD)
+                Return (\_SB.OCAD) /* External reference */
             }
 
             Method (GVIF, 0, NotSerialized)
             {
-                Store (0x67, \_SB.VBIF)
-                Store (Zero, \_SB.SFUN)
+                Store (0x67, \_SB.VBIF) /* External reference */
+                Store (Zero, \_SB.SFUN) /* External reference */
                 ISMI (0x95)
-                Return (\_SB.VBIF)
+                Return (\_SB.VBIF) /* External reference */
             }
 
             Method (GNAD, 0, NotSerialized)
@@ -3535,7 +3546,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
 
                 If (LGreater (NXTD, 0x30))
                 {
-                    Store (One, NXTD)
+                    Store (One, NXTD) /* \_SB_.PCI0.IGPU.NXTD */
                 }
 
                 Return (Zero)
@@ -3544,7 +3555,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
             Method (GNDD, 0, NotSerialized)
             {
                 OGND ()
-                Return (\_SB.NSTE)
+                Return (\_SB.NSTE) /* External reference */
             }
 
             Name (DOSF, One)
@@ -3584,7 +3595,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
 
                 If (LNot (Local0))
                 {
-                    Return (LCDM)
+                    Return (LCDM) /* \_SB_.PCI0.IGPU.LCDM */
                 }
 
                 Return (Local0)
@@ -3592,27 +3603,27 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
 
             Method (SWHD, 1, Serialized)
             {
-                Store (One, UPDN)
+                Store (One, UPDN) /* \_SB_.PCI0.IGPU.UPDN */
                 If (LEqual (DOSF, One))
                 {
                     If (\NATK ())
                     {
-                        Store (Zero, \_SB.SFUN)
+                        Store (Zero, \_SB.SFUN) /* External reference */
                     }
                     Else
                     {
-                        Store (0x04, \_SB.SFUN)
+                        Store (0x04, \_SB.SFUN) /* External reference */
                     }
 
-                    Store (Arg0, \_SB.SSTE)
+                    Store (Arg0, \_SB.SSTE) /* External reference */
                     If (\NATK ())
                     {
-                        Store (AF2D (Arg0), \_SB.NSTE)
-                        Store (\_SB.NSTE, \_SB.SSTE)
+                        Store (AF2D (Arg0), \_SB.NSTE) /* External reference */
+                        Store (\_SB.NSTE, \_SB.SSTE) /* External reference */
                     }
 
                     ISMI (0x94)
-                    Notify (\_SB.PCI0.IGPU, 0x81)
+                    Notify (\_SB.PCI0.IGPU, 0x81) // Information Change
                 }
                 Else
                 {
@@ -3620,22 +3631,22 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                     Store (0x03, \_SB.PCI0.IGPU.CSTS)
                     If (LNotEqual (\_SB.OCAD, \_SB.OPAD))
                     {
-                        Store (\_SB.OCAD, \_SB.OPAD)
+                        Store (\_SB.OCAD, \_SB.OPAD) /* External reference */
                         If (LEqual (OSFG, OSXP))
                         {
-                            Notify (\_SB.PCI0, Zero)
+                            Notify (\_SB.PCI0, Zero) // Bus Check
                         }
                         Else
                         {
-                            Notify (\_SB.PCI0.IGPU, Zero)
+                            Notify (\_SB.PCI0.IGPU, Zero) // Bus Check
                         }
 
                         Sleep (0x03E8)
                     }
 
-                    Store (AF2D (Arg0), \_SB.NSTE)
+                    Store (AF2D (Arg0), \_SB.NSTE) /* External reference */
                     WNDD (\_SB.NSTE)
-                    Notify (\_SB.PCI0.IGPU, 0x80)
+                    Notify (\_SB.PCI0.IGPU, 0x80) // Status Change
                 }
 
                 Return (Zero)
@@ -3662,7 +3673,7 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                 If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
                 Return (Package()
                 {
-                    "AAPL,ig-platform-id", Buffer() { 0x08, 0x00, 0x2E, 0x0A },//0x06, 0x00, 0x26, 0x0a },
+                    "AAPL,ig-platform-id", Buffer() { 0x08, 0x00, 0x2E, 0x0a },
                     "hda-gfx", Buffer() { "onboard-1" },
                 })
             }

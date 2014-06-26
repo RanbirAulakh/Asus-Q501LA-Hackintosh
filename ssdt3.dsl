@@ -1,9 +1,9 @@
 /*
  * Intel ACPI Component Architecture
- * AML Disassembler version 20131115-64 [Dec  1 2013]
- * Copyright (c) 2000 - 2013 Intel Corporation
+ * AML Disassembler version 20140424-64 [Jun 25 2014]
+ * Copyright (c) 2000 - 2014 Intel Corporation
  * 
- * Disassembly of ssdt3.aml, Sun Jun 22 22:50:27 2014
+ * Disassembly of ssdt3.dat, Thu Jun 26 11:37:01 2014
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -32,8 +32,8 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
     External (_PR_.CPU0._TPC, IntObj)
     External (_PR_.CPU0._TSD, IntObj)
     External (_PR_.CPU0._TSS, IntObj)
-    External (_PR_.CPU0.TSMC)
-    External (_PR_.CPU0.TSMF)
+    External (_PR_.CPU0.TSMC, UnknownObj)
+    External (_PR_.CPU0.TSMF, UnknownObj)
     External (_PR_.CPU1, ProcessorObj)
     External (_PR_.CPU2, ProcessorObj)
     External (_PR_.CPU3, ProcessorObj)
@@ -67,7 +67,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
     External (_SB_.PCI0.LPCB.EC0_.TH1L, FieldUnitObj)
     External (_SB_.PCI0.LPCB.EC0_.TH1R, FieldUnitObj)
     External (_SB_.PCI0.MHBR, FieldUnitObj)
-    External (_TZ_.THRM)
+    External (_TZ_.THRM, UnknownObj)
     External (CTDP, FieldUnitObj)
     External (DCMP, FieldUnitObj)
     External (DISE, FieldUnitObj)
@@ -199,7 +199,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                     Increment (TMPI)
                 }
 
-                Return (TMPP)
+                Return (TMPP) /* \_SB_.IETM.TMPP */
             }
 
             Method (_OSC, 4, Serialized)  // _OSC: Operating System Capabilities
@@ -213,7 +213,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 CreateDWordField (Arg3, Zero, STS1)
                 CreateDWordField (Arg3, 0x04, CAP1)
                 IDSP ()
-                Store (SizeOf (TMPP), NUMP)
+                Store (SizeOf (TMPP), NUMP) /* \_SB_.IETM._OSC.NUMP */
                 CreateDWordField (Arg0, Zero, IID0)
                 CreateDWordField (Arg0, 0x04, IID1)
                 CreateDWordField (Arg0, 0x08, IID2)
@@ -224,7 +224,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 CreateDWordField (UID2, 0x0C, EID3)
                 While (NUMP)
                 {
-                    Store (DerefOf (Index (TMPP, Subtract (NUMP, One))), UID2)
+                    Store (DerefOf (Index (TMPP, Subtract (NUMP, One))), UID2) /* \_SB_.IETM._OSC.UID2 */
                     If (LAnd (LAnd (LEqual (IID0, EID0), LEqual (IID1, EID1)), LAnd (
                         LEqual (IID2, EID2), LEqual (IID3, EID3))))
                     {
@@ -236,22 +236,22 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
 
                 If (LEqual (NUMP, Zero))
                 {
-                    And (STS1, 0xFFFFFF00, STS1)
-                    Or (STS1, 0x06, STS1)
+                    And (STS1, 0xFFFFFF00, STS1) /* \_SB_.IETM._OSC.STS1 */
+                    Or (STS1, 0x06, STS1) /* \_SB_.IETM._OSC.STS1 */
                     Return (Arg3)
                 }
 
                 If (LNotEqual (Arg1, One))
                 {
-                    And (STS1, 0xFFFFFF00, STS1)
-                    Or (STS1, 0x0A, STS1)
+                    And (STS1, 0xFFFFFF00, STS1) /* \_SB_.IETM._OSC.STS1 */
+                    Or (STS1, 0x0A, STS1) /* \_SB_.IETM._OSC.STS1 */
                     Return (Arg3)
                 }
 
                 If (LNotEqual (Arg2, 0x02))
                 {
-                    And (STS1, 0xFFFFFF00, STS1)
-                    Or (STS1, 0x02, STS1)
+                    And (STS1, 0xFFFFFF00, STS1) /* \_SB_.IETM._OSC.STS1 */
+                    Or (STS1, 0x02, STS1) /* \_SB_.IETM._OSC.STS1 */
                     Return (Arg3)
                 }
 
@@ -259,13 +259,13 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 {
                     If (LEqual (PSEM, Zero))
                     {
-                        Store (One, PSEM)
-                        Store (\_PR.APSV, PTRP)
+                        Store (One, PSEM) /* \_SB_.IETM.PSEM */
+                        Store (\_PR.APSV, PTRP) /* \_SB_.IETM.PTRP */
                     }
 
                     If (CondRefOf (DPSP))
                     {
-                        Store (DerefOf (Index (DPSP, Zero)), UID2)
+                        Store (DerefOf (Index (DPSP, Zero)), UID2) /* \_SB_.IETM._OSC.UID2 */
                     }
 
                     If (LAnd (LAnd (LEqual (IID0, EID0), LEqual (IID1, EID1)), LAnd (
@@ -275,14 +275,14 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                         {
                             If (And (CAP1, One))
                             {
-                                Store (0x6E, \_PR.APSV)
+                                Store (0x6E, \_PR.APSV) /* External reference */
                             }
                             Else
                             {
-                                Store (PTRP, \_PR.APSV)
+                                Store (PTRP, \_PR.APSV) /* External reference */
                             }
 
-                            Notify (\_TZ.THRM, 0x80)
+                            Notify (\_TZ.THRM, 0x80) // Status Change
                         }
 
                         Return (Arg3)
@@ -293,13 +293,13 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 {
                     If (LEqual (ASEM, Zero))
                     {
-                        Store (One, ASEM)
-                        Store (\_PR.AAC0, ATRP)
+                        Store (One, ASEM) /* \_SB_.IETM.ASEM */
+                        Store (\_PR.AAC0, ATRP) /* \_SB_.IETM.ATRP */
                     }
 
                     If (CondRefOf (DASP))
                     {
-                        Store (DerefOf (Index (DASP, Zero)), UID2)
+                        Store (DerefOf (Index (DASP, Zero)), UID2) /* \_SB_.IETM._OSC.UID2 */
                     }
 
                     If (LAnd (LAnd (LEqual (IID0, EID0), LEqual (IID1, EID1)), LAnd (
@@ -309,14 +309,14 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                         {
                             If (And (CAP1, One))
                             {
-                                Store (0x6E, \_PR.AAC0)
+                                Store (0x6E, \_PR.AAC0) /* External reference */
                             }
                             Else
                             {
-                                Store (ATRP, \_PR.AAC0)
+                                Store (ATRP, \_PR.AAC0) /* External reference */
                             }
 
-                            Notify (\_TZ.THRM, 0x80)
+                            Notify (\_TZ.THRM, 0x80) // Status Change
                         }
 
                         Return (Arg3)
@@ -327,13 +327,13 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 {
                     If (LEqual (YSEM, Zero))
                     {
-                        Store (One, YSEM)
-                        Store (\_PR.ACRT, YTRP)
+                        Store (One, YSEM) /* \_SB_.IETM.YSEM */
+                        Store (\_PR.ACRT, YTRP) /* \_SB_.IETM.YTRP */
                     }
 
                     If (CondRefOf (DCSP))
                     {
-                        Store (DerefOf (Index (DCSP, Zero)), UID2)
+                        Store (DerefOf (Index (DCSP, Zero)), UID2) /* \_SB_.IETM._OSC.UID2 */
                     }
 
                     If (LAnd (LAnd (LEqual (IID0, EID0), LEqual (IID1, EID1)), LAnd (
@@ -343,14 +343,14 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                         {
                             If (And (CAP1, One))
                             {
-                                Store (0xD2, \_PR.ACRT)
+                                Store (0xD2, \_PR.ACRT) /* External reference */
                             }
                             Else
                             {
-                                Store (YTRP, \_PR.ACRT)
+                                Store (YTRP, \_PR.ACRT) /* External reference */
                             }
 
-                            Notify (\_TZ.THRM, 0x80)
+                            Notify (\_TZ.THRM, 0x80) // Status Change
                         }
 
                         Return (Arg3)
@@ -516,7 +516,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 {
                     While (One)
                     {
-                        Store (\_PR.CBMI, _T_0)
+                        Store (\_PR.CBMI, _T_0) /* \_SB_.IETM.PDDC._T_0 */
                         If (LEqual (_T_0, Zero))
                         {
                             If (LAnd (LGreaterEqual (\_PR.CLVL, One), LLessEqual (\_PR.CLVL, 0x03)))
@@ -560,7 +560,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                     0x03)), One))
                 Store (Local2, Index (DerefOf (Index (DerefOf (Index (TMPD, 0x02)), 
                     0x03)), One))
-                Return (TMPD)
+                Return (TMPD) /* \_SB_.IETM.PDDC.TMPD */
             }
 
             Method (PDAC, 0, Serialized)
@@ -680,7 +680,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 {
                     While (One)
                     {
-                        Store (\_PR.CBMI, _T_0)
+                        Store (\_PR.CBMI, _T_0) /* \_SB_.IETM.PDAC._T_0 */
                         If (LEqual (_T_0, Zero))
                         {
                             If (LAnd (LGreaterEqual (\_PR.CLVL, One), LLessEqual (\_PR.CLVL, 0x03)))
@@ -726,7 +726,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                     0x03)), One))
                 Store (TCNT, Index (DerefOf (Index (DerefOf (Index (TMPD, 0x03)), 
                     0x03)), One))
-                Return (TMPD)
+                Return (TMPD) /* \_SB_.IETM.PDAC.TMPD */
             }
         }
     }
@@ -810,10 +810,10 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 Store (\_SB.PCI0.LPCB.EC0.RRAM (0x01BF), Local0)
                 While (One)
                 {
-                    Store (Local0, _T_0)
+                    Store (Local0, _T_0) /* \_SB_.PCI0.B0D4.PPCC._T_0 */
                     If (LEqual (_T_0, Zero))
                     {
-                        Store (Zero, \_PR.CBMI)
+                        Store (Zero, \_PR.CBMI) /* External reference */
                     }
                     Else
                     {
@@ -821,22 +821,22 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                         {
                             While (One)
                             {
-                                Store (\_PR.CLVL, _T_1)
+                                Store (\_PR.CLVL, _T_1) /* \_SB_.PCI0.B0D4.PPCC._T_1 */
                                 If (LEqual (_T_1, 0x03))
                                 {
-                                    Store (One, \_PR.CBMI)
+                                    Store (One, \_PR.CBMI) /* External reference */
                                 }
                                 Else
                                 {
                                     If (LEqual (_T_1, 0x02))
                                     {
-                                        Store (Zero, \_PR.CBMI)
+                                        Store (Zero, \_PR.CBMI) /* External reference */
                                     }
                                     Else
                                     {
                                         If (LEqual (_T_1, One))
                                         {
-                                            Store (Zero, \_PR.CBMI)
+                                            Store (Zero, \_PR.CBMI) /* External reference */
                                         }
                                     }
                                 }
@@ -850,22 +850,22 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                             {
                                 While (One)
                                 {
-                                    Store (\_PR.CLVL, _T_2)
+                                    Store (\_PR.CLVL, _T_2) /* \_SB_.PCI0.B0D4.PPCC._T_2 */
                                     If (LEqual (_T_2, 0x03))
                                     {
-                                        Store (0x02, \_PR.CBMI)
+                                        Store (0x02, \_PR.CBMI) /* External reference */
                                     }
                                     Else
                                     {
                                         If (LEqual (_T_2, 0x02))
                                         {
-                                            Store (One, \_PR.CBMI)
+                                            Store (One, \_PR.CBMI) /* External reference */
                                         }
                                         Else
                                         {
                                             If (LEqual (_T_2, One))
                                             {
-                                                Store (Zero, \_PR.CBMI)
+                                                Store (Zero, \_PR.CBMI) /* External reference */
                                             }
                                         }
                                     }
@@ -881,13 +881,13 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
 
                 While (One)
                 {
-                    Store (\_PR.CBMI, _T_3)
+                    Store (\_PR.CBMI, _T_3) /* \_SB_.PCI0.B0D4.PPCC._T_3 */
                     If (LEqual (_T_3, Zero))
                     {
                         If (LAnd (LGreaterEqual (\_PR.CLVL, One), LLessEqual (\_PR.CLVL, 0x03)))
                         {
                             CPL0 ()
-                            Store (One, XPCC)
+                            Store (One, XPCC) /* \_SB_.PCI0.B0D4.XPCC */
                         }
                     }
                     Else
@@ -897,7 +897,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                             If (LOr (LEqual (\_PR.CLVL, 0x02), LEqual (\_PR.CLVL, 0x03)))
                             {
                                 CPL1 ()
-                                Store (One, XPCC)
+                                Store (One, XPCC) /* \_SB_.PCI0.B0D4.XPCC */
                             }
                         }
                         Else
@@ -907,7 +907,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                                 If (LEqual (\_PR.CLVL, 0x03))
                                 {
                                     CPL2 ()
-                                    Store (One, XPCC)
+                                    Store (One, XPCC) /* \_SB_.PCI0.B0D4.XPCC */
                                 }
                             }
                         }
@@ -918,11 +918,11 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
 
                 While (One)
                 {
-                    Store (Local0, _T_4)
+                    Store (Local0, _T_4) /* \_SB_.PCI0.B0D4.PPCC._T_4 */
                     If (LEqual (_T_4, Zero))
                     {
                         Store (Zero, \_SB.PCI0.B0D4.MAXT)
-                        Notify (\_SB.PCI0.B0D4, 0x84)
+                        Notify (\_SB.PCI0.B0D4, 0x84) // Device-Specific
                     }
                     Else
                     {
@@ -930,7 +930,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                         {
                             While (One)
                             {
-                                Store (\_PR.CLVL, _T_5)
+                                Store (\_PR.CLVL, _T_5) /* \_SB_.PCI0.B0D4.PPCC._T_5 */
                                 If (LEqual (_T_5, 0x03))
                                 {
                                     Store (One, \_SB.PCI0.B0D4.MAXT)
@@ -953,7 +953,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                                 Break
                             }
 
-                            Notify (\_SB.PCI0.B0D4, 0x84)
+                            Notify (\_SB.PCI0.B0D4, 0x84) // Device-Specific
                         }
                         Else
                         {
@@ -961,7 +961,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                             {
                                 While (One)
                                 {
-                                    Store (\_PR.CLVL, _T_6)
+                                    Store (\_PR.CLVL, _T_6) /* \_SB_.PCI0.B0D4.PPCC._T_6 */
                                     If (LEqual (_T_6, 0x03))
                                     {
                                         Store (0x02, \_SB.PCI0.B0D4.MAXT)
@@ -984,7 +984,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                                     Break
                                 }
 
-                                Notify (\_SB.PCI0.B0D4, 0x84)
+                                Notify (\_SB.PCI0.B0D4, 0x84) // Device-Specific
                             }
                         }
                     }
@@ -993,7 +993,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 }
             }
 
-            Return (NPCC)
+            Return (NPCC) /* \_SB_.PCI0.B0D4.NPCC */
         }
 
         Name (NPCC, Package (0x03)
@@ -1026,25 +1026,25 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
             Name (RMDR, Zero)
             If (LEqual (PWRU, Zero))
             {
-                Store (One, PPUU)
+                Store (One, PPUU) /* \_SB_.PCI0.B0D4.CPNU.PPUU */
             }
             Else
             {
-                ShiftLeft (Decrement (PWRU), 0x02, PPUU)
+                ShiftLeft (Decrement (PWRU), 0x02, PPUU) /* \_SB_.PCI0.B0D4.CPNU.PPUU */
             }
 
-            Divide (Arg0, PPUU, RMDR, CNVT)
+            Divide (Arg0, PPUU, RMDR, CNVT) /* \_SB_.PCI0.B0D4.CPNU.CNVT */
             If (LEqual (Arg1, Zero))
             {
-                Return (CNVT)
+                Return (CNVT) /* \_SB_.PCI0.B0D4.CPNU.CNVT */
             }
             Else
             {
-                Multiply (CNVT, 0x03E8, CNVT)
-                Multiply (RMDR, 0x03E8, RMDR)
-                Divide (RMDR, PPUU, Local0, RMDR)
-                Add (CNVT, RMDR, CNVT)
-                Return (CNVT)
+                Multiply (CNVT, 0x03E8, CNVT) /* \_SB_.PCI0.B0D4.CPNU.CNVT */
+                Multiply (RMDR, 0x03E8, RMDR) /* \_SB_.PCI0.B0D4.CPNU.RMDR */
+                Divide (RMDR, PPUU, Local0, RMDR) /* \_SB_.PCI0.B0D4.CPNU.RMDR */
+                Add (CNVT, RMDR, CNVT) /* \_SB_.PCI0.B0D4.CPNU.CNVT */
+                Return (CNVT) /* \_SB_.PCI0.B0D4.CPNU.CNVT */
             }
         }
 
@@ -1052,8 +1052,8 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
         {
             Name (RMDR, Zero)
             Name (DIVD, Zero)
-            Store (CPNU (Arg0, Zero), DIVD)
-            Subtract (DIVD, One, DIVD)
+            Store (CPNU (Arg0, Zero), DIVD) /* \_SB_.PCI0.B0D4.MIN4.DIVD */
+            Subtract (DIVD, One, DIVD) /* \_SB_.PCI0.B0D4.MIN4.DIVD */
             If (LOr (LLess (DIVD, 0x04), LEqual (DIVD, Zero)))
             {
                 Return (One)
@@ -1065,7 +1065,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
 
             While (LNotEqual (RMDR, Zero))
             {
-                Subtract (DIVD, One, DIVD)
+                Subtract (DIVD, One, DIVD) /* \_SB_.PCI0.B0D4.MIN4.DIVD */
                 If (LNotEqual (DIVD, Zero))
                 {
                     Divide (DIVD, 0x04, RMDR)
@@ -1079,12 +1079,12 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
         {
             Name (RMDR, Zero)
             Name (DIVD, Zero)
-            Store (CPNU (Arg0, Zero), DIVD)
-            Add (DIVD, One, DIVD)
+            Store (CPNU (Arg0, Zero), DIVD) /* \_SB_.PCI0.B0D4.MAX4.DIVD */
+            Add (DIVD, One, DIVD) /* \_SB_.PCI0.B0D4.MAX4.DIVD */
             Divide (DIVD, 0x04, RMDR)
             While (LNotEqual (RMDR, Zero))
             {
-                Add (DIVD, One, DIVD)
+                Add (DIVD, One, DIVD) /* \_SB_.PCI0.B0D4.MAX4.DIVD */
                 Divide (DIVD, 0x04, RMDR)
             }
 
@@ -1162,40 +1162,40 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
         Method (SPPC, 1, Serialized)
         {
             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
-            Store (Arg0, \_PR.CPU0._PPC)
+            Store (Arg0, \_PR.CPU0._PPC) /* External reference */
             While (One)
             {
-                Store (TCNT, _T_0)
+                Store (TCNT, _T_0) /* \_SB_.PCI0.B0D4.SPPC._T_0 */
                 If (LEqual (_T_0, 0x08))
                 {
-                    Notify (\_PR.CPU0, 0x80)
-                    Notify (\_PR.CPU1, 0x80)
-                    Notify (\_PR.CPU2, 0x80)
-                    Notify (\_PR.CPU3, 0x80)
-                    Notify (\_PR.CPU4, 0x80)
-                    Notify (\_PR.CPU5, 0x80)
-                    Notify (\_PR.CPU6, 0x80)
-                    Notify (\_PR.CPU7, 0x80)
+                    Notify (\_PR.CPU0, 0x80) // Status Change
+                    Notify (\_PR.CPU1, 0x80) // Status Change
+                    Notify (\_PR.CPU2, 0x80) // Status Change
+                    Notify (\_PR.CPU3, 0x80) // Status Change
+                    Notify (\_PR.CPU4, 0x80) // Status Change
+                    Notify (\_PR.CPU5, 0x80) // Status Change
+                    Notify (\_PR.CPU6, 0x80) // Status Change
+                    Notify (\_PR.CPU7, 0x80) // Status Change
                 }
                 Else
                 {
                     If (LEqual (_T_0, 0x04))
                     {
-                        Notify (\_PR.CPU0, 0x80)
-                        Notify (\_PR.CPU1, 0x80)
-                        Notify (\_PR.CPU2, 0x80)
-                        Notify (\_PR.CPU3, 0x80)
+                        Notify (\_PR.CPU0, 0x80) // Status Change
+                        Notify (\_PR.CPU1, 0x80) // Status Change
+                        Notify (\_PR.CPU2, 0x80) // Status Change
+                        Notify (\_PR.CPU3, 0x80) // Status Change
                     }
                     Else
                     {
                         If (LEqual (_T_0, 0x02))
                         {
-                            Notify (\_PR.CPU0, 0x80)
-                            Notify (\_PR.CPU1, 0x80)
+                            Notify (\_PR.CPU0, 0x80) // Status Change
+                            Notify (\_PR.CPU1, 0x80) // Status Change
                         }
                         Else
                         {
-                            Notify (\_PR.CPU0, 0x80)
+                            Notify (\_PR.CPU0, 0x80) // Status Change
                         }
                     }
                 }
@@ -1238,7 +1238,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
             Store (LPOS, Index (TLPO, 0x03))
             Store (LPOW, Index (TLPO, 0x04))
             Store (LPER, Index (TLPO, 0x05))
-            Return (TLPO)
+            Return (TLPO) /* \_SB_.PCI0.B0D4.TLPO */
         }
 
         Name (AEXL, Package (0x04)
@@ -1254,7 +1254,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
             Store (One, Index (PCCX, Zero))
             While (One)
             {
-                Store (CPNU (PTDP, Zero), _T_0)
+                Store (CPNU (PTDP, Zero), _T_0) /* \_SB_.PCI0.B0D4.PCCC._T_0 */
                 If (LEqual (_T_0, 0x39))
                 {
                     Store (0xA7F8, Index (DerefOf (Index (PCCX, One)), Zero))
@@ -1309,7 +1309,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 Break
             }
 
-            Return (PCCX)
+            Return (PCCX) /* \_SB_.PCI0.B0D4.PCCX */
         }
 
         Name (PCCX, Package (0x02)
@@ -1520,7 +1520,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
             Store (0x28, Index (CEUP, 0x03))
             Store (0x14, Index (CEUP, 0x04))
             Store (0x14, Index (CEUP, 0x05))
-            Return (CEUP)
+            Return (CEUP) /* \_SB_.PCI0.B0D4.CEUP */
         }
 
         Method (TMPX, 0, NotSerialized)
@@ -1530,8 +1530,8 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
 
         Method (_DTI, 1, NotSerialized)  // _DTI: Device Temperature Indication
         {
-            Store (Arg0, LSTM)
-            Notify (B0D4, 0x91)
+            Store (Arg0, LSTM) /* \_SB_.PCI0.B0D4.LSTM */
+            Notify (B0D4, 0x91) // Device-Specific
         }
 
         Method (_NTT, 0, NotSerialized)  // _NTT: Notification Temperature Threshold
@@ -1543,7 +1543,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
         {
             If (CondRefOf (\_PR.CPU0._PSS))
             {
-                Return (\_PR.CPU0._PSS)
+                Return (\_PR.CPU0._PSS) /* External reference */
             }
             Else
             {
@@ -1558,7 +1558,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
         {
             If (CondRefOf (\_PR.CPU0._TSS))
             {
-                Return (\_PR.CPU0._TSS)
+                Return (\_PR.CPU0._TSS) /* External reference */
             }
             Else
             {
@@ -1573,7 +1573,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
         {
             If (CondRefOf (\_PR.CPU0._TPC))
             {
-                Return (\_PR.CPU0._TPC)
+                Return (\_PR.CPU0._TPC) /* External reference */
             }
             Else
             {
@@ -1661,7 +1661,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
         {
             If (CondRefOf (\_PR.CPU0._TSD))
             {
-                Return (\_PR.CPU0._TSD)
+                Return (\_PR.CPU0._TSD) /* External reference */
             }
             Else
             {
@@ -1743,9 +1743,9 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 Store (One, Local0)
             }
 
-            Store (CPNU (\_PR.PL10, One), AAAA)
-            Store (CPNU (\_PR.PL11, One), BBBB)
-            Store (CPNU (\_PR.PL12, One), CCCC)
+            Store (CPNU (\_PR.PL10, One), AAAA) /* \_SB_.PCI0.B0D4.TDPL.AAAA */
+            Store (CPNU (\_PR.PL11, One), BBBB) /* \_SB_.PCI0.B0D4.TDPL.BBBB */
+            Store (CPNU (\_PR.PL12, One), CCCC) /* \_SB_.PCI0.B0D4.TDPL.CCCC */
             Name (TMP1, Package (0x01)
             {
                 Package (0x05)
@@ -1815,30 +1815,30 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                         If (LGreater (BBBB, CCCC))
                         {
                             Store (Zero, Local3)
-                            Store (Zero, LEV0)
+                            Store (Zero, LEV0) /* \_SB_.PCI0.B0D4.LEV0 */
                             Store (One, Local4)
-                            Store (One, LEV1)
+                            Store (One, LEV1) /* \_SB_.PCI0.B0D4.LEV1 */
                             Store (0x02, Local5)
-                            Store (0x02, LEV2)
+                            Store (0x02, LEV2) /* \_SB_.PCI0.B0D4.LEV2 */
                         }
                         Else
                         {
                             Store (Zero, Local3)
-                            Store (Zero, LEV0)
+                            Store (Zero, LEV0) /* \_SB_.PCI0.B0D4.LEV0 */
                             Store (One, Local5)
-                            Store (0x02, LEV1)
+                            Store (0x02, LEV1) /* \_SB_.PCI0.B0D4.LEV1 */
                             Store (0x02, Local4)
-                            Store (One, LEV2)
+                            Store (One, LEV2) /* \_SB_.PCI0.B0D4.LEV2 */
                         }
                     }
                     Else
                     {
                         Store (Zero, Local5)
-                        Store (0x02, LEV0)
+                        Store (0x02, LEV0) /* \_SB_.PCI0.B0D4.LEV0 */
                         Store (One, Local3)
-                        Store (Zero, LEV1)
+                        Store (Zero, LEV1) /* \_SB_.PCI0.B0D4.LEV1 */
                         Store (0x02, Local4)
-                        Store (One, LEV2)
+                        Store (One, LEV2) /* \_SB_.PCI0.B0D4.LEV2 */
                     }
                 }
                 Else
@@ -1848,30 +1848,30 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                         If (LGreater (AAAA, CCCC))
                         {
                             Store (Zero, Local4)
-                            Store (One, LEV0)
+                            Store (One, LEV0) /* \_SB_.PCI0.B0D4.LEV0 */
                             Store (One, Local3)
-                            Store (Zero, LEV1)
+                            Store (Zero, LEV1) /* \_SB_.PCI0.B0D4.LEV1 */
                             Store (0x02, Local5)
-                            Store (0x02, LEV2)
+                            Store (0x02, LEV2) /* \_SB_.PCI0.B0D4.LEV2 */
                         }
                         Else
                         {
                             Store (Zero, Local4)
-                            Store (One, LEV0)
+                            Store (One, LEV0) /* \_SB_.PCI0.B0D4.LEV0 */
                             Store (One, Local5)
-                            Store (0x02, LEV1)
+                            Store (0x02, LEV1) /* \_SB_.PCI0.B0D4.LEV1 */
                             Store (0x02, Local3)
-                            Store (Zero, LEV2)
+                            Store (Zero, LEV2) /* \_SB_.PCI0.B0D4.LEV2 */
                         }
                     }
                     Else
                     {
                         Store (Zero, Local5)
-                        Store (0x02, LEV0)
+                        Store (0x02, LEV0) /* \_SB_.PCI0.B0D4.LEV0 */
                         Store (One, Local4)
-                        Store (One, LEV1)
+                        Store (One, LEV1) /* \_SB_.PCI0.B0D4.LEV1 */
                         Store (0x02, Local3)
-                        Store (Zero, LEV2)
+                        Store (Zero, LEV2) /* \_SB_.PCI0.B0D4.LEV2 */
                     }
                 }
 
@@ -1896,7 +1896,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 Store (\_PR.CTC2, Index (DerefOf (Index (TMP3, Local5)), 0x02))
                 Store (Local1, Index (DerefOf (Index (TMP3, Local5)), 0x03))
                 Store (Zero, Index (DerefOf (Index (TMP3, Local5)), 0x04))
-                Return (TMP3)
+                Return (TMP3) /* \_SB_.PCI0.B0D4.TDPL.TMP3 */
             }
 
             If (LEqual (Local0, 0x02))
@@ -1905,17 +1905,17 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 {
                     Store (Zero, Local3)
                     Store (One, Local4)
-                    Store (Zero, LEV0)
-                    Store (One, LEV1)
-                    Store (Zero, LEV2)
+                    Store (Zero, LEV0) /* \_SB_.PCI0.B0D4.LEV0 */
+                    Store (One, LEV1) /* \_SB_.PCI0.B0D4.LEV1 */
+                    Store (Zero, LEV2) /* \_SB_.PCI0.B0D4.LEV2 */
                 }
                 Else
                 {
                     Store (Zero, Local4)
                     Store (One, Local3)
-                    Store (One, LEV0)
-                    Store (Zero, LEV1)
-                    Store (Zero, LEV2)
+                    Store (One, LEV0) /* \_SB_.PCI0.B0D4.LEV0 */
+                    Store (Zero, LEV1) /* \_SB_.PCI0.B0D4.LEV1 */
+                    Store (Zero, LEV2) /* \_SB_.PCI0.B0D4.LEV2 */
                 }
 
                 Store (Add (\_PR.TAR0, One), Local1)
@@ -1932,14 +1932,14 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 Store (\_PR.CTC1, Index (DerefOf (Index (TMP2, Local4)), 0x02))
                 Store (Local1, Index (DerefOf (Index (TMP2, Local4)), 0x03))
                 Store (Zero, Index (DerefOf (Index (TMP2, Local4)), 0x04))
-                Return (TMP2)
+                Return (TMP2) /* \_SB_.PCI0.B0D4.TDPL.TMP2 */
             }
 
             If (LEqual (Local0, One))
             {
                 While (One)
                 {
-                    Store (\_PR.CBMI, _T_0)
+                    Store (\_PR.CBMI, _T_0) /* \_SB_.PCI0.B0D4.TDPL._T_0 */
                     If (LEqual (_T_0, Zero))
                     {
                         Store (Add (\_PR.TAR0, One), Local1)
@@ -1949,9 +1949,9 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                         Store (\_PR.CTC0, Index (DerefOf (Index (TMP1, Zero)), 0x02))
                         Store (Local1, Index (DerefOf (Index (TMP1, Zero)), 0x03))
                         Store (Zero, Index (DerefOf (Index (TMP1, Zero)), 0x04))
-                        Store (Zero, LEV0)
-                        Store (Zero, LEV1)
-                        Store (Zero, LEV2)
+                        Store (Zero, LEV0) /* \_SB_.PCI0.B0D4.LEV0 */
+                        Store (Zero, LEV1) /* \_SB_.PCI0.B0D4.LEV1 */
+                        Store (Zero, LEV2) /* \_SB_.PCI0.B0D4.LEV2 */
                     }
                     Else
                     {
@@ -1964,9 +1964,9 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                             Store (\_PR.CTC1, Index (DerefOf (Index (TMP1, Zero)), 0x02))
                             Store (Local1, Index (DerefOf (Index (TMP1, Zero)), 0x03))
                             Store (Zero, Index (DerefOf (Index (TMP1, Zero)), 0x04))
-                            Store (One, LEV0)
-                            Store (One, LEV1)
-                            Store (One, LEV2)
+                            Store (One, LEV0) /* \_SB_.PCI0.B0D4.LEV0 */
+                            Store (One, LEV1) /* \_SB_.PCI0.B0D4.LEV1 */
+                            Store (One, LEV2) /* \_SB_.PCI0.B0D4.LEV2 */
                         }
                         Else
                         {
@@ -1979,9 +1979,9 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                                 Store (\_PR.CTC2, Index (DerefOf (Index (TMP1, Zero)), 0x02))
                                 Store (Local1, Index (DerefOf (Index (TMP1, Zero)), 0x03))
                                 Store (Zero, Index (DerefOf (Index (TMP1, Zero)), 0x04))
-                                Store (0x02, LEV0)
-                                Store (0x02, LEV1)
-                                Store (0x02, LEV2)
+                                Store (0x02, LEV0) /* \_SB_.PCI0.B0D4.LEV0 */
+                                Store (0x02, LEV1) /* \_SB_.PCI0.B0D4.LEV1 */
+                                Store (0x02, LEV2) /* \_SB_.PCI0.B0D4.LEV2 */
                             }
                         }
                     }
@@ -1989,7 +1989,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                     Break
                 }
 
-                Return (TMP1)
+                Return (TMP1) /* \_SB_.PCI0.B0D4.TDPL.TMP1 */
             }
 
             Return (Zero)
@@ -1998,7 +1998,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
         Name (MAXT, Zero)
         Method (TDPC, 0, NotSerialized)
         {
-            Return (MAXT)
+            Return (MAXT) /* \_SB_.PCI0.B0D4.MAXT */
         }
 
         Name (LEV0, Zero)
@@ -2015,7 +2015,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
 
             While (One)
             {
-                Store (Arg0, _T_0)
+                Store (Arg0, _T_0) /* \_SB_.PCI0.B0D4.STDP._T_0 */
                 If (LEqual (_T_0, Zero))
                 {
                     Store (LEV0, Local0)
@@ -2040,7 +2040,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
 
             While (One)
             {
-                Store (Local0, _T_1)
+                Store (Local0, _T_1) /* \_SB_.PCI0.B0D4.STDP._T_1 */
                 If (LEqual (_T_1, Zero))
                 {
                     CPL0 ()
@@ -2063,7 +2063,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 Break
             }
 
-            Notify (\_SB.PCI0.B0D4, 0x83)
+            Notify (\_SB.PCI0.B0D4, 0x83) // Device-Specific Change
         }
     }
 
@@ -2077,13 +2077,13 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 Store (Zero, \_SB.PCI0.B0D4.MAXT)
             }
 
-            Notify (\_SB.PCI0.B0D4, 0x84)
+            Notify (\_SB.PCI0.B0D4, 0x84) // Device-Specific
         }
 
         Method (_QB7, 0, NotSerialized)  // _Qxx: EC Query
         {
             Store (Zero, \_SB.PCI0.B0D4.MAXT)
-            Notify (\_SB.PCI0.B0D4, 0x84)
+            Notify (\_SB.PCI0.B0D4, 0x84) // Device-Specific
         }
 
         Method (_QB8, 0, Serialized)  // _Qxx: EC Query
@@ -2091,7 +2091,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
             While (One)
             {
-                Store (\_PR.CLVL, _T_0)
+                Store (\_PR.CLVL, _T_0) /* \_SB_.PCI0.LPCB.EC0_._QB8._T_0 */
                 If (LEqual (_T_0, 0x03))
                 {
                     Store (One, \_SB.PCI0.B0D4.MAXT)
@@ -2114,7 +2114,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 Break
             }
 
-            Notify (\_SB.PCI0.B0D4, 0x84)
+            Notify (\_SB.PCI0.B0D4, 0x84) // Device-Specific
         }
 
         Method (_QB9, 0, Serialized)  // _Qxx: EC Query
@@ -2122,7 +2122,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
             While (One)
             {
-                Store (\_PR.CLVL, _T_0)
+                Store (\_PR.CLVL, _T_0) /* \_SB_.PCI0.LPCB.EC0_._QB9._T_0 */
                 If (LEqual (_T_0, 0x03))
                 {
                     Store (0x02, \_SB.PCI0.B0D4.MAXT)
@@ -2145,7 +2145,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 Break
             }
 
-            Notify (\_SB.PCI0.B0D4, 0x84)
+            Notify (\_SB.PCI0.B0D4, 0x84) // Device-Specific
         }
     }
 
@@ -2166,7 +2166,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 Return (Zero)
             }
 
-            Return (LPMV)
+            Return (LPMV) /* External reference */
         }
     }
 
@@ -2192,47 +2192,47 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
 
             Method (PGMB, 0, NotSerialized)
             {
-                Return (\_SB.PCI0.MHBR)
+                Return (\_SB.PCI0.MHBR) /* External reference */
             }
 
             Name (_PPC, Zero)  // _PPC: Performance Present Capabilites
             Method (SPPC, 1, Serialized)
             {
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
-                Store (Arg0, \_PR.CPU0._PPC)
+                Store (Arg0, \_PR.CPU0._PPC) /* External reference */
                 While (One)
                 {
-                    Store (TCNT, _T_0)
+                    Store (TCNT, _T_0) /* \_SB_.TCPU.SPPC._T_0 */
                     If (LEqual (_T_0, 0x08))
                     {
-                        Notify (\_PR.CPU0, 0x80)
-                        Notify (\_PR.CPU1, 0x80)
-                        Notify (\_PR.CPU2, 0x80)
-                        Notify (\_PR.CPU3, 0x80)
-                        Notify (\_PR.CPU4, 0x80)
-                        Notify (\_PR.CPU5, 0x80)
-                        Notify (\_PR.CPU6, 0x80)
-                        Notify (\_PR.CPU7, 0x80)
+                        Notify (\_PR.CPU0, 0x80) // Status Change
+                        Notify (\_PR.CPU1, 0x80) // Status Change
+                        Notify (\_PR.CPU2, 0x80) // Status Change
+                        Notify (\_PR.CPU3, 0x80) // Status Change
+                        Notify (\_PR.CPU4, 0x80) // Status Change
+                        Notify (\_PR.CPU5, 0x80) // Status Change
+                        Notify (\_PR.CPU6, 0x80) // Status Change
+                        Notify (\_PR.CPU7, 0x80) // Status Change
                     }
                     Else
                     {
                         If (LEqual (_T_0, 0x04))
                         {
-                            Notify (\_PR.CPU0, 0x80)
-                            Notify (\_PR.CPU1, 0x80)
-                            Notify (\_PR.CPU2, 0x80)
-                            Notify (\_PR.CPU3, 0x80)
+                            Notify (\_PR.CPU0, 0x80) // Status Change
+                            Notify (\_PR.CPU1, 0x80) // Status Change
+                            Notify (\_PR.CPU2, 0x80) // Status Change
+                            Notify (\_PR.CPU3, 0x80) // Status Change
                         }
                         Else
                         {
                             If (LEqual (_T_0, 0x02))
                             {
-                                Notify (\_PR.CPU0, 0x80)
-                                Notify (\_PR.CPU1, 0x80)
+                                Notify (\_PR.CPU0, 0x80) // Status Change
+                                Notify (\_PR.CPU1, 0x80) // Status Change
                             }
                             Else
                             {
-                                Notify (\_PR.CPU0, 0x80)
+                                Notify (\_PR.CPU0, 0x80) // Status Change
                             }
                         }
                     }
@@ -2248,8 +2248,8 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
 
             Method (_DTI, 1, NotSerialized)  // _DTI: Device Temperature Indication
             {
-                Store (Arg0, LSTM)
-                Notify (TCPU, 0x91)
+                Store (Arg0, LSTM) /* \_SB_.TCPU.LSTM */
+                Notify (TCPU, 0x91) // Device-Specific
             }
 
             Method (_NTT, 0, NotSerialized)  // _NTT: Notification Temperature Threshold
@@ -2261,7 +2261,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
             {
                 If (CondRefOf (\_PR.CPU0._PSS))
                 {
-                    Return (\_PR.CPU0._PSS)
+                    Return (\_PR.CPU0._PSS) /* External reference */
                 }
                 Else
                 {
@@ -2276,7 +2276,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
             {
                 If (CondRefOf (\_PR.CPU0._TSS))
                 {
-                    Return (\_PR.CPU0._TSS)
+                    Return (\_PR.CPU0._TSS) /* External reference */
                 }
                 Else
                 {
@@ -2291,7 +2291,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
             {
                 If (CondRefOf (\_PR.CPU0._TPC))
                 {
-                    Return (\_PR.CPU0._TPC)
+                    Return (\_PR.CPU0._TPC) /* External reference */
                 }
                 Else
                 {
@@ -2303,7 +2303,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
             {
                 If (CondRefOf (\_PR.CPU0._PTC))
                 {
-                    Return (\_PR.CPU0._PTC)
+                    Return (\_PR.CPU0._PTC) /* External reference */
                 }
                 Else
                 {
@@ -2318,7 +2318,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
             {
                 If (CondRefOf (\_PR.CPU0._TSD))
                 {
-                    Return (\_PR.CPU0._TSD)
+                    Return (\_PR.CPU0._TSD) /* External reference */
                 }
                 Else
                 {
@@ -2334,9 +2334,9 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 If (CondRefOf (\_PR.CPU0._TSS))
                 {
                     Name (LFMI, Zero)
-                    Store (SizeOf (\_PR.CPU0._TSS), LFMI)
+                    Store (SizeOf (\_PR.CPU0._TSS), LFMI) /* \_SB_.TCPU._TDL.LFMI */
                     Decrement (LFMI)
-                    Return (LFMI)
+                    Return (LFMI) /* \_SB_.TCPU._TDL.LFMI */
                 }
                 Else
                 {
@@ -2349,9 +2349,9 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
                 If (CondRefOf (\_PR.CPU0._PSS))
                 {
                     Name (LFMI, Zero)
-                    Store (SizeOf (\_PR.CPU0._PSS), LFMI)
+                    Store (SizeOf (\_PR.CPU0._PSS), LFMI) /* \_SB_.TCPU._PDL.LFMI */
                     Decrement (LFMI)
-                    Return (LFMI)
+                    Return (LFMI) /* \_SB_.TCPU._PDL.LFMI */
                 }
                 Else
                 {
@@ -2392,8 +2392,8 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
             Name (GTSH, 0x1E)
             Method (_DTI, 1, NotSerialized)  // _DTI: Device Temperature Indication
             {
-                Store (Arg0, LSTM)
-                Notify (TPCH, 0x91)
+                Store (Arg0, LSTM) /* \_SB_.PCI0.TPCH.LSTM */
+                Notify (TPCH, 0x91) // Device-Specific
             }
 
             Method (_NTT, 0, NotSerialized)  // _NTT: Notification Temperature Threshold
@@ -2425,7 +2425,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
 
             Method (PPCC, 0, Serialized)
             {
-                Return (NPCC)
+                Return (NPCC) /* \_SB_.PCI0.TMEM.NPCC */
             }
 
             Name (NPCC, Package (0x03)
@@ -2493,8 +2493,8 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
             Name (GTSH, 0x14)
             Method (_DTI, 1, NotSerialized)  // _DTI: Device Temperature Indication
             {
-                Store (Arg0, LSTM)
-                Notify (TMEM, 0x91)
+                Store (Arg0, LSTM) /* \_SB_.PCI0.TMEM.LSTM */
+                Notify (TMEM, 0x91) // Device-Specific
             }
 
             Method (_NTT, 0, NotSerialized)  // _NTT: Notification Temperature Threshold
@@ -2504,7 +2504,7 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
 
             Method (PGMB, 0, NotSerialized)
             {
-                Return (\_SB.PCI0.MHBR)
+                Return (\_SB.PCI0.MHBR) /* External reference */
             }
         }
     }
@@ -2531,12 +2531,12 @@ DefinitionBlock ("ssdt3.aml", "SSDT", 1, "DptfTa", "DptfTabl", 0x00001000)
 
             Method (DDDL, 0, NotSerialized)
             {
-                Return (BDLI)
+                Return (BDLI) /* \_SB_.PCI0.DPLY.BDLI */
             }
 
             Method (DDPC, 0, NotSerialized)
             {
-                Return (BDHI)
+                Return (BDHI) /* \_SB_.PCI0.DPLY.BDHI */
             }
 
             Method (_BCL, 0, NotSerialized)  // _BCL: Brightness Control Levels

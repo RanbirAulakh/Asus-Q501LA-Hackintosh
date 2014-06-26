@@ -1,9 +1,9 @@
 /*
  * Intel ACPI Component Architecture
- * AML Disassembler version 20131115-64 [Dec  1 2013]
- * Copyright (c) 2000 - 2013 Intel Corporation
+ * AML Disassembler version 20140424-64 [Jun 25 2014]
+ * Copyright (c) 2000 - 2014 Intel Corporation
  * 
- * Disassembly of ssdt6.aml, Sun Jun 22 22:50:27 2014
+ * Disassembly of ssdt6.dat, Thu Jun 26 11:37:01 2014
  *
  * Original Table Header:
  *     Signature        "SSDT"
@@ -19,7 +19,7 @@
 DefinitionBlock ("ssdt6.aml", "SSDT", 1, "Intel_", "IsctTabl", 0x00001000)
 {
 
-    External (_SB_.IFFS.FFSS)
+    External (_SB_.IFFS.FFSS, UnknownObj)
     External (_SB_.PCI0.IGPU.ASLC, FieldUnitObj)
     External (_SB_.PCI0.IGPU.ASLE, FieldUnitObj)
     External (_SB_.PCI0.IGPU.PARD, MethodObj)    // 0 Arguments
@@ -62,12 +62,12 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "Intel_", "IsctTabl", 0x00001000)
             Name (IIST, Zero)
             Method (GABS, 0, NotSerialized)
             {
-                Return (ICNF)
+                Return (ICNF) /* External reference */
             }
 
             Method (GAOS, 0, NotSerialized)
             {
-                Store (One, IIST)
+                Store (One, IIST) /* \_SB_.IAOE.IIST */
                 If (LEqual (ITMR, One))
                 {
                     And (IBT1, One, Local0)
@@ -103,7 +103,7 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "Intel_", "IsctTabl", 0x00001000)
 
             Method (SAOS, 1, NotSerialized)
             {
-                Store (One, IIST)
+                Store (One, IIST) /* \_SB_.IAOE.IIST */
                 If (And (\_SB.PCI0.IGPU.TCHE, 0x0100))
                 {
                     If (LEqual (ITMR, One))
@@ -113,9 +113,9 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "Intel_", "IsctTabl", 0x00001000)
                         {
                             If (LNot (\_SB.PCI0.IGPU.PARD ()))
                             {
-                                Store (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFC), \_SB.PCI0.IGPU.STAT)
-                                Store (Or (\_SB.PCI0.IGPU.ASLC, 0x0100), \_SB.PCI0.IGPU.ASLC)
-                                Store (One, \_SB.PCI0.IGPU.ASLE)
+                                Store (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFC), \_SB.PCI0.IGPU.STAT) /* External reference */
+                                Store (Or (\_SB.PCI0.IGPU.ASLC, 0x0100), \_SB.PCI0.IGPU.ASLC) /* External reference */
+                                Store (One, \_SB.PCI0.IGPU.ASLE) /* External reference */
                             }
                         }
                     }
@@ -126,9 +126,9 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "Intel_", "IsctTabl", 0x00001000)
                         {
                             If (LNot (\_SB.PCI0.IGPU.PARD ()))
                             {
-                                Store (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFC), \_SB.PCI0.IGPU.STAT)
-                                Store (Or (\_SB.PCI0.IGPU.ASLC, 0x0100), \_SB.PCI0.IGPU.ASLC)
-                                Store (One, \_SB.PCI0.IGPU.ASLE)
+                                Store (And (\_SB.PCI0.IGPU.STAT, 0xFFFFFFFC), \_SB.PCI0.IGPU.STAT) /* External reference */
+                                Store (Or (\_SB.PCI0.IGPU.ASLC, 0x0100), \_SB.PCI0.IGPU.ASLC) /* External reference */
+                                Store (One, \_SB.PCI0.IGPU.ASLE) /* External reference */
                             }
                         }
                     }
@@ -136,28 +136,28 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "Intel_", "IsctTabl", 0x00001000)
 
                 If (LEqual (ITMR, One))
                 {
-                    Store (And (Arg0, 0x02), IMDS)
+                    Store (And (Arg0, 0x02), IMDS) /* \_SB_.IAOE.IMDS */
                     And (IBT1, 0xFE, Local0)
-                    Or (Local0, And (Arg0, One), IBT1)
+                    Or (Local0, And (Arg0, One), IBT1) /* \_SB_.IAOE.IBT1 */
                 }
                 Else
                 {
                     Store (IBT1, Local0)
                     And (Local0, 0xFE, Local0)
                     Or (Local0, And (Arg0, One), Local0)
-                    Store (And (Arg0, 0x02), IMDS)
-                    Store (Local0, IBT1)
+                    Store (And (Arg0, 0x02), IMDS) /* \_SB_.IAOE.IMDS */
+                    Store (Local0, IBT1) /* \_SB_.IAOE.IBT1 */
                 }
             }
 
             Method (GANS, 0, NotSerialized)
             {
-                Return (INSB)
+                Return (INSB) /* \_SB_.IAOE.INSB */
             }
 
             Method (SANS, 1, NotSerialized)
             {
-                Store (And (Arg0, One), INSB)
+                Store (And (Arg0, One), INSB) /* \_SB_.IAOE.INSB */
             }
 
             Method (GWLS, 0, NotSerialized)
@@ -204,7 +204,7 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "Intel_", "IsctTabl", 0x00001000)
                         }
                     }
 
-                    Store (Local0, IBT1)
+                    Store (Local0, IBT1) /* \_SB_.IAOE.IBT1 */
                     \_SB.PCI0.LPCB.EC0.SCTF (One, Local0)
                 }
                 Else
@@ -220,7 +220,7 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "Intel_", "IsctTabl", 0x00001000)
                         }
                     }
 
-                    Store (Local0, IBT1)
+                    Store (Local0, IBT1) /* \_SB_.IAOE.IBT1 */
                     \_SB.PCI0.LPCB.EC0.SCTF (One, Local0)
                 }
             }
@@ -269,7 +269,7 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "Intel_", "IsctTabl", 0x00001000)
                         }
                     }
 
-                    Store (Local0, IBT1)
+                    Store (Local0, IBT1) /* \_SB_.IAOE.IBT1 */
                 }
                 Else
                 {
@@ -284,7 +284,7 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "Intel_", "IsctTabl", 0x00001000)
                         }
                     }
 
-                    Store (Local0, IBT1)
+                    Store (Local0, IBT1) /* \_SB_.IAOE.IBT1 */
                 }
             }
 
@@ -294,33 +294,33 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "Intel_", "IsctTabl", 0x00001000)
                 {
                     If (LEqual (ITMR, One))
                     {
-                        Store (Arg0, RCTM)
+                        Store (Arg0, RCTM) /* \_SB_.IAOE.RCTM */
                     }
                     Else
                     {
-                        Store (Arg0, ECTM)
+                        Store (Arg0, ECTM) /* \_SB_.IAOE.ECTM */
                     }
 
-                    Store (And (ECTM, 0xFF), AWT0)
-                    Store (ShiftRight (And (ECTM, 0xFF00), 0x08), AWT1)
-                    Store (ShiftRight (And (ECTM, 0x00FF0000), 0x10), AWT2)
+                    Store (And (ECTM, 0xFF), AWT0) /* \_SB_.IAOE.AWT0 */
+                    Store (ShiftRight (And (ECTM, 0xFF00), 0x08), AWT1) /* \_SB_.IAOE.AWT1 */
+                    Store (ShiftRight (And (ECTM, 0x00FF0000), 0x10), AWT2) /* \_SB_.IAOE.AWT2 */
                     Store (WTMS, Local0)
-                    Store (Or (0x81, Local0), WTMS)
+                    Store (Or (0x81, Local0), WTMS) /* \_SB_.IAOE.WTMS */
                 }
                 Else
                 {
                     If (LEqual (ITMR, One))
                     {
-                        Store (Zero, RCTM)
+                        Store (Zero, RCTM) /* \_SB_.IAOE.RCTM */
                     }
                     Else
                     {
-                        Store (Zero, ECTM)
-                        Store (Zero, WTMS)
+                        Store (Zero, ECTM) /* \_SB_.IAOE.ECTM */
+                        Store (Zero, WTMS) /* \_SB_.IAOE.WTMS */
                     }
 
-                    Store (Arg0, SLPD)
-                    Store (Arg0, ECTM)
+                    Store (Arg0, SLPD) /* \_SB_.IAOE.SLPD */
+                    Store (Arg0, ECTM) /* \_SB_.IAOE.ECTM */
                 }
             }
 
@@ -343,12 +343,12 @@ DefinitionBlock ("ssdt6.aml", "SSDT", 1, "Intel_", "IsctTabl", 0x00001000)
 
             Method (GAWD, 0, NotSerialized)
             {
-                Return (IWDT)
+                Return (IWDT) /* \_SB_.IAOE.IWDT */
             }
 
             Method (SAWD, 1, NotSerialized)
             {
-                Store (Arg0, IWDT)
+                Store (Arg0, IWDT) /* \_SB_.IAOE.IWDT */
             }
         }
     }
