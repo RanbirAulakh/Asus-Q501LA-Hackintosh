@@ -11972,7 +11972,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
 
     Method (_PTS, 1, NotSerialized)  // _PTS: Prepare To Sleep
     {
-        PTS (Arg0)
+        If (LNotEqual(Arg0,5)) {
+PTS (Arg0)
         ADBG (Concatenate ("_PTS=", ToHexString (Arg0)))
         If (And (ICNF, 0x10))
         {
@@ -12005,6 +12006,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
         {
             \_SB.TPM.PTS (Arg0)
         }
+}
+
     }
 
     Method (_WAK, 1, Serialized)  // _WAK: Wake
