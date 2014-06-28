@@ -55,8 +55,8 @@ This is just educational purposes.
 		- HPET Fix
 		- OS Check Fix
 		- Fix _Wak ARg0 v2
-
-
+- Beta 2.1
+	- Shutdown v2
 
 # <a name="Requirements"></a> Requirements
 - Asus Q501LA ( http://www.amazon.com/Asus-Q501LA-BBI5T03-15-6-Touch-Screen-Laptop/dp/B00FRSXJKI ) 
@@ -113,23 +113,17 @@ Then reboot, you should have close to 100% stable hackintosh.
 
 # <a name="Credit"></a> Credit
 I wanted to say thanks to
-- Creator of MaciASL
-- Creatof of BootLoader
-- InsanelyMac Forum
-- TonyMacOSx86 Forum
+- MaciASL, Bootloader, InsanelyMac, TonyMac0Sx86
 - Rehabman Repo (Rehabman was the one who helped me a lot!).
 
 Without you guys, I will never get stable hackintosh.
 
 # <a name="FAQs"></a> FAQs
-**I cannot boot to Mac... now what?**
-- Boot to Clover --> Options --> Arguments --> `-x`. Then you should able to boot into mac and either fix (in terms of patch) or remove DSDT and SSDT from ``cd /Volumes/efi/EFI/CLOVER/ACPI/patched/`.
-
 **I got kernel panic bro. What should I do now?**
 - It is most likey has to do with your kexts. If you have Voodoo or anything related to Voodoo, just remove that and fix permissions using kext utility. You do not need Voodoo. Boot it in `Safe Mode`
 
 **Why do I have like 9 SSDTs?**
-- Each one represents something (I know some and currently researching each SSDT(s). 
+- Each one represents something (According to Rehabman). 
     - SSDT 1, 2, 7, 8, 9 are CPU related.
     - SSDT 3 is Unknown.
     - SSDT 4 is Sata/Hard Drive releated.
@@ -137,4 +131,4 @@ Without you guys, I will never get stable hackintosh.
     - SSDT 6 is Sleep/_WAK related.
 
 **What to do if I found an issue?**
-- Login your github account and go to my project and report an issue. Then I will look over yuor issue.
+- Login your github account and go to my project and report an issue. Then I will look over your issue.
