@@ -7,6 +7,8 @@ My laptop, Asus Q501LA, hackintosh is near 100% stable.
 
 This is just educational purposes.
 
+PS: You are free to fork this and improve anything, if I see there is an improvement, I will accept changes!
+
 ##Table of Content##
 * [Issues](#Issues)
 * [Changelog](#Changelog)
@@ -19,6 +21,8 @@ This is just educational purposes.
 # <a name="Issues"></a> Issues
 - Sleep
 - SD Card Reader (not tested)
+- Somethings Shutdown/Restart does not function
+- Black Screen when booting to Mac (I think that's how Clover works?)
 
 # <a name="Changelog"></a> Changelog
 - Beta 1.0
