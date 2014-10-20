@@ -59,6 +59,11 @@ PS: You are free to fork this and improve anything, if I see there is an improve
 		- Fix _Wak ARg0 v2
 - Beta 2.1
 	- Shutdown v2
+- Beta 2.3
+    - Fixed ig-platform-id in Yosemite
+    - Updated SSDT-2.aml and ssdt5.dsl
+    - Updated kexts
+    - Updated Config.plist
 
 # <a name="Requirements"></a> Requirements
 - Asus Q501LA ( http://www.amazon.com/Asus-Q501LA-BBI5T03-15-6-Touch-Screen-Laptop/dp/B00FRSXJKI ) 
