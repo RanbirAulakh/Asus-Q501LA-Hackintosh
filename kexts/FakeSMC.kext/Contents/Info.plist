@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>13C53</string>
+	<string>12F37</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -17,28 +17,28 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>6.0.1085</string>
+	<string>5.3.1100</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1085</string>
+	<string>1100</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>5A3005</string>
+	<string>5A1413</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>12F37</string>
+	<string>12D75</string>
 	<key>DTSDKName</key>
 	<string>macosx10.8</string>
 	<key>DTXcode</key>
-	<string>0502</string>
+	<string>0500</string>
 	<key>DTXcodeBuild</key>
-	<string>5A3005</string>
+	<string>5A1413</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>FakeSMC</key>
+		<key>SMC Device Emulator</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>org.netkas.driver.FakeSMC</string>
@@ -72,6 +72,23 @@
 						<string>ch8*</string>
 					</array>
 				</dict>
+				<key>ExceptionKeys</key>
+				<dict>
+					<key>CLKH</key>
+					<integer>1</integer>
+					<key>CLKT</key>
+					<integer>1</integer>
+					<key>MSDW</key>
+					<integer>1</integer>
+					<key>NATJ</key>
+					<integer>1</integer>
+					<key>NATi</key>
+					<integer>1</integer>
+					<key>NTOK</key>
+					<integer>1</integer>
+					<key>WKTP</key>
+					<integer>0</integer>
+				</dict>
 				<key>Keys</key>
 				<dict>
 					<key>$Adr</key>
@@ -88,73 +105,32 @@
 						AQ==
 						</data>
 					</array>
-					<key>ALI0</key>
+					<key>ACID</key>
 					<array>
-						<string>{ali</string>
+						<string>ch8*</string>
 						<data>
-						07000600
+						ur48RcADEEM=
 						</data>
 					</array>
-					<key>ALI1</key>
+					<key>DPLM</key>
 					<array>
-						<string>{ali</string>
+						<string>{lim</string>
 						<data>
-						00000000
-						</data>
-					</array>
-					<key>ALRV</key>
-					<array>
-						<string>ui16</string>
-						<data>
-						0001
-						</data>
-					</array>
-					<key>ALV0</key>
-					<array>
-						<string>{alv</string>
-						<data>
-						01010025000E0002ECD4
-						</data>
-					</array>
-					<key>ALV1</key>
-					<array>
-						<string>{alv</string>
-						<data>
-						00010000000000000000
+						AAAA
 						</data>
 					</array>
 					<key>FNum</key>
 					<array>
 						<string>ui8</string>
 						<data>
-						AQ==
-						</data>
-					</array>
-					<key>LsNM</key>
-					<array>
-						<string>ui8</string>
-						<data>
-						AQ==
-						</data>
-					</array>
-					<key>LsbV</key>
-					<array>
-						<string>{rev</string>
-						<data>
-						AQQKAAY=
-						</data>
-					</array>
-					<key>MSLD</key>
-					<array>
-						<string>ui8</string>
-						<data>
+						AA==
 						</data>
 					</array>
 					<key>MSSD</key>
 					<array>
 						<string>si8</string>
 						<data>
-						Aw==
+						BQ==
 						</data>
 					</array>
 					<key>MSSP</key>
@@ -162,13 +138,6 @@
 						<string>si8</string>
 						<data>
 						BQ==
-						</data>
-					</array>
-					<key>NATJ</key>
-					<array>
-						<string>ui8</string>
-						<data>
-						AA==
 						</data>
 					</array>
 					<key>OSK0</key>
@@ -191,21 +160,21 @@
 					<array>
 						<string>{rev</string>
 						<data>
-						AhMPAAAF
+						ATAPAAAD
 						</data>
 					</array>
 					<key>RVBF</key>
 					<array>
 						<string>{rev</string>
 						<data>
-						AhMPAAAF
+						ATAPAAAD
 						</data>
 					</array>
 					<key>RVUF</key>
 					<array>
 						<string>{rev</string>
 						<data>
-						AhMPAAAF
+						ATAPAAAD
 						</data>
 					</array>
 				</dict>
@@ -244,48 +213,35 @@
 			<key>IOClass</key>
 			<string>FakeSMC</string>
 			<key>IOMatchCategory</key>
-			<string>FakeSMC</string>
+			<string>IOACPIPlatformDevice</string>
 			<key>IOProviderClass</key>
 			<string>AppleACPIPlatformExpert</string>
 			<key>IOResourceMatch</key>
-			<string>FakeSMCKeyStore</string>
-		</dict>
-		<key>FakeSMCKeyStore</key>
-		<dict>
-			<key>CFBundleIdentifier</key>
-			<string>org.netkas.driver.FakeSMC</string>
-			<key>IOClass</key>
-			<string>FakeSMCKeyStore</string>
-			<key>IOMatchCategory</key>
-			<string>FakeSMCKeyStore</string>
-			<key>IOProviderClass</key>
-			<string>IOResources</string>
-			<key>IOResourceMatch</key>
-			<string>IOKit</string>
-			<key>IOUserClientClass</key>
-			<string>FakeSMCKeyStoreUserClient</string>
+			<string>ACPI</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2014 netkas. All rights reserved.</string>
+	<string>Copyright © 2013 netkas. All rights reserved.</string>
 	<key>OSBundleCompatibleVersion</key>
-	<string>1065</string>
+	<string>808</string>
 	<key>OSBundleLibraries</key>
 	<dict>
 		<key>com.apple.iokit.IOACPIFamily</key>
 		<string>1.0.0d1</string>
 		<key>com.apple.kpi.bsd</key>
-		<string>10.6</string>
+		<string>9.0.0</string>
 		<key>com.apple.kpi.iokit</key>
-		<string>10.6</string>
+		<string>9.0.0</string>
 		<key>com.apple.kpi.libkern</key>
-		<string>10.6</string>
+		<string>9.0.0</string>
 		<key>com.apple.kpi.mach</key>
-		<string>10.6</string>
+		<string>9.0.0</string>
 		<key>com.apple.kpi.unsupported</key>
-		<string>10.6</string>
+		<string>9.0.0</string>
 	</dict>
 	<key>OSBundleRequired</key>
 	<string>Root</string>
+	<key>Source Code</key>
+	<string>"https://github.com/RehabMan/OS-X-FakeSMC-kozlek.git"</string>
 </dict>
 </plist>

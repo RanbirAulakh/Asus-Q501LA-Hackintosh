@@ -21,8 +21,6 @@ PS: You are free to fork this and improve anything, if I see there is an improve
 # <a name="Issues"></a> Issues
 - Sleep
 - SD Card Reader (not tested)
-- Somethings Shutdown/Restart does not function
-- Black Screen when booting to Mac (I think that's how Clover works?)
 
 # <a name="Changelog"></a> Changelog
 - Beta 1.0
@@ -65,7 +63,7 @@ PS: You are free to fork this and improve anything, if I see there is an improve
 # <a name="Requirements"></a> Requirements
 - Asus Q501LA ( http://www.amazon.com/Asus-Q501LA-BBI5T03-15-6-Touch-Screen-Laptop/dp/B00FRSXJKI ) 
 - MaciASL ( http://sourceforge.net/projects/maciasl/files/ )
-- Running 10.9.3 (Mavericks)
+- 10.9.0+ or 10.10
 
 # <a name="Instructions"></a> Instructions
 This DSDT and SSDT only works in **Asus Q501LA**. This will **not work** on other laptop, there is a chance that it can mess up your hackintosh, laptop, or hardware.

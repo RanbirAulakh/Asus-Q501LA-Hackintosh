@@ -2030,6 +2030,8 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
 }
 
 
+
+
             OperationRegion (IGDM, SystemMemory, ASLB, 0x2000)
             Field (IGDM, AnyAcc, NoLock, Preserve)
             {
@@ -3673,11 +3675,16 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
                 If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
                 Return (Package()
                 {
-                    "AAPL,ig-platform-id", Buffer() { 0x08, 0x00, 0x2E, 0x0a },
+                    "AAPL,ig-platform-id", Buffer() { 0x08, 0x00, 0x2e, 0x0a },
                     "hda-gfx", Buffer() { "onboard-1" },
                 })
             }
+            
         }
+    }
+    Scope (\_SB)
+    {
+        
     }
     Scope (\_SB)
     {
@@ -3755,6 +3762,9 @@ Field (IGD2, AnyAcc, NoLock, Preserve)
             }
             Method (_DOS, 1, NotSerialized)
             {
+                // Note: Some systems have this defined in DSDT, so uncomment
+                // the next line if that is the case.
+                //External(^^PCI0.IGPU._DOS, MethodObj)
                 ^^PCI0.IGPU._DOS(Arg0)
             }
             // extended _BCM/_BQC for setting "in between" levels

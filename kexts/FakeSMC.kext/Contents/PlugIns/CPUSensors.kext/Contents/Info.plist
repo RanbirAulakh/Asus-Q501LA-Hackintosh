@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>13C53</string>
+	<string>12F37</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -15,25 +15,25 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>6.0.1085</string>
+	<string>5.3.1100</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1085</string>
+	<string>1100</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>5A3005</string>
+	<string>5A1413</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>12F37</string>
+	<string>12D75</string>
 	<key>DTSDKName</key>
 	<string>macosx10.8</string>
 	<key>DTXcode</key>
-	<string>0502</string>
+	<string>0500</string>
 	<key>DTXcodeBuild</key>
-	<string>5A3005</string>
+	<string>5A1413</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>Intel Thermal Monitor</key>
@@ -53,8 +53,6 @@
 			</dict>
 			<key>IOProviderClass</key>
 			<string>IOACPIPlatformDevice</string>
-			<key>IOResourceMatch</key>
-			<string>ACPI</string>
 			<key>Platform Profile</key>
 			<dict>
 				<key>Default</key>
@@ -68,21 +66,23 @@
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2014 Natan Zalkin &lt;natan.zalkin@me.com&gt;. All rights reserved.</string>
+	<string>Copyright © 2013 Natan Zalkin &lt;natan.zalkin@me.com&gt;. All rights reserved.</string>
 	<key>OSBundleLibraries</key>
 	<dict>
 		<key>com.apple.kpi.iokit</key>
-		<string>10.6</string>
+		<string>10.0.0</string>
 		<key>com.apple.kpi.libkern</key>
-		<string>10.6</string>
+		<string>10.0.0</string>
 		<key>com.apple.kpi.mach</key>
-		<string>10.6</string>
+		<string>10.0.0</string>
 		<key>com.apple.kpi.unsupported</key>
-		<string>10.6</string>
+		<string>10.0.0</string>
 		<key>org.netkas.driver.FakeSMC</key>
-		<string>1065</string>
+		<string>808</string>
 	</dict>
 	<key>OSBundleRequired</key>
 	<string>Root</string>
+	<key>Source Code</key>
+	<string>"https://github.com/RehabMan/OS-X-FakeSMC-kozlek.git"</string>
 </dict>
 </plist>
