@@ -9,6 +9,9 @@ This is just educational purposes.
 
 PS: You are free to fork this and improve anything, if I see there is an improvement, I will accept changes!
 
+How to install Yosemite/Mavericks on Asus Q501LA:
+https://github.com/RanbirAulakh/Asus-Q501LA-Hackintosh/wiki
+
 ##Table of Content##
 * [Issues](#Issues)
 * [Changelog](#Changelog)
