@@ -117,7 +117,7 @@ In `kexts` folder, you find:
 - RealtekRTL8111.kext
 - AppleHDA.kext
 
-I recommend you install both `AppleHDA` and `CodecCommander` directly into `/System/Library/Extensions/`. And the rest goes to `/Volumes/efi/EFI/CLOVER/kexts/Other/`. Then fix permissions (using kext utility).
+I recommend you install both `AppleHDA`, `GenericUSBXHCI`, and `CodecCommander` directly into `/System/Library/Extensions/`. And the rest goes to `/Volumes/efi/EFI/CLOVER/kexts/Other/`. Then fix permissions (using kext utility).
 
 Then reboot, you should have close to 100% stable hackintosh.
 
