@@ -1,9 +1,9 @@
 /*
  * Intel ACPI Component Architecture
- * AML Disassembler version 20131115-64 [Dec  1 2013]
- * Copyright (c) 2000 - 2013 Intel Corporation
+ * AML Disassembler version 20140627-64 [Jul  9 2014]
+ * Copyright (c) 2000 - 2014 Intel Corporation
  * 
- * Disassembly of dsdt.aml, Sun Jun 22 22:50:27 2014
+ * Disassembly of DSDT.aml, Sun Oct 26 12:46:54 2014
  *
  * Original Table Header:
  *     Signature        "DSDT"
@@ -16,21 +16,32 @@
  *     Compiler ID      "INTL"
  *     Compiler Version 0x20120711 (538052369)
  */
-DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
+DefinitionBlock ("DSDT.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
 {
     /*
      * iASL Warning: There were 20 external control methods found during
      * disassembly, but only 15 were resolved (5 unresolved). Additional
-     * ACPI tables are required to properly disassemble the code. This
+     * ACPI tables may be required to properly disassemble the code. This
      * resulting disassembler output file may not compile because the
      * disassembler did not know how many arguments to assign to the
      * unresolved methods.
+     *
+     * If necessary, the -fe option can be used to specify a file containing
+     * control method external declarations with the associated method
+     * argument counts. Each line of the file must be of the form:
+     *     External (<method pathname>, MethodObj, <argument count>)
+     * Invocation:
+     *     iasl -fe refs.txt -d dsdt.aml
+     *
+     * The following methods were unresolved and many not compile properly
+     * because the disassembler had to guess at the number of arguments
+     * required for each:
      */
-    External (_SB_.PCI0.PAUD.PUAM, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (_SB_.PCI0.XHC_.DUAM, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (_SB_.TPM_.PTS_, MethodObj)    // Warning: Unresolved Method, guessing 1 arguments (may be incorrect, see warning above)
-    External (PS0X, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
-    External (PS3X, MethodObj)    // Warning: Unresolved Method, guessing 0 arguments (may be incorrect, see warning above)
+    External (_SB_.PCI0.PAUD.PUAM, MethodObj)    // Warning: Unresolved method, guessing 0 arguments
+    External (_SB_.PCI0.XHC_.DUAM, MethodObj)    // Warning: Unresolved method, guessing 0 arguments
+    External (_SB_.TPM_.PTS_, MethodObj)    // Warning: Unresolved method, guessing 1 arguments
+    External (PS0X, MethodObj)    // Warning: Unresolved method, guessing 0 arguments
+    External (PS3X, MethodObj)    // Warning: Unresolved method, guessing 0 arguments
 
     External (_PR_.CPU0._PPC, IntObj)
     External (_PR_.CPU0._PSS, PkgObj)
@@ -41,9 +52,9 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
     External (_SB_.IAOE.PTSL, IntObj)
     External (_SB_.IAOE.RCTM, FieldUnitObj)
     External (_SB_.IAOE.WKRS, FieldUnitObj)
-    External (_SB_.IFFS.FFSS)
-    External (_SB_.PCCD)
-    External (_SB_.PCCD.PENB)
+    External (_SB_.IFFS.FFSS, UnknownObj)
+    External (_SB_.PCCD, UnknownObj)
+    External (_SB_.PCCD.PENB, UnknownObj)
     External (_SB_.PCI0.IGPU.ADVD, MethodObj)    // 0 Arguments
     External (_SB_.PCI0.IGPU.AINT, MethodObj)    // 2 Arguments
     External (_SB_.PCI0.IGPU.CBLV, FieldUnitObj)
@@ -64,14 +75,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
     External (_SB_.PCI0.IGPU.SWHD, MethodObj)    // 1 Arguments
     External (_SB_.PCI0.IGPU.TCHE, FieldUnitObj)
     External (_SB_.PCI0.IGPU.UPBL, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.SAT0.P0P_)
-    External (_SB_.PCI0.SAT0.P1P_)
-    External (_SB_.PCI0.SAT0.P2P_)
-    External (_SB_.PCI0.SAT0.P3P_)
+    External (_SB_.PCI0.SAT0.P0P_, UnknownObj)
+    External (_SB_.PCI0.SAT0.P1P_, UnknownObj)
+    External (_SB_.PCI0.SAT0.P2P_, UnknownObj)
+    External (_SB_.PCI0.SAT0.P3P_, UnknownObj)
     External (GSMI, FieldUnitObj)
     External (LIDS, FieldUnitObj)
     External (MDBG, IntObj)
-    External (PCCD)
+    External (PCCD, UnknownObj)
     External (PDC0, IntObj)
     External (PDC1, IntObj)
     External (PDC2, IntObj)
@@ -1533,8 +1544,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
 
             Name (GUID, Buffer (0x10)
             {
-                /* 0000 */   0x5B, 0x4D, 0xDB, 0x33, 0xF7, 0x1F, 0x1C, 0x40,
-                /* 0008 */   0x96, 0x57, 0x74, 0x41, 0xC0, 0x3D, 0xD7, 0x66
+                /* 0000 */  0x5B, 0x4D, 0xDB, 0x33, 0xF7, 0x1F, 0x1C, 0x40,
+                /* 0008 */  0x96, 0x57, 0x74, 0x41, 0xC0, 0x3D, 0xD7, 0x66 
             })
             Name (SUPP, Zero)
             Name (CTRL, Zero)
@@ -1764,8 +1775,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         Store (ToInteger (Arg0), _T_0)
                         If (LEqual (_T_0, Buffer (0x10)
                                 {
-                                    /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
-                                    /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
+                                    /* 0000 */  0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
+                                    /* 0008 */  0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D 
                                 }))
                         {
                             While (One)
@@ -1803,16 +1814,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                                             {
                                                 Return (Buffer (0x10)
                                                 {
-                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                    /* 0008 */   0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00
+                                                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */  0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00 
                                                 })
                                             }
                                             Else
                                             {
                                                 Return (Buffer (0x10)
                                                 {
-                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                    /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                                 })
                                             }
                                         }
@@ -1864,7 +1875,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
 
                     Return (Buffer (One)
                     {
-                         0x00
+                         0x00                                           
                     })
                 }
 
@@ -2034,8 +2045,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         Store (ToInteger (Arg0), _T_0)
                         If (LEqual (_T_0, Buffer (0x10)
                                 {
-                                    /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
-                                    /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
+                                    /* 0000 */  0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
+                                    /* 0008 */  0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D 
                                 }))
                         {
                             While (One)
@@ -2073,16 +2084,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                                             {
                                                 Return (Buffer (0x10)
                                                 {
-                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                    /* 0008 */   0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00
+                                                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */  0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00 
                                                 })
                                             }
                                             Else
                                             {
                                                 Return (Buffer (0x10)
                                                 {
-                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                    /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                                 })
                                             }
                                         }
@@ -2134,7 +2145,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
 
                     Return (Buffer (One)
                     {
-                         0x00
+                         0x00                                           
                     })
                 }
 
@@ -2294,8 +2305,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         Store (ToInteger (Arg0), _T_0)
                         If (LEqual (_T_0, Buffer (0x10)
                                 {
-                                    /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
-                                    /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
+                                    /* 0000 */  0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
+                                    /* 0008 */  0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D 
                                 }))
                         {
                             While (One)
@@ -2333,16 +2344,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                                             {
                                                 Return (Buffer (0x10)
                                                 {
-                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                    /* 0008 */   0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00
+                                                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */  0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00 
                                                 })
                                             }
                                             Else
                                             {
                                                 Return (Buffer (0x10)
                                                 {
-                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                    /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                                 })
                                             }
                                         }
@@ -2394,7 +2405,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
 
                     Return (Buffer (One)
                     {
-                         0x00
+                         0x00                                           
                     })
                 }
 
@@ -2554,8 +2565,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         Store (ToInteger (Arg0), _T_0)
                         If (LEqual (_T_0, Buffer (0x10)
                                 {
-                                    /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
-                                    /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
+                                    /* 0000 */  0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
+                                    /* 0008 */  0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D 
                                 }))
                         {
                             While (One)
@@ -2593,16 +2604,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                                             {
                                                 Return (Buffer (0x10)
                                                 {
-                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                    /* 0008 */   0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00
+                                                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */  0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00 
                                                 })
                                             }
                                             Else
                                             {
                                                 Return (Buffer (0x10)
                                                 {
-                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                    /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                                 })
                                             }
                                         }
@@ -2654,7 +2665,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
 
                     Return (Buffer (One)
                     {
-                         0x00
+                         0x00                                           
                     })
                 }
 
@@ -2814,8 +2825,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         Store (ToInteger (Arg0), _T_0)
                         If (LEqual (_T_0, Buffer (0x10)
                                 {
-                                    /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
-                                    /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
+                                    /* 0000 */  0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
+                                    /* 0008 */  0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D 
                                 }))
                         {
                             While (One)
@@ -2853,16 +2864,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                                             {
                                                 Return (Buffer (0x10)
                                                 {
-                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                    /* 0008 */   0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00
+                                                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */  0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00 
                                                 })
                                             }
                                             Else
                                             {
                                                 Return (Buffer (0x10)
                                                 {
-                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                    /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                                 })
                                             }
                                         }
@@ -2914,7 +2925,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
 
                     Return (Buffer (One)
                     {
-                         0x00
+                         0x00                                           
                     })
                 }
 
@@ -3074,8 +3085,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         Store (ToInteger (Arg0), _T_0)
                         If (LEqual (_T_0, Buffer (0x10)
                                 {
-                                    /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
-                                    /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
+                                    /* 0000 */  0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
+                                    /* 0008 */  0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D 
                                 }))
                         {
                             While (One)
@@ -3113,16 +3124,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                                             {
                                                 Return (Buffer (0x10)
                                                 {
-                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                    /* 0008 */   0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00
+                                                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */  0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00 
                                                 })
                                             }
                                             Else
                                             {
                                                 Return (Buffer (0x10)
                                                 {
-                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                    /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                                 })
                                             }
                                         }
@@ -3174,7 +3185,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
 
                     Return (Buffer (One)
                     {
-                         0x00
+                         0x00                                           
                     })
                 }
 
@@ -3749,47 +3760,12 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             _Y0F)
                     })
 
-                    Method (_STA, 0, NotSerialized)  // _STA: Status
+                    
+
+                    
+                    Name (_STA, 0x0F)
+                    Method (_CRS, 0, NotSerialized)
                     {
-                        If (LGreaterEqual (OSYS, 0x07D1))
-                        {
-                            If (HPAE)
-                            {
-                                Return (0x0F)
-                            }
-                        }
-                        Else
-                        {
-                            If (HPAE)
-                            {
-                                Return (0x0B)
-                            }
-                        }
-
-                        Return (Zero)
-                    }
-
-                    Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
-                    {
-                        If (HPAE)
-                        {
-                            CreateDWordField (BUF0, \_SB.PCI0.LPCB.HPET._Y0F._BAS, HPT0)  // _BAS: Base Address
-                            If (LEqual (HPAS, One))
-                            {
-                                Store (0xFED01000, HPT0)
-                            }
-
-                            If (LEqual (HPAS, 0x02))
-                            {
-                                Store (0xFED02000, HPT0)
-                            }
-
-                            If (LEqual (HPAS, 0x03))
-                            {
-                                Store (0xFED03000, HPT0)
-                            }
-                        }
-
                         Return (BUF0)
                     }
                 }
@@ -4090,7 +4066,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             0x0070,             // Range Minimum
                             0x0070,             // Range Maximum
                             0x01,               // Alignment
-                            0x08,               // Length
+                            0x02,               // Length
                             )
                         
                     })
@@ -4866,6 +4842,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         EndDependentFn ()
                     })
                 }
+                Method (_DSM, 4, NotSerialized)
+                {
+                    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                    Return (Package()
+                    {
+                        "compatible", "pci8086,9c43",
+                    })
+                }
             }
 
             Device (RP03)
@@ -4950,8 +4934,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         Store (ToInteger (Arg0), _T_0)
                         If (LEqual (_T_0, Buffer (0x10)
                                 {
-                                    /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
-                                    /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
+                                    /* 0000 */  0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
+                                    /* 0008 */  0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D 
                                 }))
                         {
                             While (One)
@@ -4989,16 +4973,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                                             {
                                                 Return (Buffer (0x10)
                                                 {
-                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                    /* 0008 */   0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00
+                                                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */  0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00 
                                                 })
                                             }
                                             Else
                                             {
                                                 Return (Buffer (0x10)
                                                 {
-                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                    /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                                 })
                                             }
                                         }
@@ -5050,7 +5034,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
 
                     Return (Buffer (One)
                     {
-                         0x00
+                         0x00                                           
                     })
                 }
 
@@ -5243,8 +5227,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         Store (ToInteger (Arg0), _T_0)
                         If (LEqual (_T_0, Buffer (0x10)
                                 {
-                                    /* 0000 */   0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
-                                    /* 0008 */   0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D
+                                    /* 0000 */  0xD0, 0x37, 0xC9, 0xE5, 0x53, 0x35, 0x7A, 0x4D,
+                                    /* 0008 */  0x91, 0x17, 0xEA, 0x4D, 0x19, 0xC3, 0x43, 0x4D 
                                 }))
                         {
                             While (One)
@@ -5282,16 +5266,16 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                                             {
                                                 Return (Buffer (0x10)
                                                 {
-                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                    /* 0008 */   0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00
+                                                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */  0x00, 0x00, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00 
                                                 })
                                             }
                                             Else
                                             {
                                                 Return (Buffer (0x10)
                                                 {
-                                                    /* 0000 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                                    /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                                    /* 0000 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                                    /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                                 })
                                             }
                                         }
@@ -5343,7 +5327,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
 
                     Return (Buffer (One)
                     {
-                         0x00
+                         0x00                                           
                     })
                 }
 
@@ -5471,6 +5455,10 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         Return (GPRW (0x69, 0x03))
                     }
                 }
+            }
+            Device (IMEI)
+            {
+                Name (_ADR, 0x00160000)
             }
         }
     }
@@ -5872,8 +5860,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Return (PLDP)
@@ -5900,8 +5888,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xE1, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xE1, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -5929,8 +5917,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -5958,8 +5946,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -5993,8 +5981,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xE1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xE1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -6006,8 +5994,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
-                                        /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
-                                        /* 0008 */   0xBD, 0x0C, 0xBA, 0x90, 0xA1, 0xEC, 0x72, 0xF8
+                                        /* 0000 */  0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
+                                        /* 0008 */  0xBD, 0x0C, 0xBA, 0x90, 0xA1, 0xEC, 0x72, 0xF8 
                                     }))
                             {
                                 While (One)
@@ -6019,14 +6007,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                                         {
                                             Return (Buffer (One)
                                             {
-                                                 0x07
+                                                 0x07                                           
                                             })
                                         }
                                         Else
                                         {
                                             Return (Buffer (One)
                                             {
-                                                 0x00
+                                                 0x00                                           
                                             })
                                         }
                                     }
@@ -6081,8 +6069,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -6094,8 +6082,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
-                                        /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
-                                        /* 0008 */   0xBD, 0x0C, 0xBA, 0x90, 0xA1, 0xEC, 0x72, 0xF8
+                                        /* 0000 */  0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
+                                        /* 0008 */  0xBD, 0x0C, 0xBA, 0x90, 0xA1, 0xEC, 0x72, 0xF8 
                                     }))
                             {
                                 While (One)
@@ -6107,14 +6095,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                                         {
                                             Return (Buffer (One)
                                             {
-                                                 0x07
+                                                 0x07                                           
                                             })
                                         }
                                         Else
                                         {
                                             Return (Buffer (One)
                                             {
-                                                 0x00
+                                                 0x00                                           
                                             })
                                         }
                                     }
@@ -6169,8 +6157,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -6182,8 +6170,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
-                                        /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
-                                        /* 0008 */   0xBD, 0x0C, 0xBA, 0x90, 0xA1, 0xEC, 0x72, 0xF8
+                                        /* 0000 */  0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
+                                        /* 0008 */  0xBD, 0x0C, 0xBA, 0x90, 0xA1, 0xEC, 0x72, 0xF8 
                                     }))
                             {
                                 While (One)
@@ -6195,14 +6183,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                                         {
                                             Return (Buffer (One)
                                             {
-                                                 0x07
+                                                 0x07                                           
                                             })
                                         }
                                         Else
                                         {
                                             Return (Buffer (One)
                                             {
-                                                 0x00
+                                                 0x00                                           
                                             })
                                         }
                                     }
@@ -6257,8 +6245,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -6270,8 +6258,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
-                                        /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
-                                        /* 0008 */   0xBD, 0x0C, 0xBA, 0x90, 0xA1, 0xEC, 0x72, 0xF8
+                                        /* 0000 */  0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
+                                        /* 0008 */  0xBD, 0x0C, 0xBA, 0x90, 0xA1, 0xEC, 0x72, 0xF8 
                                     }))
                             {
                                 While (One)
@@ -6283,14 +6271,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                                         {
                                             Return (Buffer (One)
                                             {
-                                                 0x07
+                                                 0x07                                           
                                             })
                                         }
                                         Else
                                         {
                                             Return (Buffer (One)
                                             {
-                                                 0x00
+                                                 0x00                                           
                                             })
                                         }
                                     }
@@ -6345,8 +6333,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -6438,8 +6426,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Return (PLDP)
@@ -6466,8 +6454,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xE1, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xE1, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -6495,8 +6483,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -6508,8 +6496,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
-                                        /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
-                                        /* 0008 */   0xBD, 0x0C, 0xBA, 0x90, 0xA1, 0xEC, 0x72, 0xF8
+                                        /* 0000 */  0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
+                                        /* 0008 */  0xBD, 0x0C, 0xBA, 0x90, 0xA1, 0xEC, 0x72, 0xF8 
                                     }))
                             {
                                 While (One)
@@ -6521,14 +6509,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                                         {
                                             Return (Buffer (One)
                                             {
-                                                 0x07
+                                                 0x07                                           
                                             })
                                         }
                                         Else
                                         {
                                             Return (Buffer (One)
                                             {
-                                                 0x00
+                                                 0x00                                           
                                             })
                                         }
                                     }
@@ -6583,8 +6571,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xE1, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             CreateBitField (DerefOf (Index (PLDP, Zero)), 0x40, VIS)
@@ -6602,8 +6590,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                             If (LEqual (Arg0, Buffer (0x10)
                                     {
-                                        /* 0000 */   0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
-                                        /* 0008 */   0xBD, 0x0C, 0xBA, 0x90, 0xA1, 0xEC, 0x72, 0xF8
+                                        /* 0000 */  0x8F, 0x70, 0xFC, 0xA5, 0x75, 0x87, 0xA6, 0x4B,
+                                        /* 0008 */  0xBD, 0x0C, 0xBA, 0x90, 0xA1, 0xEC, 0x72, 0xF8 
                                     }))
                             {
                                 While (One)
@@ -6615,14 +6603,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                                         {
                                             Return (Buffer (One)
                                             {
-                                                 0x07
+                                                 0x07                                           
                                             })
                                         }
                                         Else
                                         {
                                             Return (Buffer (One)
                                             {
-                                                 0x00
+                                                 0x00                                           
                                             })
                                         }
                                     }
@@ -6677,8 +6665,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xE1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xE1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -6706,8 +6694,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -6735,8 +6723,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Buffer (0x10)
                                 {
-                                    /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                    /* 0008 */   0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                    /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                    /* 0008 */  0xB1, 0x1E, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                                 }
                             })
                             Return (PLDP)
@@ -6810,8 +6798,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
             {
                 If (LEqual (Arg0, Buffer (0x10)
                         {
-                            /* 0000 */   0xA9, 0x12, 0x95, 0x7C, 0x05, 0x17, 0xB4, 0x4C,
-                            /* 0008 */   0xAF, 0x7D, 0x50, 0x6A, 0x24, 0x23, 0xAB, 0x71
+                            /* 0000 */  0xA9, 0x12, 0x95, 0x7C, 0x05, 0x17, 0xB4, 0x4C,
+                            /* 0008 */  0xAF, 0x7D, 0x50, 0x6A, 0x24, 0x23, 0xAB, 0x71 
                         }))
                 {
                     Return (One)
@@ -6941,8 +6929,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, Zero)), Local0)
@@ -6990,8 +6978,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x69, 0x0C, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, One)), Local0)
@@ -7039,8 +7027,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x80, 0x01, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x80, 0x01, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, 0x02)), Local0)
@@ -7088,8 +7076,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, 0x03)), Local0)
@@ -7137,8 +7125,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x80, 0x02, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x69, 0x0C, 0x80, 0x02, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, 0x04)), Local0)
@@ -7186,8 +7174,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x69, 0x0C, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, 0x05)), Local0)
@@ -7235,8 +7223,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x80, 0x03, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x80, 0x03, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, 0x06)), Local0)
@@ -7284,8 +7272,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x00, 0x04, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x00, 0x04, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, 0x07)), Local0)
@@ -7333,8 +7321,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x80, 0x04, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x80, 0x04, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, 0x08)), Local0)
@@ -7409,8 +7397,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x00, 0x05, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x00, 0x05, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, 0x09)), Local0)
@@ -7480,8 +7468,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, 0x0A)), Local0)
@@ -7551,8 +7539,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, 0x0B)), Local0)
@@ -7622,8 +7610,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, 0x0C)), Local0)
@@ -7682,8 +7670,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, 0x0D)), Local0)
@@ -7742,8 +7730,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x81, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x30, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, 0x0E)), Local0)
@@ -7802,8 +7790,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x69, 0x0C, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, Zero)), Local0)
@@ -7862,8 +7850,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x69, 0x0C, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x69, 0x0C, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, One)), Local0)
@@ -7922,8 +7910,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x80, 0x01, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x80, 0x01, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, 0x02)), Local0)
@@ -7982,8 +7970,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x00, 0x02, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, 0x03)), Local0)
@@ -8042,8 +8030,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x80, 0x02, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x80, 0x02, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, 0x04)), Local0)
@@ -8102,8 +8090,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                         {
                             Buffer (0x10)
                             {
-                                /* 0000 */   0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
-                                /* 0008 */   0x71, 0x0C, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00
+                                /* 0000 */  0x01, 0xC6, 0x72, 0x00, 0x00, 0x00, 0x00, 0x00,
+                                /* 0008 */  0x71, 0x0C, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00 
                             }
                         })
                         Store (DerefOf (Index (VISB, 0x05)), Local0)
@@ -9681,8 +9669,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                 {
                     If (LEqual (Arg0, Buffer (0x10)
                             {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
+                                /* 0000 */  0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
+                                /* 0008 */  0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE 
                             }))
                     {
                         If (LEqual (Arg2, Zero))
@@ -9691,7 +9679,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                         }
@@ -9705,7 +9693,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -9750,8 +9738,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                 {
                     If (LEqual (Arg0, Buffer (0x10)
                             {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
+                                /* 0000 */  0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
+                                /* 0008 */  0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE 
                             }))
                     {
                         If (LEqual (Arg2, Zero))
@@ -9760,7 +9748,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                         }
@@ -9774,7 +9762,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -9855,8 +9843,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                 {
                     If (LEqual (Arg0, Buffer (0x10)
                             {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
+                                /* 0000 */  0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
+                                /* 0008 */  0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE 
                             }))
                     {
                         If (LEqual (Arg2, Zero))
@@ -9865,14 +9853,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -9886,7 +9874,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -9965,8 +9953,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                 {
                     If (LEqual (Arg0, Buffer (0x10)
                             {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
+                                /* 0000 */  0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
+                                /* 0008 */  0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE 
                             }))
                     {
                         If (LEqual (Arg2, Zero))
@@ -9975,14 +9963,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -9996,7 +9984,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -10041,8 +10029,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                 {
                     If (LEqual (Arg0, Buffer (0x10)
                             {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
+                                /* 0000 */  0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
+                                /* 0008 */  0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE 
                             }))
                     {
                         If (LEqual (Arg2, Zero))
@@ -10051,14 +10039,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -10072,7 +10060,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -10117,8 +10105,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                 {
                     If (LEqual (Arg0, Buffer (0x10)
                             {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
+                                /* 0000 */  0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
+                                /* 0008 */  0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE 
                             }))
                     {
                         If (LEqual (Arg2, Zero))
@@ -10127,14 +10115,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -10148,7 +10136,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -10193,8 +10181,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                 {
                     If (LEqual (Arg0, Buffer (0x10)
                             {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
+                                /* 0000 */  0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
+                                /* 0008 */  0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE 
                             }))
                     {
                         If (LEqual (Arg2, Zero))
@@ -10203,14 +10191,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -10224,7 +10212,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -10269,8 +10257,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                 {
                     If (LEqual (Arg0, Buffer (0x10)
                             {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
+                                /* 0000 */  0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
+                                /* 0008 */  0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE 
                             }))
                     {
                         If (LEqual (Arg2, Zero))
@@ -10279,14 +10267,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -10300,7 +10288,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -10345,8 +10333,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                 {
                     If (LEqual (Arg0, Buffer (0x10)
                             {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
+                                /* 0000 */  0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
+                                /* 0008 */  0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE 
                             }))
                     {
                         If (LEqual (Arg2, Zero))
@@ -10355,14 +10343,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -10376,7 +10364,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -10421,8 +10409,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                 {
                     If (LEqual (Arg0, Buffer (0x10)
                             {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
+                                /* 0000 */  0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
+                                /* 0008 */  0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE 
                             }))
                     {
                         If (LEqual (Arg2, Zero))
@@ -10431,14 +10419,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -10452,7 +10440,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -10497,8 +10485,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                 {
                     If (LEqual (Arg0, Buffer (0x10)
                             {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
+                                /* 0000 */  0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
+                                /* 0008 */  0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE 
                             }))
                     {
                         If (LEqual (Arg2, Zero))
@@ -10507,14 +10495,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -10528,7 +10516,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -10573,8 +10561,8 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                 {
                     If (LEqual (Arg0, Buffer (0x10)
                             {
-                                /* 0000 */   0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
-                                /* 0008 */   0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE
+                                /* 0000 */  0xF7, 0xF6, 0xDF, 0x3C, 0x67, 0x42, 0x55, 0x45,
+                                /* 0008 */  0xAD, 0x05, 0xB3, 0x0A, 0x3D, 0x89, 0x38, 0xDE 
                             }))
                     {
                         If (LEqual (Arg2, Zero))
@@ -10583,14 +10571,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x03
+                                     0x03                                           
                                 })
                             }
                             Else
                             {
                                 Return (Buffer (One)
                                 {
-                                     0x00
+                                     0x00                                           
                                 })
                             }
                         }
@@ -10604,7 +10592,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                     {
                         Return (Buffer (One)
                         {
-                             0x00
+                             0x00                                           
                         })
                     }
                 }
@@ -11051,14 +11039,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                     {
                         Name (PIB1, Buffer (0x07)
                         {
-                             0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF
+                             0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF       
                         })
                         Return (PIB1)
                     }
 
                     Name (PIB2, Buffer (0x07)
                     {
-                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00       
                     })
                     Return (PIB2)
                 }
@@ -11084,14 +11072,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                     {
                         Name (PIB1, Buffer (0x07)
                         {
-                             0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF
+                             0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF       
                         })
                         Return (PIB1)
                     }
 
                     Name (PIB2, Buffer (0x07)
                     {
-                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00       
                     })
                     Return (PIB2)
                 }
@@ -11117,14 +11105,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                     {
                         Name (PIB1, Buffer (0x07)
                         {
-                             0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF
+                             0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF       
                         })
                         Return (PIB1)
                     }
 
                     Name (PIB2, Buffer (0x07)
                     {
-                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00       
                     })
                     Return (PIB2)
                 }
@@ -11150,14 +11138,14 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
                     {
                         Name (PIB1, Buffer (0x07)
                         {
-                             0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF
+                             0x10, 0x09, 0x00, 0x00, 0x00, 0xB0, 0xEF       
                         })
                         Return (PIB1)
                     }
 
                     Name (PIB2, Buffer (0x07)
                     {
-                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+                         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00       
                     })
                     Return (PIB2)
                 }
@@ -11503,6 +11491,21 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
             {
                 Or (HCON, 0x02, HCON)
                 Or (HSTS, 0xFF, HSTS)
+            }
+            Device (BUS0)
+            {
+                Name (_CID, "smbus")
+                Name (_ADR, Zero)
+                Device (DVL0)
+                {
+                    Name (_ADR, 0x57)
+                    Name (_CID, "diagsvault")
+                    Method (_DSM, 4, NotSerialized)
+                    {
+                        If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                        Return (Package() { "address", 0x57 })
+                    }
+                }
             }
         }
     }
@@ -12009,6 +12012,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
             MNIO (Arg0)
             MNIO ("\n")
             Return (MDBG)
+            //Arg0
         }
 
         Return (Zero)
@@ -12330,7 +12334,7 @@ WAK (Arg0)
                     Store (0x07D3, OSYS)
                 }
 
-                If (_OSI ("Windows 2006"))
+                If(LOr(_OSI("Darwin"),_OSI("Windows 2006")))
                 {
                     Store (0x07D6, OSYS)
                 }
@@ -12437,8 +12441,8 @@ WAK (Arg0)
             CreateDWordField (Arg3, 0x04, CAP0)
             If (LEqual (Arg0, Buffer (0x10)
                     {
-                        /* 0000 */   0x6E, 0xB0, 0x11, 0x08, 0x27, 0x4A, 0xF9, 0x44,
-                        /* 0008 */   0x8D, 0x60, 0x3C, 0xBB, 0xC2, 0x2E, 0x7B, 0x48
+                        /* 0000 */  0x6E, 0xB0, 0x11, 0x08, 0x27, 0x4A, 0xF9, 0x44,
+                        /* 0008 */  0x8D, 0x60, 0x3C, 0xBB, 0xC2, 0x2E, 0x7B, 0x48 
                     }))
             {
                 If (LEqual (Arg1, One))
@@ -12851,15 +12855,15 @@ WAK (Arg0)
                 Name (_T_0, Zero)  // _T_x: Emitted by ASL Compiler
                 If (LEqual (Arg0, Buffer (0x10)
                         {
-                            /* 0000 */   0xE0, 0xBF, 0xFE, 0xB8, 0xF8, 0xBA, 0x4B, 0x45,
-                            /* 0008 */   0xAE, 0xCD, 0x49, 0xFB, 0x91, 0x13, 0x7B, 0x21
+                            /* 0000 */  0xE0, 0xBF, 0xFE, 0xB8, 0xF8, 0xBA, 0x4B, 0x45,
+                            /* 0008 */  0xAE, 0xCD, 0x49, 0xFB, 0x91, 0x13, 0x7B, 0x21 
                         }))
                 {
                     If (LEqual (Arg2, Zero))
                     {
                         Return (Buffer (One)
                         {
-                             0x07
+                             0x07                                           
                         })
                     }
 
@@ -12969,15 +12973,15 @@ WAK (Arg0)
 
                 If (LEqual (Arg0, Buffer (0x10)
                         {
-                            /* 0000 */   0xA0, 0x40, 0xEB, 0xC4, 0xD2, 0x6C, 0xE2, 0x11,
-                            /* 0008 */   0xBC, 0xFD, 0x08, 0x00, 0x20, 0x0C, 0x9A, 0x66
+                            /* 0000 */  0xA0, 0x40, 0xEB, 0xC4, 0xD2, 0x6C, 0xE2, 0x11,
+                            /* 0008 */  0xBC, 0xFD, 0x08, 0x00, 0x20, 0x0C, 0x9A, 0x66 
                         }))
                 {
                     If (LEqual (Arg2, Zero))
                     {
                         Return (Buffer (One)
                         {
-                             0x03
+                             0x03                                           
                         })
                     }
 
@@ -13375,9 +13379,9 @@ WAK (Arg0)
             {
                 Buffer (0x14)
                 {
-                    /* 0000 */   0x82, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                    /* 0008 */   0x24, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                    /* 0010 */   0xC8, 0x00, 0xA0, 0x00
+                    /* 0000 */  0x82, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    /* 0008 */  0x24, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                    /* 0010 */  0xC8, 0x00, 0xA0, 0x00                         
                 }
             })
             Return (PLDP)
@@ -14577,11 +14581,11 @@ BB1C,8,BB1D,8,BB1E,8,BB1F,8
 
             Name (_WDG, Buffer (0x28)
             {
-                /* 0000 */   0xD0, 0x5E, 0x84, 0x97, 0x6D, 0x4E, 0xDE, 0x11,
-                /* 0008 */   0x8A, 0x39, 0x08, 0x00, 0x20, 0x0C, 0x9A, 0x66,
-                /* 0010 */   0x4E, 0x42, 0x01, 0x02, 0x35, 0xBB, 0x3C, 0x0B,
-                /* 0018 */   0xC2, 0xE3, 0xED, 0x45, 0x91, 0xC2, 0x4C, 0x5A,
-                /* 0020 */   0x6D, 0x19, 0x5D, 0x1C, 0xFF, 0x00, 0x01, 0x08
+                /* 0000 */  0xD0, 0x5E, 0x84, 0x97, 0x6D, 0x4E, 0xDE, 0x11,
+                /* 0008 */  0x8A, 0x39, 0x08, 0x00, 0x20, 0x0C, 0x9A, 0x66,
+                /* 0010 */  0x4E, 0x42, 0x01, 0x02, 0x35, 0xBB, 0x3C, 0x0B,
+                /* 0018 */  0xC2, 0xE3, 0xED, 0x45, 0x91, 0xC2, 0x4C, 0x5A,
+                /* 0020 */  0x6D, 0x19, 0x5D, 0x1C, 0xFF, 0x00, 0x01, 0x08 
             })
             Method (WMNB, 3, NotSerialized)
             {
@@ -16059,7 +16063,7 @@ BB1C,8,BB1D,8,BB1E,8,BB1F,8
 
             Name (PWKB, Buffer (0x04)
             {
-                 0x00, 0x55, 0xAA, 0xFF
+                 0x00, 0x55, 0xAA, 0xFF                         
             })
             Method (SLKB, 1, NotSerialized)
             {
@@ -16099,6 +16103,48 @@ BB1C,8,BB1D,8,BB1E,8,BB1F,8
                 }
 
                 Return (Zero)
+            }
+            Name (BOFF, Zero)
+            Method (SKBL, 1, NotSerialized)
+            {
+                If (Or (LEqual (Arg0, 0xED), LEqual (Arg0, 0xFD)))
+                {
+                    If (LEqual(Arg0, BOFF))
+                    {
+                        Store (Zero, Local0)
+                    }
+                    Else
+                    {
+                        Return (One)
+                    }
+                }
+                Else
+                {
+                    If(Or (LEqual (Arg0, 0xEA), LEqual (Arg0, 0xFA)))
+                    {
+                        Store (KBLV, Local0)
+                        If (LEqual(Arg0, 0xEA))
+                        {
+                            Store (0xED, BOFF)
+                        }
+                        Else
+                        {
+                            Store (0xFD, BOFF)
+                        }
+                    }
+                    Else
+                    {
+                        Store (Arg0, Local0)
+                        Store (Arg0, KBLV)
+                    }
+                }
+                Store (DerefOf (Index (PWKB, Local0)), Local1)
+                ^^PCI0.LPCB.EC0.WRAM (0x04B1, Local1)
+                Return (One)
+            }
+            Method (GKBL, 1, NotSerialized)
+            {
+                Return (KBLV)
             }
         }
     }
@@ -16160,6 +16206,7 @@ BB1C,8,BB1D,8,BB1E,8,BB1F,8
             {
                 PCI0
             })
+            Name (_PRW, Package() { 0x18, 0x03 })
         }
     }
 
@@ -20782,14 +20829,14 @@ BB1C,8,BB1D,8,BB1E,8,BB1F,8
     {
         Name (PWAC, Buffer (0x40)
         {
-            /* 0000 */   0x1B, 0x2E, 0x3B, 0x48, 0x55, 0x61, 0x6E, 0x7B,
-            /* 0008 */   0x9A, 0xC5, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-            /* 0010 */   0x0E, 0x21, 0x2F, 0x40, 0x4E, 0x5F, 0x6D, 0x7B,
-            /* 0018 */   0x9A, 0xC5, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-            /* 0020 */   0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-            /* 0028 */   0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-            /* 0030 */   0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-            /* 0038 */   0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
+            /* 0000 */  0x1B, 0x2E, 0x3B, 0x48, 0x55, 0x61, 0x6E, 0x7B,
+            /* 0008 */  0x9A, 0xC5, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+            /* 0010 */  0x0E, 0x21, 0x2F, 0x40, 0x4E, 0x5F, 0x6D, 0x7B,
+            /* 0018 */  0x9A, 0xC5, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+            /* 0020 */  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+            /* 0028 */  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+            /* 0030 */  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
+            /* 0038 */  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF 
         })
         Name (F8FG, Zero)
         Name (BLCT, Zero)
@@ -21360,20 +21407,24 @@ BB1C,8,BB1D,8,BB1E,8,BB1F,8
         Method (_Q0C, 0, NotSerialized)  // _Qxx: EC Query
         {
             
+            
             If (ATKP)
             {
                 \_SB.ATKD.IANE (0x50)
             }
+
 
         }
 
         Method (_Q0D, 0, NotSerialized)  // _Qxx: EC Query
         {
             
+            
             If (ATKP)
             {
                 \_SB.ATKD.IANE (0x51)
             }
+
 
         }
 
@@ -21394,20 +21445,24 @@ BB1C,8,BB1D,8,BB1E,8,BB1F,8
         Method (_Q0E, 0, NotSerialized)  // _Qxx: EC Query
         {
             
+            
             If (ATKP)
             {
                 \_SB.ATKD.IANE (0x20)
             }
+
 
         }
 
         Method (_Q0F, 0, NotSerialized)  // _Qxx: EC Query
         {
             
+            
             If (ATKP)
             {
                 \_SB.ATKD.IANE (0x10)
             }
+
 
         }
 
@@ -21571,70 +21626,84 @@ BB1C,8,BB1D,8,BB1E,8,BB1F,8
         Method (_Q13, 0, NotSerialized)  // _Qxx: EC Query
         {
             
+            
             If (ATKP)
             {
                 \_SB.ATKD.IANE (0x32)
             }
+
 
         }
 
         Method (_Q14, 0, NotSerialized)  // _Qxx: EC Query
         {
             
+            
             If (ATKP)
             {
                 \_SB.ATKD.IANE (0x31)
             }
+
 
         }
 
         Method (_Q15, 0, NotSerialized)  // _Qxx: EC Query
         {
             
+            
             If (ATKP)
             {
                 \_SB.ATKD.IANE (0x30)
             }
+
 
         }
 
         Method (_Q6F, 0, NotSerialized)  // _Qxx: EC Query
         {
             
+            
             If (ATKP)
             {
                 \_SB.ATKD.IANE (0x45)
             }
+
 
         }
 
         Method (_Q6E, 0, NotSerialized)  // _Qxx: EC Query
         {
             
+            
             If (ATKP)
             {
                 \_SB.ATKD.IANE (0x43)
             }
+
 
         }
 
         Method (_Q6C, 0, NotSerialized)  // _Qxx: EC Query
         {
             
+            
             If (ATKP)
             {
                 \_SB.ATKD.IANE (0x40)
             }
+
 
         }
 
         Method (_Q6D, 0, NotSerialized)  // _Qxx: EC Query
         {
             
+            
             If (ATKP)
             {
                 \_SB.ATKD.IANE (0x41)
             }
+
 
         }
 
@@ -21645,30 +21714,36 @@ BB1C,8,BB1D,8,BB1E,8,BB1F,8
         Method (_Q71, 0, NotSerialized)  // _Qxx: EC Query
         {
             
+            
             If (ATKP)
             {
                 \_SB.ATKD.IANE (0x5C)
             }
+
 
         }
 
         Method (_Q72, 0, NotSerialized)  // _Qxx: EC Query
         {
             
+            
             If (ATKP)
             {
                 \_SB.ATKD.IANE (0x8A)
             }
+
 
         }
 
         Method (_Q73, 0, NotSerialized)  // _Qxx: EC Query
         {
             
+            
             If (ATKP)
             {
                 \_SB.ATKD.IANE (0x82)
             }
+
 
         }
 
@@ -23208,18 +23283,18 @@ BB1C,8,BB1D,8,BB1E,8,BB1F,8
     {
         Name (CNTB, Buffer (0x0E)
         {
-            /* 0000 */   0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0xFF, 0xFF,
-            /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+            /* 0000 */  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0xFF, 0xFF,
+            /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00             
         })
         Name (VISB, Buffer (0x0E)
         {
-            /* 0000 */   0x01, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00,
-            /* 0008 */   0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+            /* 0000 */  0x01, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00,
+            /* 0008 */  0x00, 0x00, 0x00, 0x00, 0x00, 0x00             
         })
         Name (SHPB, Buffer (0x0E)
         {
-            /* 0000 */   0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07,
-            /* 0008 */   0x07, 0x07, 0x07, 0x07, 0x07, 0x07
+            /* 0000 */  0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07, 0x07,
+            /* 0008 */  0x07, 0x07, 0x07, 0x07, 0x07, 0x07             
         })
         Name (BUPC, Package (0x04)
         {
@@ -23230,7 +23305,7 @@ BB1C,8,BB1D,8,BB1E,8,BB1F,8
         })
         Name (BPLD, Buffer (0x10)
         {
-             0x81, 0x00, 0x31, 0x00
+             0x81, 0x00, 0x31, 0x00                         
         })
         Method (OUPC, 1, Serialized)
         {
@@ -23553,9 +23628,9 @@ BB1C,8,BB1D,8,BB1E,8,BB1F,8
         {
             Buffer (0x14)
             {
-                /* 0000 */   0x82, 0x00, 0x00, 0x00, 0x14, 0x00, 0x14, 0x00,
-                /* 0008 */   0x25, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                /* 0010 */   0xFF, 0xFF, 0xFF, 0xFF
+                /* 0000 */  0x82, 0x00, 0x00, 0x00, 0x14, 0x00, 0x14, 0x00,
+                /* 0008 */  0x25, 0x1D, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                /* 0010 */  0xFF, 0xFF, 0xFF, 0xFF                         
             }
         })
         Device (DCAM)

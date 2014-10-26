@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>13B42</string>
+	<string>13E28</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0</string>
+	<string>2.4</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>2.0</string>
+	<string>2.4</string>
 	<key>DTCompiler</key>
 	<string></string>
 	<key>DTPlatformBuild</key>
@@ -48,38 +48,43 @@
 			<array>
 				<string>PNP0c14</string>
 				<string>PNP0C14</string>
+				<string>PnP0C14</string>
+				<string>pnp0c14</string>
 				<string>ASU010</string>
 				<string>ASU0100</string>
 				<string>ASU0010</string>
+				<string>ATK0100</string>
 			</array>
-			<key>IOProbeScore</key>
-			<integer>30</integer>
 			<key>IOProviderClass</key>
 			<string>IOACPIPlatformDevice</string>
 			<key>Preferences</key>
 			<dict>
 				<key>ALSEnabledAtBoot</key>
 				<false/>
-				<key>DimPanelBLightOnACBat</key>
+				<key>DimBacklightOnAC/DC</key>
 				<true/>
 				<key>F3KeyFunction</key>
 				<integer>0</integer>
 				<key>F4KeyFunction</key>
 				<integer>0</integer>
-				<key>HasKBBackLight</key>
+				<key>FinerBrightnessControl</key>
+				<true/>
+				<key>FinerVolumeControl</key>
 				<true/>
 				<key>HasMediaFnKeys</key>
-				<false/>
-				<key>HasSensorALS</key>
 				<true/>
-				<key>KBBackLightLvlAtBoot</key>
+				<key>IdleKBacklightAutoOff</key>
+				<false/>
+				<key>IdleKBacklightAutoOffTimeout</key>
+				<integer>10000</integer>
+				<key>InstantKeyFunction</key>
+				<integer>0</integer>
+				<key>KBackLightlvlAtBoot</key>
 				<integer>1</integer>
-				<key>MediaDoesFastRewind</key>
+				<key>MediaKeysDoFastRewind</key>
 				<false/>
-				<key>SoftPanelBackLightOff</key>
-				<false/>
-				<key>UsingAsusBackLight</key>
-				<false/>
+				<key>SoftDisplayBacklightOff</key>
+				<true/>
 			</dict>
 		</dict>
 		<key>FnKeysHIKeyboard</key>

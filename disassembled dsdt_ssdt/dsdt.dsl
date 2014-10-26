@@ -11950,7 +11950,7 @@ DefinitionBlock ("dsdt.aml", "DSDT", 2, "_ASUS_", "Notebook", 0x00000012)
             MNIO (Arg0)
             MNIO ("\n")
             Return (MDBG)
-            Arg0
+            //Arg0
         }
 
         Return (Zero)
