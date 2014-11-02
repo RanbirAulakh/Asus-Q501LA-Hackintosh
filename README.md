@@ -9,7 +9,7 @@ This is just educational purposes.
 
 PS: You are free to fork this and improve anything, if I see there is an improvement, I will accept changes!
 
-How to install Yosemite/Mavericks on Asus Q501LA:
+How to install Yosemite on Asus Q501LA:
 https://github.com/RanbirAulakh/Asus-Q501LA-Hackintosh/wiki
 
 ##Table of Content##
@@ -22,7 +22,6 @@ https://github.com/RanbirAulakh/Asus-Q501LA-Hackintosh/wiki
 * [FAQs](#FAQs)
 
 # <a name="Issues"></a> Issues
-- Sleep
 - SD Card Reader (not tested)
 
 # <a name="Changelog"></a> Changelog
@@ -68,13 +67,16 @@ https://github.com/RanbirAulakh/Asus-Q501LA-Hackintosh/wiki
     - Updated kexts
     - Updated Config.plist
 
+- Beta 2.4
+	- Remove one SSDT and updated Config.plist for Yosemite
+
 # <a name="Requirements"></a> Requirements
 - Asus Q501LA ( http://www.amazon.com/Asus-Q501LA-BBI5T03-15-6-Touch-Screen-Laptop/dp/B00FRSXJKI ) 
 - MaciASL ( http://sourceforge.net/projects/maciasl/files/ )
-- 10.9.0+ or 10.10
+- Mac OS x Yosemite (10.10)
 
 # <a name="Instructions"></a> Instructions
-This DSDT and SSDT only works in **Asus Q501LA**. This will **not work** on other laptop, there is a chance that it can mess up your hackintosh, laptop, or hardware.
+This DSDT and SSDT only works in **Asus Q501LA**. This will **not work** on other laptop.
 
 **How to open EFI parition:**
  1. open your terminal and type in
@@ -125,6 +127,7 @@ Then reboot, you should have close to 100% stable hackintosh.
 I wanted to say thanks to
 - MaciASL, Bootloader, InsanelyMac, TonyMac0Sx86
 - Rehabman Repo (Rehabman was the one who helped me a lot!).
+- conradolpz (for the sleep, changes in BIOs)
 
 Without you guys, I will never get stable hackintosh.
 

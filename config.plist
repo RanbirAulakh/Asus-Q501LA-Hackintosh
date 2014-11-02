@@ -9,18 +9,10 @@
 			<key>Debug</key>
 			<false/>
 			<key>DropOEM_DSM</key>
-			<true/>
+			<false/>
 			<key>Fixes</key>
 			<dict>
-				<key>AddIMEI_80000</key>
-				<true/>
-				<key>FIX_RTC_20000</key>
-				<true/>
-				<key>FIX_S3D_2000000</key>
-				<true/>
-				<key>FiX_WAK_200000</key>
-				<true/>
-				<key>NewWay_80000000</key>
+				<key>FixShutdown_0004</key>
 				<true/>
 			</dict>
 			<key>Name</key>
@@ -36,11 +28,9 @@
 		<array>
 			<dict>
 				<key>Signature</key>
-				<string>DMAR</string>
-			</dict>
-			<dict>
-				<key>Signature</key>
-				<string>MCFG</string>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>Cpu0lst</string>
 			</dict>
 			<dict>
 				<key>Signature</key>
@@ -50,9 +40,7 @@
 			</dict>
 			<dict>
 				<key>Signature</key>
-				<string>SSDT</string>
-				<key>TableId</key>
-				<string>Cpu0Ist</string>
+				<string>DMAR</string>
 			</dict>
 		</array>
 		<key>SSDT</key>
@@ -79,24 +67,24 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>-gux_defer_usb2 -gux_no_idle Kernel=mach_kernel</string>
-		<key>Legacy</key>
-		<string>LegacyBiosDefault</string>
+		<string>dart=0 -gux_no_idle -gux_nosleep kext-dev-mode=1</string>
 		<key>Log</key>
-		<false/>
+		<true/>
+		<key>NeverHibernate</key>
+		<true/>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
 		<integer>5</integer>
 		<key>XMPDetection</key>
-		<false/>
+		<string>Yes</string>
 	</dict>
 	<key>Devices</key>
 	<dict>
 		<key>Audio</key>
 		<dict>
 			<key>Inject</key>
-			<string>NO</string>
+			<string>No</string>
 		</dict>
 		<key>Inject</key>
 		<true/>
@@ -116,10 +104,14 @@
 	<dict>
 		<key>Mouse</key>
 		<dict>
+			<key>DoubleClick</key>
+			<integer>500</integer>
 			<key>Enabled</key>
 			<false/>
 			<key>Mirror</key>
 			<false/>
+			<key>Speed</key>
+			<integer>8</integer>
 		</dict>
 		<key>Scan</key>
 		<dict>
@@ -152,8 +144,6 @@
 	<key>KernelAndKextPatches</key>
 	<dict>
 		<key>AppleRTC</key>
-		<true/>
-		<key>AsusAICPUPM</key>
 		<true/>
 		<key>KernelPm</key>
 		<true/>
@@ -215,7 +205,7 @@
 	<key>SystemParameters</key>
 	<dict>
 		<key>InjectKexts</key>
-		<string>Yes</string>
+		<string>Detect</string>
 	</dict>
 </dict>
 </plist>
