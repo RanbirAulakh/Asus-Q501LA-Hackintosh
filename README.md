@@ -23,6 +23,7 @@ https://github.com/RanbirAulakh/Asus-Q501LA-Hackintosh/wiki
 
 # <a name="Issues"></a> Issues
 - SD Card Reader (not tested)
+- Slow Shutdown/Restart
 
 # <a name="Changelog"></a> Changelog
 - Beta 1.0
