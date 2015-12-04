@@ -8,7 +8,7 @@ https://github.com/RanbirAulakh/Asus-Q501LA-Hackintosh/wiki and additional readi
 https://github.com/gvkt/Asus-Q501LA-Hackintosh/wiki
 
 How to install El Capitan on Asus Q501LA:
-https://github.com/RanbirAulakh/Asus-Q501LA-Hackintosh/wiki/Install-El-Capitan-on-Asus-Q501LA
+https://github.com/RanbirAulakh/Asus-Q501LA-Hackintosh/wiki/Install-El-Capitan-on-Asus-Q501LA and download the [zip file](https://github.com/RanbirAulakh/Asus-Q501LA-Hackintosh/releases/tag/1.0)
 
 PS: You are free to fork this and improve anything, if there is an improvement, I will accept changes!
 
