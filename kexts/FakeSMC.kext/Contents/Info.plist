@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>12F37</string>
+	<string>14E46</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
@@ -17,28 +17,28 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>5.3.1100</string>
+	<string>6.18.1394</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1100</string>
+	<string>1394</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>5A1413</string>
+	<string>6E35b</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>12D75</string>
+	<string>14D125</string>
 	<key>DTSDKName</key>
-	<string>macosx10.8</string>
+	<string>macosx10.10</string>
 	<key>DTXcode</key>
-	<string>0500</string>
+	<string>0640</string>
 	<key>DTXcodeBuild</key>
-	<string>5A1413</string>
+	<string>6E35b</string>
 	<key>IOKitPersonalities</key>
 	<dict>
-		<key>SMC Device Emulator</key>
+		<key>FakeSMC</key>
 		<dict>
 			<key>CFBundleIdentifier</key>
 			<string>org.netkas.driver.FakeSMC</string>
@@ -72,23 +72,6 @@
 						<string>ch8*</string>
 					</array>
 				</dict>
-				<key>ExceptionKeys</key>
-				<dict>
-					<key>CLKH</key>
-					<integer>1</integer>
-					<key>CLKT</key>
-					<integer>1</integer>
-					<key>MSDW</key>
-					<integer>1</integer>
-					<key>NATJ</key>
-					<integer>1</integer>
-					<key>NATi</key>
-					<integer>1</integer>
-					<key>NTOK</key>
-					<integer>1</integer>
-					<key>WKTP</key>
-					<integer>0</integer>
-				</dict>
 				<key>Keys</key>
 				<dict>
 					<key>$Adr</key>
@@ -105,25 +88,25 @@
 						AQ==
 						</data>
 					</array>
-					<key>ACID</key>
-					<array>
-						<string>ch8*</string>
-						<data>
-						ur48RcADEEM=
-						</data>
-					</array>
-					<key>DPLM</key>
-					<array>
-						<string>{lim</string>
-						<data>
-						AAAA
-						</data>
-					</array>
 					<key>FNum</key>
 					<array>
 						<string>ui8</string>
 						<data>
 						AA==
+						</data>
+					</array>
+					<key>LsNM</key>
+					<array>
+						<string>ui8</string>
+						<data>
+						AQ==
+						</data>
+					</array>
+					<key>LsbV</key>
+					<array>
+						<string>{rev</string>
+						<data>
+						AQQKAAY=
 						</data>
 					</array>
 					<key>MSSD</key>
@@ -138,6 +121,13 @@
 						<string>si8</string>
 						<data>
 						BQ==
+						</data>
+					</array>
+					<key>NATJ</key>
+					<array>
+						<string>ui8</string>
+						<data>
+						AA==
 						</data>
 					</array>
 					<key>OSK0</key>
@@ -213,35 +203,48 @@
 			<key>IOClass</key>
 			<string>FakeSMC</string>
 			<key>IOMatchCategory</key>
-			<string>IOACPIPlatformDevice</string>
+			<string>FakeSMC</string>
 			<key>IOProviderClass</key>
 			<string>AppleACPIPlatformExpert</string>
 			<key>IOResourceMatch</key>
-			<string>ACPI</string>
+			<string>FakeSMCKeyStore</string>
+		</dict>
+		<key>FakeSMCKeyStore</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>org.netkas.driver.FakeSMC</string>
+			<key>IOClass</key>
+			<string>FakeSMCKeyStore</string>
+			<key>IOMatchCategory</key>
+			<string>FakeSMCKeyStore</string>
+			<key>IOProviderClass</key>
+			<string>IOResources</string>
+			<key>IOResourceMatch</key>
+			<string>IOKit</string>
+			<key>IOUserClientClass</key>
+			<string>FakeSMCKeyStoreUserClient</string>
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2013 netkas. All rights reserved.</string>
+	<string>Copyright © 2015 netkas. All rights reserved.</string>
 	<key>OSBundleCompatibleVersion</key>
-	<string>808</string>
+	<string>1212</string>
 	<key>OSBundleLibraries</key>
 	<dict>
 		<key>com.apple.iokit.IOACPIFamily</key>
 		<string>1.0.0d1</string>
 		<key>com.apple.kpi.bsd</key>
-		<string>9.0.0</string>
+		<string>10.6</string>
 		<key>com.apple.kpi.iokit</key>
-		<string>9.0.0</string>
+		<string>10.6</string>
 		<key>com.apple.kpi.libkern</key>
-		<string>9.0.0</string>
+		<string>10.6</string>
 		<key>com.apple.kpi.mach</key>
-		<string>9.0.0</string>
+		<string>10.6</string>
 		<key>com.apple.kpi.unsupported</key>
-		<string>9.0.0</string>
+		<string>10.6</string>
 	</dict>
 	<key>OSBundleRequired</key>
 	<string>Root</string>
-	<key>Source Code</key>
-	<string>"https://github.com/RehabMan/OS-X-FakeSMC-kozlek.git"</string>
 </dict>
 </plist>
