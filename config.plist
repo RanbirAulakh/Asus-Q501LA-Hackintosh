@@ -67,7 +67,7 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>dart=0 -gux_no_idle -gux_nosleep kext-dev-mode=1</string>
+		<string>dart=0 -gux_no_idle -gux_nosleep kext-dev-mode=1 rootless=0</string>
 		<key>Log</key>
 		<true/>
 		<key>NeverHibernate</key>
@@ -85,6 +85,11 @@
 		<dict>
 			<key>Inject</key>
 			<string>No</string>
+		</dict>
+		<key>FakeID</key>
+		<dict>
+			<key>IntelGFX</key>
+			<string>0x04128086</string>
 		</dict>
 		<key>Inject</key>
 		<true/>
@@ -125,7 +130,7 @@
 		<key>ScreenResolution</key>
 		<string>1920x1080</string>
 		<key>Theme</key>
-		<string>Yosemite</string>
+		<string>bluemac</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -140,6 +145,8 @@
 			<key>NVidia</key>
 			<false/>
 		</dict>
+		<key>ig-platform-id</key>
+		<string>0x0a260006</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
@@ -151,17 +158,113 @@
 		<array>
 			<dict>
 				<key>Comment</key>
+				<string>HDMI-audio, unsuppored HDAU 0c0c, 2 of 2 (0c0a to 0c0c)</string>
+				<key>Find</key>
+				<data>PQwKAAA=</data>
+				<key>Name</key>
+				<string>AppleHDAController</string>
+				<key>Replace</key>
+				<data>PQwMAAA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-audio, unsupported HDAU 0c0c, 1 of 2 (range check)</string>
+				<key>Find</key>
+				<data>PQsMAAA=</data>
+				<key>Name</key>
+				<string>AppleHDAController</string>
+				<key>Replace</key>
+				<data>PQwMAAA=</data>
+			</dict>
+            <dict>
+                <key>Comment</key>
+                <string>HDMI-audio, port 0105, 0x0a260005 0x0a260006, 0x0d220003, 0x0a2e000a, 0x0a26000a</string>
+                <key>Name</key>
+                <string>disabled:AppleIntelFramebufferAzul</string>
+                <key>Find</key>
+                <data>AQUJAAAEAACHAAAA</data>
+                <key>Replace</key>
+                <data>AQUJAAAIAACHAAAA</data>
+            </dict>
+            <dict>
+                <key>Comment</key>
+                <string>HDMI-audio, port 0204, 0x0a260005 0x0a260006</string>
+                <key>Name</key>
+                <string>disabled:AppleIntelFramebufferAzul</string>
+                <key>Find</key>
+                <data>AgQJAAAEAACHAAAA</data>
+                <key>Replace</key>
+                <data>AgQJAAAIAACHAAAA</data>
+            </dict>
+            <dict>
+                <key>Comment</key>
+                <string>HDMI-audio, port 0105(12), 0x0a260005 0x0a260006, 0x0d220003, 0x0a2e000a, 0x0a26000a</string>
+                <key>Name</key>
+                <string>disabled:AppleIntelFramebufferAzul</string>
+                <key>Find</key>
+                <data>AQUJAAAEAACHAAAA</data>
+                <key>Replace</key>
+                <data>AQUSAAAIAACHAAAA</data>
+            </dict>
+            <dict>
+                <key>Comment</key>
+                <string>HDMI-audio, port 0204(12), 0x0a260005 0x0a260006</string>
+                <key>Name</key>
+                <string>disabled:AppleIntelFramebufferAzul</string>
+                <key>Find</key>
+                <data>AgQJAAAEAACHAAAA</data>
+                <key>Replace</key>
+                <data>AgQSAAAIAACHAAAA</data>
+            </dict>
+			<dict>
+				<key>Comment</key>
+				<string>Boot graphics glitch, 10.10.0/10.10.1 (1 of 2)</string>
+				<key>Find</key>
+				<data>hcB0XUg=</data>
+				<key>Name</key>
+				<string>disabled:IOGraphicsFamily</string>
+				<key>Replace</key>
+				<data>McB0W0g=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Boot graphics glitch, 10.10.0/10.10.1 (2 of 2)</string>
+				<key>Find</key>
+				<data>QYjE6wM=</data>
+				<key>Name</key>
+				<string>disabled:IOGraphicsFamily</string>
+				<key>Replace</key>
+				<data>QYjE6yM=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Boot graphics glitch, 10.10.2</string>
+				<key>Find</key>
+				<data>QYjE6xE=</data>
+				<key>Name</key>
+				<string>disabled:IOGraphicsFamily</string>
+				<key>Replace</key>
+				<data>QYjE6zE=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>0x0a260006 9MB cursor bytes patch</string>
+				<key>Name</key>
+				<string>AppleIntelFramebufferAzul</string>
+				<key>Find</key>
+				<data>BgAmCgEDAwMAAAACAAAwAQAAYAA=</data>
+				<key>Replace</key>
+				<data>BgAmCgEDAwMAAAACAAAwAQAAkAA=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Trim Enabler</string>
 				<key>Find</key>
-				<data>
-				QVBQTEUgU1NE
-				</data>
+				<data>QVBQTEUgU1NE</data>
 				<key>Name</key>
 				<string>IOAHCIBlockStorage</string>
 				<key>Replace</key>
-				<data>
-				AAAAAAAAAAAA
-				</data>
+				<data>AAAAAAAAAAAA</data>
 			</dict>
 		</array>
 	</dict>
@@ -201,6 +304,13 @@
 		<false/>
 		<key>Version</key>
 		<string>1.0</string>
+	</dict>
+	<key>RtVariables</key>
+	<dict>
+		<key>BooterConfig</key>
+		<string>0x28</string>
+		<key>CsrActiveConfig</key>
+		<string>0x3</string>
 	</dict>
 	<key>SystemParameters</key>
 	<dict>
