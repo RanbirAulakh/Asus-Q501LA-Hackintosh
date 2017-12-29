@@ -1,6 +1,4 @@
-##Asus Q501LA Hackintosh##
-Hello,
-
+# Asus Q501LA Hackintosh
 This repo was inspired by and updated from the original found at:
 https://github.com/RanbirAulakh/Asus-Q501LA-Hackintosh
 
@@ -14,35 +12,23 @@ Note that this method is completely untested for macOS High Sierra. It is extrem
 First, you must install El Capitan, and set up the proper kexts and ssdt/dsdt's.
 After that, Sierra can be installed from the App store once booted.
 
-
-PS: You are free to fork this and improve anything, if there is an improvement, I will accept changes!
-
-##Table of Content##
-* [Issues](#Issues)
-* [Changelog](#Changelog)
-* [Requirements](#Requirements)
-* [Instructions](#Instructions)
-* [Kexts](#Kexts)
-* [Credit](#Credit)
-* [FAQs](#FAQs)
-
-# <a name="Issues"></a> Issues
+# Issues
 - SD Card Reader (not tested!)
 - HDMI/HDMI Audio (Kext is there, but havent tested it yet!)
 - Wake from Sleep (shuts down when trying to wake the laptop)
     - Don't know if this will ever work, none of the BIOS tested (204-212) change anything
 - Doesn't fully shutdown (50% of the time)
 
-# <a name="Changelog"></a> Changelog
+# Changelog
 - Updated for El Capitan
 - Updated for Sierra
 
-# <a name="Requirements"></a> Requirements
+# Requirements
 - Asus Q501LA ( http://www.amazon.com/Asus-Q501LA-BBI5T03-15-6-Touch-Screen-Laptop/dp/B00FRSXJKI ) 
 - MaciASL ( http://sourceforge.net/projects/maciasl/files/ ) --> Only needed if you want to modify some .aml files
 - MAC OSX distro, use AppStore. Please avoid 3rd-party distro(s)!
 
-# <a name="MacOS Installation/USB Instructions"></a> Instructions
+# MacOS Installation/USB Instructions
 1. Create an El Capitan/Clover bootable USB. The bulk of the instructions can be found on the original repo here:
 How to install El Capitan on Asus Q501LA:
 https://github.com/RanbirAulakh/Asus-Q501LA-Hackintosh/wiki/Install-El-Capitan-on-Asus-Q501LA but use the kexts and DSDT/SSDT's from my repo!
@@ -54,7 +40,7 @@ https://github.com/RanbirAulakh/Asus-Q501LA-Hackintosh/wiki/Install-El-Capitan-o
 
 Note that I do not provide any links to the El Capitan installer download...however it is out there...somewhere on the interwebs.
 
-# <a name="Postinstallation Instructions"></a> Instructions
+# Postinstallation Instructions
 **How to setup EFI parition (Must be done on first boot!):**
  1. First, install clover EFI if you haven't already. It should create and mount an EFI partition and copy the necessary clover files.
  https://sourceforge.net/projects/cloverefiboot/
@@ -62,9 +48,9 @@ Note that I do not provide any links to the El Capitan installer download...howe
 
  2. Delete all the 10.xx folders on the volume under /EFI/EFI/CLOVER/kexts.
 
- 2. Copy all the SSDT and DSDT aml files from the repo EFI/CLOVER/ACPI/patched folder to the same folder structure in the mounted volume.
+ 3. Copy all the SSDT and DSDT aml files from the repo EFI/CLOVER/ACPI/patched folder to the same folder structure in the mounted volume.
 
- 3. Copy the following kext files from the repo EFI/CLOVER/kexts/Other folder:
+ 4. Copy the following kext files from the repo EFI/CLOVER/kexts/Other folder:
  - IntelBacklight.kext
  - ACPIBatteryManager.kext
  - AsusNBFNKeys.kext
@@ -76,7 +62,7 @@ Note that I do not provide any links to the El Capitan installer download...howe
  - Lilu.kext
  - IntelGraphicsFixup.kext
 
- 4. Place `config.plist` in `/Volumes/EFI/EFI/CLOVER`, overwriting the stock one from installing Clover.
+ 5. Place `config.plist` in `/Volumes/EFI/EFI/CLOVER`, overwriting the stock one from installing Clover.
 
 **Installing kexts to /S/L/E:**
 1. Install Kext Wizard: https://www.hackintosh.zone/file/17-kext-wizard/
@@ -109,14 +95,14 @@ Time to upgrade to macOS Sierra.
 3. Fix permissions and rebuild kext cache using Kext Wizard.
 4. Run the disable_hibernate.sh script (may have to chmod +x) to disable hibernate. Hibernation is not supported on hackintosh.
 
-# <a name="Credit"></a> Credit
+# Credit
 - InsanelyMac, TonyOSx86, MaciASL
 - Rehabman & his repo
 - conradolpz - for sleep and changes in BIOs
 - [gvkt](https://github.com/gvkt/) - updated original repository for Yosemite
 - [RanbirAulakh](https://github.com/RanbirAulakh/) - updated repo to El Capitan
 
-# <a name="FAQs"></a> FAQs
+# FAQs
 **I got kernel panic. What should I do?**
 - It is most likey has to do with bad kexts you have installed. If you have Voodoo or anything related to Voodoo, just remove that and fix permissions using kext wizard, boot in **safe mode** to remove voodoo kexts.
 
