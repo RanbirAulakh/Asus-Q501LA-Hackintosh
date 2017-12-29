@@ -1,0 +1,132 @@
+9:377  2:781  Found BIOS RSDP at F0000
+9:377  0:000  Printing ACPI tables from RSDP F0000 ...
+9:377  0:000   F0000: 'RSD PTR ', Rev: 2 (Acpi 2.0 or newer), Len: 36
+9:377  0:000    (Xsdt: DAB06088, Rsdt: DAB06028)
+9:377  0:000    DAB06088: 'XSDT', 'Notebook', Rev: 1, Len: 156
+9:377  0:000    DAB06028: 'RSDT', 'Notebook', Rev: 1, Len: 96
+9:377  0:000    Tables in Xsdt: 15
+9:377  0:000    0. DAB1B0A8: 'FACP', 'Notebook', Rev: 5, Len: 268
+9:377  0:000        (Dsdt: DAB06240, Facs: DAB43080, XDsdt: DAB06240, XFacs: 0)
+9:377  0:000        DAB06240: 'DSDT', 'Notebook', Rev: 2, Len: 85605
+9:377  0:000        DAB43080: 'FACS', Ver: 2, Len: 64
+9:377  0:000    1. DAB1B1B8: 'APIC', 'Notebook', Rev: 3, Len: 114
+9:377  0:000    2. DAB1B230: 'FPDT', 'Notebook', Rev: 1, Len: 68
+9:377  0:000    3. DAB1B278: 'ECDT', 'Notebook', Rev: 1, Len: 193
+9:377  0:000    4. DAB1B340: 'SSDT', 'Cpu0Ist', Rev: 1, Len: 1337
+9:377  0:000    5. DAB1B880: 'SSDT', 'CpuPm', Rev: 1, Len: 2776
+9:377  0:000    6. DAB1C358: 'MCFG', 'Notebook', Rev: 1, Len: 60
+9:377  0:000    7. DAB1C398: 'SSDT', 'DptfTabl', Rev: 1, Len: 11953
+9:377  0:000    8. DAB1F250: 'HPET', 'Notebook', Rev: 1, Len: 56
+9:377  0:000    9. DAB1F288: 'SSDT', 'SataTabl', Rev: 1, Len: 727
+9:377  0:000    10. DAB1F560: 'SSDT', 'SaSsdt', Rev: 1, Len: 15574
+9:377  0:000    11. DAB23238: 'BGRT', 'Notebook', Rev: 0, Len: 56
+9:377  0:000    12. DAB23270: 'DMAR', 'HSW', Rev: 1, Len: 136
+9:377  0:000    13. DAB232F8: 'SSDT', 'IsctTabl', Rev: 1, Len: 1773
+9:377  0:000    14. D9B3EE18: 'MSDM', 'Notebook', Rev: 3, Len: 85
+9:377  0:000    Tables in Rsdt: 15
+9:377  0:000    0. DAB06130: 'FACP', 'Notebook', Rev: 2, Len: 268
+9:377  0:000        (Dsdt: DAB06240, Facs: DAB43040)
+9:377  0:000        DAB06240: 'DSDT', 'Notebook', Rev: 2, Len: 85605
+9:377  0:000        DAB43040: 'FACS', Ver: 0, Len: 64
+9:377  0:000    1. DAB1B1B8: 'APIC', 'Notebook', Rev: 3, Len: 114
+9:377  0:000    2. DAB1B230: 'FPDT', 'Notebook', Rev: 1, Len: 68
+9:377  0:000    3. DAB1B278: 'ECDT', 'Notebook', Rev: 1, Len: 193
+9:377  0:000    4. DAB1B340: 'SSDT', 'Cpu0Ist', Rev: 1, Len: 1337
+9:377  0:000    5. DAB1B880: 'SSDT', 'CpuPm', Rev: 1, Len: 2776
+9:377  0:000    6. DAB1C358: 'MCFG', 'Notebook', Rev: 1, Len: 60
+9:377  0:000    7. DAB1C398: 'SSDT', 'DptfTabl', Rev: 1, Len: 11953
+9:377  0:000    8. DAB1F250: 'HPET', 'Notebook', Rev: 1, Len: 56
+9:377  0:000    9. DAB1F288: 'SSDT', 'SataTabl', Rev: 1, Len: 727
+9:377  0:000    10. DAB1F560: 'SSDT', 'SaSsdt', Rev: 1, Len: 15574
+9:377  0:000    11. DAB23238: 'BGRT', 'Notebook', Rev: 0, Len: 56
+9:377  0:000    12. DAB23270: 'DMAR', 'HSW', Rev: 1, Len: 136
+9:377  0:000    13. DAB232F8: 'SSDT', 'IsctTabl', Rev: 1, Len: 1773
+9:377  0:000    14. D9B3EE18: 'MSDM', 'Notebook', Rev: 3, Len: 85
+9:377  0:000  Found UEFI Acpi 2.0 RSDP at DAB06000
+9:377  0:000  Saving ACPI tables from RSDP DAB06000 to EFI\CLOVER\ACPI\origin ...
+9:377  0:000   DAB06000: 'RSD PTR ', Rev: 2 (Acpi 2.0 or newer), Len: 36
+9:377  0:000    (Xsdt: DAB06088, Rsdt: DAB06028)
+9:377  0:000    DAB06088: 'XSDT', 'Notebook', Rev: 1, Len: 156
+9:377  0:000    DAB06028: 'RSDT', 'Notebook', Rev: 1, Len: 96
+9:377  0:000    Tables in Xsdt: 15
+9:377  0:000    0. DAB1B0A8: 'FACP', 'Notebook', Rev: 5, Len: 268
+9:377  0:000        (Dsdt: DAB06240, Facs: DAB43080, XDsdt: DAB06240, XFacs: 0)
+9:377  0:000        DAB06240: 'DSDT', 'Notebook', Rev: 2, Len: 85605
+9:377  0:000        DAB43080: 'FACS', Ver: 2, Len: 64
+9:377  0:000    1. DAB1B1B8: 'APIC', 'Notebook', Rev: 3, Len: 114
+9:377  0:000    2. DAB1B230: 'FPDT', 'Notebook', Rev: 1, Len: 68
+9:377  0:000    3. DAB1B278: 'ECDT', 'Notebook', Rev: 1, Len: 193
+9:377  0:000    4. DAB1B340: 'SSDT', 'Cpu0Ist', Rev: 1, Len: 1337
+9:377  0:000    5. DAB1B880: 'SSDT', 'CpuPm', Rev: 1, Len: 2776
+9:377  0:000    6. DAB1C358: 'MCFG', 'Notebook', Rev: 1, Len: 60
+9:377  0:000    7. DAB1C398: 'SSDT', 'DptfTabl', Rev: 1, Len: 11953
+9:377  0:000    8. DAB1F250: 'HPET', 'Notebook', Rev: 1, Len: 56
+9:377  0:000    9. DAB1F288: 'SSDT', 'SataTabl', Rev: 1, Len: 727
+9:377  0:000    10. DAB1F560: 'SSDT', 'SaSsdt', Rev: 1, Len: 15574
+9:377  0:000    11. DAB23238: 'BGRT', 'Notebook', Rev: 0, Len: 56
+9:377  0:000    12. DAB23270: 'DMAR', 'HSW', Rev: 1, Len: 136
+9:377  0:000    13. DAB232F8: 'SSDT', 'IsctTabl', Rev: 1, Len: 1773
+9:377  0:000    14. D9B3EE18: 'MSDM', 'Notebook', Rev: 3, Len: 85
+9:377  0:000    Tables in Rsdt: 15
+9:377  0:000    0. DAB06130: 'FACP', 'Notebook', Rev: 2, Len: 268
+9:377  0:000        (Dsdt: DAB06240, Facs: DAB43040)
+9:377  0:000        DAB06240: 'DSDT', 'Notebook', Rev: 2, Len: 85605
+9:377  0:000        DAB43040: 'FACS', Ver: 0, Len: 64
+9:377  0:000    1. DAB1B1B8: 'APIC', 'Notebook', Rev: 3, Len: 114
+9:377  0:000    2. DAB1B230: 'FPDT', 'Notebook', Rev: 1, Len: 68
+9:377  0:000    3. DAB1B278: 'ECDT', 'Notebook', Rev: 1, Len: 193
+9:377  0:000    4. DAB1B340: 'SSDT', 'Cpu0Ist', Rev: 1, Len: 1337
+9:377  0:000    5. DAB1B880: 'SSDT', 'CpuPm', Rev: 1, Len: 2776
+9:377  0:000    6. DAB1C358: 'MCFG', 'Notebook', Rev: 1, Len: 60
+9:377  0:000    7. DAB1C398: 'SSDT', 'DptfTabl', Rev: 1, Len: 11953
+9:377  0:000    8. DAB1F250: 'HPET', 'Notebook', Rev: 1, Len: 56
+9:377  0:000    9. DAB1F288: 'SSDT', 'SataTabl', Rev: 1, Len: 727
+9:377  0:000    10. DAB1F560: 'SSDT', 'SaSsdt', Rev: 1, Len: 15574
+9:377  0:000    11. DAB23238: 'BGRT', 'Notebook', Rev: 0, Len: 56
+9:377  0:000    12. DAB23270: 'DMAR', 'HSW', Rev: 1, Len: 136
+9:377  0:000    13. DAB232F8: 'SSDT', 'IsctTabl', Rev: 1, Len: 1773
+9:377  0:000    14. D9B3EE18: 'MSDM', 'Notebook', Rev: 3, Len: 85
+9:377  0:000  Found UEFI Acpi 1.0 RSDP at DAB06000
+9:377  0:000  Printing ACPI tables from RSDP DAB06000 ...
+9:377  0:000   DAB06000: 'RSD PTR ', Rev: 2 (Acpi 2.0 or newer), Len: 36
+9:377  0:000    (Xsdt: DAB06088, Rsdt: DAB06028)
+9:377  0:000    DAB06088: 'XSDT', 'Notebook', Rev: 1, Len: 156
+9:377  0:000    DAB06028: 'RSDT', 'Notebook', Rev: 1, Len: 96
+9:377  0:000    Tables in Xsdt: 15
+9:377  0:000    0. DAB1B0A8: 'FACP', 'Notebook', Rev: 5, Len: 268
+9:377  0:000        (Dsdt: DAB06240, Facs: DAB43080, XDsdt: DAB06240, XFacs: 0)
+9:377  0:000        DAB06240: 'DSDT', 'Notebook', Rev: 2, Len: 85605
+9:377  0:000        DAB43080: 'FACS', Ver: 2, Len: 64
+9:377  0:000    1. DAB1B1B8: 'APIC', 'Notebook', Rev: 3, Len: 114
+9:377  0:000    2. DAB1B230: 'FPDT', 'Notebook', Rev: 1, Len: 68
+9:377  0:000    3. DAB1B278: 'ECDT', 'Notebook', Rev: 1, Len: 193
+9:377  0:000    4. DAB1B340: 'SSDT', 'Cpu0Ist', Rev: 1, Len: 1337
+9:377  0:000    5. DAB1B880: 'SSDT', 'CpuPm', Rev: 1, Len: 2776
+9:377  0:000    6. DAB1C358: 'MCFG', 'Notebook', Rev: 1, Len: 60
+9:377  0:000    7. DAB1C398: 'SSDT', 'DptfTabl', Rev: 1, Len: 11953
+9:377  0:000    8. DAB1F250: 'HPET', 'Notebook', Rev: 1, Len: 56
+9:377  0:000    9. DAB1F288: 'SSDT', 'SataTabl', Rev: 1, Len: 727
+9:377  0:000    10. DAB1F560: 'SSDT', 'SaSsdt', Rev: 1, Len: 15574
+9:377  0:000    11. DAB23238: 'BGRT', 'Notebook', Rev: 0, Len: 56
+9:377  0:000    12. DAB23270: 'DMAR', 'HSW', Rev: 1, Len: 136
+9:377  0:000    13. DAB232F8: 'SSDT', 'IsctTabl', Rev: 1, Len: 1773
+9:377  0:000    14. D9B3EE18: 'MSDM', 'Notebook', Rev: 3, Len: 85
+9:377  0:000    Tables in Rsdt: 15
+9:377  0:000    0. DAB06130: 'FACP', 'Notebook', Rev: 2, Len: 268
+9:377  0:000        (Dsdt: DAB06240, Facs: DAB43040)
+9:377  0:000        DAB06240: 'DSDT', 'Notebook', Rev: 2, Len: 85605
+9:377  0:000        DAB43040: 'FACS', Ver: 0, Len: 64
+9:377  0:000    1. DAB1B1B8: 'APIC', 'Notebook', Rev: 3, Len: 114
+9:377  0:000    2. DAB1B230: 'FPDT', 'Notebook', Rev: 1, Len: 68
+9:377  0:000    3. DAB1B278: 'ECDT', 'Notebook', Rev: 1, Len: 193
+9:377  0:000    4. DAB1B340: 'SSDT', 'Cpu0Ist', Rev: 1, Len: 1337
+9:377  0:000    5. DAB1B880: 'SSDT', 'CpuPm', Rev: 1, Len: 2776
+9:377  0:000    6. DAB1C358: 'MCFG', 'Notebook', Rev: 1, Len: 60
+9:377  0:000    7. DAB1C398: 'SSDT', 'DptfTabl', Rev: 1, Len: 11953
+9:377  0:000    8. DAB1F250: 'HPET', 'Notebook', Rev: 1, Len: 56
+9:377  0:000    9. DAB1F288: 'SSDT', 'SataTabl', Rev: 1, Len: 727
+9:377  0:000    10. DAB1F560: 'SSDT', 'SaSsdt', Rev: 1, Len: 15574
+9:377  0:000    11. DAB23238: 'BGRT', 'Notebook', Rev: 0, Len: 56
+9:377  0:000    12. DAB23270: 'DMAR', 'HSW', Rev: 1, Len: 136
+9:377  0:000    13. DAB232F8: 'SSDT', 'IsctTabl', Rev: 1, Len: 1773
+9:377  0:000    14. D9B3EE18: 'MSDM', 'Notebook', Rev: 3, Len: 85
