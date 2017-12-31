@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>BuildMachineOSBuild</key>
-	<string>15A284</string>
+	<string>13A588</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>AppleHDAController</string>
 	<key>CFBundleGetInfoString</key>
-	<string>AppleHDAController 279.48, Copyright © 2000-2017 Apple Inc. All rights reserved.</string>
+	<string>2.5.2fc2, Copyright Apple Inc. 2005-2013</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.apple.driver.AppleHDAController</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -19,29 +19,25 @@
 	<key>CFBundlePackageType</key>
 	<string>KEXT</string>
 	<key>CFBundleShortVersionString</key>
-	<string>279.48</string>
+	<string>2.5.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
-	<key>CFBundleSupportedPlatforms</key>
-	<array>
-		<string>MacOSX</string>
-	</array>
 	<key>CFBundleVersion</key>
-	<string>279.48</string>
+	<string>2.5.2fc2</string>
 	<key>DTCompiler</key>
 	<string>com.apple.compilers.llvm.clang.1_0</string>
 	<key>DTPlatformBuild</key>
-	<string>8V109d</string>
+	<string>5A11344p</string>
 	<key>DTPlatformVersion</key>
 	<string>GM</string>
 	<key>DTSDKBuild</key>
-	<string>16G1111</string>
+	<string>13A588</string>
 	<key>DTSDKName</key>
-	<string>macosx10.12internal</string>
+	<string></string>
 	<key>DTXcode</key>
-	<string>0830</string>
+	<string>0500</string>
 	<key>DTXcodeBuild</key>
-	<string>8V109d</string>
+	<string>5A11344p</string>
 	<key>IOKitPersonalities</key>
 	<dict>
 		<key>BuiltInHDA</key>
@@ -107,8 +103,6 @@
 					<integer>10130</integer>
 				</dict>
 			</array>
-			<key>HighFIFOLimitSupport</key>
-			<array/>
 			<key>HwFactoryPrefixTranslation</key>
 			<array>
 				<dict>
@@ -155,7 +149,7 @@
 			<key>IOClass</key>
 			<string>AppleHDAController</string>
 			<key>IOPCIClassMatch</key>
-			<string>0x04010000&amp;0xFFFD0000</string>
+			<string>0x04020000&amp;0xFFFE0000</string>
 			<key>IOProviderClass</key>
 			<string>IOPCIDevice</string>
 			<key>RequireMaxBusStall</key>
@@ -170,29 +164,27 @@
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>AppleHDAController 279.48, Copyright © 2000-2017 Apple Inc. All rights reserved.</string>
+	<string>Copyright © 2004-2012 Apple Inc. All rights reserved.</string>
 	<key>OSBundleCompatibleVersion</key>
 	<string>1.0.0d1</string>
 	<key>OSBundleLibraries</key>
 	<dict>
-		<key>com.apple.iokit.IOAudioFamily</key>
-		<string>200.5</string>
 		<key>com.apple.iokit.IOGraphicsFamily</key>
 		<string>2.0</string>
 		<key>com.apple.iokit.IOHDAFamily</key>
-		<string>265.88</string>
+		<string>1.0.0d1</string>
 		<key>com.apple.iokit.IOPCIFamily</key>
 		<string>1.1</string>
 		<key>com.apple.kpi.bsd</key>
-		<string>8.0.0</string>
+		<string>8.0.0b3</string>
 		<key>com.apple.kpi.iokit</key>
-		<string>8.0.0</string>
+		<string>8.0.0b3</string>
 		<key>com.apple.kpi.libkern</key>
-		<string>8.0.0</string>
+		<string>8.0.0b3</string>
 		<key>com.apple.kpi.mach</key>
-		<string>8.0.0</string>
+		<string>8.0.0b3</string>
 		<key>com.apple.kpi.private</key>
-		<string>8.0.0</string>
+		<string>8.0.0b3</string>
 		<key>com.apple.kpi.unsupported</key>
 		<string>12.0</string>
 	</dict>

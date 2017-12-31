@@ -240,7 +240,7 @@
 		<key>Arguments</key>
 		<string>dart=0 darkwake=no nv_disable=1 -gux_no_idle -gux_nosleep kext-dev-mode=1 rootless=0</string>
 		<key>DefaultVolume</key>
-		<string>LastBootedVolume</string>
+		<string>OSX</string>
 		<key>NeverHibernate</key>
 		<true/>
 		<key>Secure</key>
@@ -502,18 +502,20 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Boot graphics glitch</string>
+				<string>Boot graphics glitch sierra</string>
 				<key>Disabled</key>
-				<true/>
+				<false/>
 				<key>Find</key>
 				<data>
-				AQAAdRc=
+				AQAAdSU=
 				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
 				<key>Name</key>
 				<string>IOGraphicsFamily</string>
 				<key>Replace</key>
 				<data>
-				AQAA6Xc=
+				AQAA6yU=
 				</data>
 			</dict>
 			<dict>
@@ -531,7 +533,7 @@
 				<string>com.apple.driver.AppleIntelFramebufferAzul</string>
 				<key>Replace</key>
 				<data>
-				BgAmCgEDAwMAAAACAAAwAQAAkAA=
+				BgAmCgEDAgIAAAACAAAwAQAACQA=
 				</data>
 			</dict>
 			<dict>
@@ -808,6 +810,24 @@
 				<key>Replace</key>
 				<data>
 				AgQSAAAIAAAHAQAA
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>0x11d4198a to zero</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				ihnUEQ==
+				</data>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
+				<key>Name</key>
+				<string>AppleHDA</string>
+				<key>Replace</key>
+				<data>
+				AAAAAA==
 				</data>
 			</dict>
 		</array>

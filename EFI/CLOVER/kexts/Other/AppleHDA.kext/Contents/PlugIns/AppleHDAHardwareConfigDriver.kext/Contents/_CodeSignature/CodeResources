@@ -6,110 +6,201 @@
 	<dict>
 		<key>version.plist</key>
 		<data>
-		GsbZIa/sgGeprnOkpYPBdvnq6gx8z4WiTFTvPXaRTdI=
+		2KGlec+lazGih/y9FmI+JqZ6H60=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>Info.plist</key>
+		<data>
+		Au1fgRelmpNgS3Lvs9RweDENBuU=
+		</data>
 		<key>version.plist</key>
 		<data>
-		GsbZIa/sgGeprnOkpYPBdvnq6gx8z4WiTFTvPXaRTdI=
+		2KGlec+lazGih/y9FmI+JqZ6H60=
 		</data>
 	</dict>
 	<key>rules</key>
 	<dict>
-		<key>^Resources/</key>
-		<true/>
-		<key>^Resources/.*\.lproj/</key>
+		<key>@[0-9]+</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>10</real>
+		</dict>
+		<key>\.licns$</key>
 		<dict>
 			<key>optional</key>
 			<true/>
 			<key>weight</key>
-			<real>1000</real>
+			<real>50</real>
+		</dict>
+		<key>^Resources/</key>
+		<true/>
+		<key>^Resources/.*\.lproj/</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>30</real>
 		</dict>
 		<key>^Resources/.*\.lproj/locversion.plist$</key>
 		<dict>
 			<key>omit</key>
 			<true/>
 			<key>weight</key>
-			<real>1100</real>
+			<real>30</real>
+		</dict>
+		<key>^Resources/.*\.nib/classes\.nib$</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>5</real>
+		</dict>
+		<key>^Resources/.*\.nib/data\.dependency$</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>5</real>
+		</dict>
+		<key>^Resources/.*\.nib/designable\.nib$</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>5</real>
+		</dict>
+		<key>^Resources/.*\.nib/info\.nib$</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>5</real>
+		</dict>
+		<key>^Resources/Base\.lproj/</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>35</real>
+		</dict>
+		<key>^Resources/BridgeSupport/[^/]*\.(bridgesupport|dylib)$</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>10</real>
+		</dict>
+		<key>^Resources/English\.lproj/</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>40</real>
 		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
 	<key>rules2</key>
 	<dict>
-		<key>.*\.dSYM($|/)</key>
-		<dict>
-			<key>weight</key>
-			<real>11</real>
-		</dict>
-		<key>^(.*/)?\.DS_Store$</key>
+		<key>@[0-9]+</key>
 		<dict>
 			<key>omit</key>
-			<true/>
-			<key>weight</key>
-			<real>2000</real>
-		</dict>
-		<key>^(Frameworks|SharedFrameworks|PlugIns|Plug-ins|XPCServices|Helpers|MacOS|Library/(Automator|Spotlight|LoginItems))/</key>
-		<dict>
-			<key>nested</key>
 			<true/>
 			<key>weight</key>
 			<real>10</real>
 		</dict>
-		<key>^.*</key>
-		<true/>
-		<key>^Info\.plist$</key>
-		<dict>
-			<key>omit</key>
-			<true/>
-			<key>weight</key>
-			<real>20</real>
-		</dict>
-		<key>^PkgInfo$</key>
-		<dict>
-			<key>omit</key>
-			<true/>
-			<key>weight</key>
-			<real>20</real>
-		</dict>
-		<key>^Resources/</key>
-		<dict>
-			<key>weight</key>
-			<real>20</real>
-		</dict>
-		<key>^Resources/.*\.lproj/</key>
+		<key>\.licns$</key>
 		<dict>
 			<key>optional</key>
 			<true/>
 			<key>weight</key>
-			<real>1000</real>
+			<real>50</real>
+		</dict>
+		<key>^(Frameworks|SharedFrameworks|Plugins|Plug-ins|XPCServices|Helpers|MacOS)/</key>
+		<dict>
+			<key>nested</key>
+			<true/>
+			<key>weight</key>
+			<real>0.0</real>
+		</dict>
+		<key>^Resources/</key>
+		<true/>
+		<key>^Resources/.*\.lproj/</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>30</real>
 		</dict>
 		<key>^Resources/.*\.lproj/locversion.plist$</key>
 		<dict>
 			<key>omit</key>
 			<true/>
 			<key>weight</key>
-			<real>1100</real>
+			<real>30</real>
 		</dict>
-		<key>^[^/]+$</key>
+		<key>^Resources/.*\.nib/classes\.nib$</key>
 		<dict>
-			<key>nested</key>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>5</real>
+		</dict>
+		<key>^Resources/.*\.nib/data\.dependency$</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>5</real>
+		</dict>
+		<key>^Resources/.*\.nib/designable\.nib$</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>5</real>
+		</dict>
+		<key>^Resources/.*\.nib/info\.nib$</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>5</real>
+		</dict>
+		<key>^Resources/Base\.lproj/</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>35</real>
+		</dict>
+		<key>^Resources/BridgeSupport/[^/]*\.(bridgesupport|dylib)$</key>
+		<dict>
+			<key>omit</key>
 			<true/>
 			<key>weight</key>
 			<real>10</real>
 		</dict>
-		<key>^embedded\.provisionprofile$</key>
+		<key>^Resources/English\.lproj/</key>
 		<dict>
+			<key>optional</key>
+			<true/>
 			<key>weight</key>
-			<real>20</real>
+			<real>40</real>
 		</dict>
-		<key>^version\.plist$</key>
+		<key>^[^/]+$</key>
 		<dict>
+			<key>top</key>
+			<true/>
 			<key>weight</key>
-			<real>20</real>
+			<real>0.0</real>
 		</dict>
+		<key>^version.plist$</key>
+		<true/>
 	</dict>
 </dict>
 </plist>

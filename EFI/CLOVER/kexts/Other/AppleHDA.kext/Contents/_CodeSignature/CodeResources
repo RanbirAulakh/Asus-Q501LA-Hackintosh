@@ -4,1602 +4,887 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Resources/Dutch.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			4RVT+QGArgvZkYUFELlcwFfhOmxSGROAw6W1cnyZTos=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>Resources/English.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			BDCXcUwZY27b4+2KmpTmul++WpKAV8KBluAr8YacKzQ=
+			qrBBM88LjrluZyeWm3VYCBzlco8=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>Resources/French.lproj/Localizable.strings</key>
+		<key>Resources/English.lproj/locversion.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+3Sixqx5L57cqg/ivtLnFivRZ/+5n4BxQj01XFWjH/I=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/German.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ojmS+KEd9m5ZkRLyByISiAATI82hEBvulVCZUwBpV/k=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/Italian.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			UVd/+/cy0z0uEIvXP7HK6GbWOVBgu70U/KB2iOKcw7A=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/Japanese.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			MxH0wTLRv3g8MWFBgwjZhwhi1MYHLxRffOU6N0z9W5o=
+			bFmnVnb/Vp6jtuPdtDDh3aru78I=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
 		<key>Resources/Platforms.xml.zlib</key>
 		<data>
-		CTLNmT7eU0UAnwEMB/xH7lw44ddl8/5YmixCwuIJUjY=
+		7NHabPVFdydCwRz8QLqoaY8E0m8=
 		</data>
-		<key>Resources/Spanish.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			bhlhrz8TojQSOpsPGSSxMz5CJBvvkdeZ3shUj425Um4=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/ar.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			iA55wJsOG4i2mc5DdiMUq24t7FKn4nTD1rkprfC8oS4=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/ca.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			J/TFZ9Ru1ob2j7CKvvkquvt76DSpYqBUaq0Dyye8HGc=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/cs.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ToHn1JGdPkomuSpT+PfVAFir9BAa/RDfK8lP5QLV3yM=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/da.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			yWjoyyMoYPTYgbaoEFHm81Bv9pei9yFnLNLvtkeB/lM=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/el.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			oM941ZQ/yKFLU1Ojs3zsLSzM4R3YuvxUZZ3dXtJn8TQ=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/es_419.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			y6MEzeo3lV6DrRb0lj8HkC1Kd8pUYFvKVYe25bf57/s=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/fi.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			3Y6JA4rVjmv0MAYj1MDdYPrFOSJ4L2N8aM7zOxpPc/E=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/he.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			dnxAYHok01Ixh6gSj5MrHm1fNR0bZB+AaMaUS6FDgwY=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/hr.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			k3ZjJ+BFANLO7wh6Wp8oSQX5xkzmaYDAcqtdABelFtQ=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/hu.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			m7VeOV0L7M3ncGRhuac2IF1R97/NlAkP2TrlJ8Rih0A=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/id.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			MzHC/8hEjhM/FVF8w2AEcE7PY7AVQQBmCR0gyltTiTQ=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/ko.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2KljxsB8/N4AW+tjFOqAsk+D2PPoOakVfkdRuLK6RC0=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>Resources/layout0.xml.zlib</key>
 		<data>
-		nAiq5G3gY6rOIk7OBjSzYfQAfRYQ+kDrInxsPUX13BY=
+		PpxaBh1lwfg3ikSLg039TGnZNz8=
 		</data>
 		<key>Resources/layout1.xml.zlib</key>
 		<data>
-		bub2FVrx5Nmjwnb7l7H6Q2DZ0/V7h+6at3gRqklvqOw=
+		IX1anzSCBRmLw7hkwyzRtDu3ou0=
 		</data>
 		<key>Resources/layout10.xml.zlib</key>
 		<data>
-		8reLnMM4+WwwhrPzD/tAMPT+Rt8Xc8C+/WNBJZO8og4=
-		</data>
-		<key>Resources/layout100.xml.zlib</key>
-		<data>
-		q0CPTNOsVoaizDE+i4toNoU7/OXnO4aQWo/23Jt8REI=
-		</data>
-		<key>Resources/layout101.xml.zlib</key>
-		<data>
-		2mvIIQlf5cZ+ffD1tq0R6y4NrceP/I3VtHpW7NpcuAw=
-		</data>
-		<key>Resources/layout102.xml.zlib</key>
-		<data>
-		gS1RBrp96gJpDGER7al/L8UkmR9N6WLtZqDJf2KjKpM=
+		CXsJtNyaEfS7Hw9ccDO/d+xpCG0=
 		</data>
 		<key>Resources/layout107.xml.zlib</key>
 		<data>
-		g2bzEWdGQwOQe0CID3z/Y6L23087dyf9BIUxFMi/nCc=
-		</data>
-		<key>Resources/layout108.xml.zlib</key>
-		<data>
-		VB2lzAuDBkC4uJVYyvugjKisRyzsKx1nBrR7Nt3+gbM=
+		GyJlOCzLoDC6owptO55Yd6peOIQ=
 		</data>
 		<key>Resources/layout11.xml.zlib</key>
 		<data>
-		CCYEjtIUpIYDM568u0VfG0mJdW5E8nZIBgBqWUbG5Ow=
+		szo3lMzwZJmVXstcvhDzaSa0VDU=
 		</data>
 		<key>Resources/layout113.xml.zlib</key>
 		<data>
-		xnnBcMDHQ/xpOIy5sf0n0eH2xfiMfXPNV/9MZyYHI68=
+		B8qeTR/DUIqAaqZ9fzIdjah+f7U=
 		</data>
 		<key>Resources/layout114.xml.zlib</key>
 		<data>
-		njrc0wxg5Xy84ULwXqnYkpYYUzV6IIb88yGfttxmZOM=
+		SSetyOeZOUEdZXLoPoOPwjdM2wM=
 		</data>
 		<key>Resources/layout12.xml.zlib</key>
 		<data>
-		lxb2EerqvVRh4EcOOwQ3IoXi2gFrLCD6ySJV+p1DBzQ=
+		+02HLiR7TFbHOVn0vFib/9pA4zA=
 		</data>
 		<key>Resources/layout120.xml.zlib</key>
 		<data>
-		w0vLJ66O/icGNy+D0OQ3JUjshvTbs0Bla1lhRObd7Yc=
-		</data>
-		<key>Resources/layout121.xml.zlib</key>
-		<data>
-		qdsf7D5qr5Gy4FSM8M4mcSdD2c6vYbXD1WkfAWU5MGU=
-		</data>
-		<key>Resources/layout122.xml.zlib</key>
-		<data>
-		jnkfo3cTJ1FmS70PYlwSz+8wY3BAGPH1Cs9hftZIVM8=
-		</data>
-		<key>Resources/layout123.xml.zlib</key>
-		<data>
-		RWcXEfvLChGHKKulPxTkrvPnYh13wDeejnxoQ96pye0=
-		</data>
-		<key>Resources/layout124.xml.zlib</key>
-		<data>
-		XcAbiILhocMiyjd9CAhgMiWqIoqhi6/LR8YC0MsKDlQ=
-		</data>
-		<key>Resources/layout125.xml.zlib</key>
-		<data>
-		5izEuS88Y4k+W9Cdz1nNcbI7TnW/m6On9tdhrLZfSqI=
-		</data>
-		<key>Resources/layout126.xml.zlib</key>
-		<data>
-		FSzxFCZV5Jz8MASjCDPLvYTj1WtrEHjTouiH35tU7s4=
-		</data>
-		<key>Resources/layout127.xml.zlib</key>
-		<data>
-		qpzsq7VZHlTosMmT03U74J6jnLp1Sv66R6y5RwVb2gU=
-		</data>
-		<key>Resources/layout128.xml.zlib</key>
-		<data>
-		lMtvMKFo0Ix7x8+C2kljZrU1pnCwxitBCccnSX9hvDM=
-		</data>
-		<key>Resources/layout129.xml.zlib</key>
-		<data>
-		wHqTVx19GMGYv7BeYur8idfdMENihE+Po5KSQWC0qqY=
+		rtO+u9lVCFN0P59a9YsonfXTf+U=
 		</data>
 		<key>Resources/layout13.xml.zlib</key>
 		<data>
-		BtFJyXdT3b7s8IDSg7o1/egWHNybBTLWhK+rX3DuD3M=
-		</data>
-		<key>Resources/layout130.xml.zlib</key>
-		<data>
-		P7rQbRSqi5mVUcnM/UZBi3DnaQr0pB5iNlhpYNNhVs0=
-		</data>
-		<key>Resources/layout131.xml.zlib</key>
-		<data>
-		s+orQONOAo6uHF88PcHeIWz9XVmRLRw/XwhKpHkaeFQ=
-		</data>
-		<key>Resources/layout14.xml.zlib</key>
-		<data>
-		RzjJp0J7C/1c4fxwEYiu4dE1UqW+0EjFIfzNd8Vg/bk=
-		</data>
-		<key>Resources/layout15.xml.zlib</key>
-		<data>
-		SB0y7s5H6muBMJfXkROTvJBEiDsfHIC1EGMk5sCOttQ=
-		</data>
-		<key>Resources/layout16.xml.zlib</key>
-		<data>
-		QTx0KJ51/4v4J1o7N+YhoblVYSpUFlXDfpwn2QH5qd8=
+		HLqwEK7lhUJIdLnjoHZ5kLCI5xs=
 		</data>
 		<key>Resources/layout16392.xml.zlib</key>
 		<data>
-		9po9nu912jeuITUrCLQRA+fA++SpYUOTXmu7gxM9n0w=
+		Wtt7ofHghf8UGEqj9wZ4s7I1fRg=
 		</data>
 		<key>Resources/layout16394.xml.zlib</key>
 		<data>
-		bc9GacbY0AAv5YyMfNehB3CQi8jEPBH2pbJFJmEJTWk=
+		7XsLxJmciIZDjBq0sr6WxqhSiUA=
 		</data>
 		<key>Resources/layout17.xml.zlib</key>
 		<data>
-		VGRUPjzNrDv/KNWwigkj4llaemL/cwEUXpsS7QnxSS8=
+		77MJl+naQ3e9xx28fkoK/stCUis=
 		</data>
 		<key>Resources/layout18.xml.zlib</key>
 		<data>
-		Jq1Mgl6HBW8de0BojeqSr93CPdR9gj76HpoZFt2xpKc=
+		+M3hlmphwvuiXUm+oEf1d0hdTSg=
 		</data>
 		<key>Resources/layout19.xml.zlib</key>
 		<data>
-		k0rj/RtUWKlljGFZTZOe5bIpxaPyG49kyc10GCunOzI=
+		+2sMhOXsuMLVW+eSWTASkcUwV3k=
 		</data>
 		<key>Resources/layout2.xml.zlib</key>
 		<data>
-		sSliXto91dFMAXXQJFZskZIJteeXFEgbwAgo+TKZgiM=
+		RTLburGpi2eCvZwD2bX0e5dCM/0=
 		</data>
 		<key>Resources/layout20.xml.zlib</key>
 		<data>
-		5dY7nlJqJHf7v80BpsoQQapRz2InEKS8QelNQ8Urc1g=
+		0hmDkvS7ggZp2xkWSnd0iAIyRP4=
 		</data>
 		<key>Resources/layout21.xml.zlib</key>
 		<data>
-		4a/2mbBOfH4/B8KwkFW6dPe64hUMh/YYN8ekIXUnU3g=
+		nB+IU0ONUlyQUSK2DAhbBlifPww=
 		</data>
 		<key>Resources/layout24.xml.zlib</key>
 		<data>
-		FQ97eK05eBLUEqZ03hVWgE83tshhx8ElMdKr5MHxN+w=
+		/kpFTbOf/hnlrDN6scyQjUmOgB4=
 		</data>
 		<key>Resources/layout27.xml.zlib</key>
 		<data>
-		L8uhn0f6e/IpJwIZtuYYqc5YZ4L6ZzIUiGSgXu3pohc=
+		k3MqaA0KiWmVhoOpA9wfHkVt5QA=
 		</data>
 		<key>Resources/layout28.xml.zlib</key>
 		<data>
-		fi49MnRZQcRYh0O63iBzLu+6HpQ4YQTCHOQnfffbQEQ=
+		uXi5eYa87X6SfcWZDxJpJq7TmF0=
 		</data>
 		<key>Resources/layout29.xml.zlib</key>
 		<data>
-		z5vAq6EuLWMxfoiYN2l2+qVUMyMkcTknndv+tkNN7GE=
+		A3ySU0+jAlgSftt5iX6Yc/+y+a8=
 		</data>
 		<key>Resources/layout3.xml.zlib</key>
 		<data>
-		2qeGjzkSXIEYcvumV0aef5yV2DeSeYTtv4pCkVJXxqk=
+		yEMe7gw2YHb40wCIvszoeoh+RGY=
 		</data>
 		<key>Resources/layout31.xml.zlib</key>
 		<data>
-		ixYuFqKLWLAZrAyC2RrCqgg9UaekjHGbzgxbS0KH+Nc=
+		IdSimtw+JWTWUAMIrQVrdwjiJ/8=
 		</data>
 		<key>Resources/layout32.xml.zlib</key>
 		<data>
-		YUzKmENWdJN7idaM0OTOPNLo4HlX83FHgwWkqI9N0jo=
+		W14wjWPtFidGMZyt2beLsBSahJ8=
 		</data>
 		<key>Resources/layout33.xml.zlib</key>
 		<data>
-		un6U5gppHjLe69VSQugHjeHwRL1vJhAjq0jEo6DjObw=
+		WBLJ0Hv4LvFoY1bFIURCApe/Zik=
 		</data>
 		<key>Resources/layout35.xml.zlib</key>
 		<data>
-		yHwIUlKve9msCQTMU2SL7MT6fjBGHSF7q40qJ6XmciM=
+		CY5bf0GWqsca6doWzTZNmrYEpjQ=
 		</data>
 		<key>Resources/layout36.xml.zlib</key>
 		<data>
-		UAnbhlPmY29Z4/0dasvZEtLPlVcRtR7uDtC6a0Uch8M=
+		lS4Fr0CZk+H3pXIYlhFiKgSUQnk=
 		</data>
 		<key>Resources/layout38.xml.zlib</key>
 		<data>
-		Y0Ulqm9LhL3NmYu64H2aS3Z3L1syAF9A//u7ru+e2+c=
+		5rxBPcS9/qSlHtDpMiNUDGahczM=
 		</data>
 		<key>Resources/layout39.xml.zlib</key>
 		<data>
-		FJ3zYKff1vBHWW/o3K5kundHQWlPgB7ztC9h6tXzx/c=
+		FYivKtVbM+jxoEC0CDeqFrAIfo0=
 		</data>
 		<key>Resources/layout4.xml.zlib</key>
 		<data>
-		phngz5bvuwTAXYQfJzeyprZZHF9R+wbMTu2rBe2WEPc=
+		VZirlz8xgbX4j5TgHaukyNep1PQ=
 		</data>
 		<key>Resources/layout40.xml.zlib</key>
 		<data>
-		jEHRt8yL41ECkwaFPtHfbr0Wy85P3jHFkfXTp9AFX1E=
+		dsdg+bM437AOR7lpxbaEPNb59d8=
 		</data>
 		<key>Resources/layout42.xml.zlib</key>
 		<data>
-		YYJ4LeusgmIGQeaAMLGhqIAner3UhgDZ1vmfy2gUC84=
+		EYMZQXcg/c30Urz4v/cYqPJ+30M=
 		</data>
 		<key>Resources/layout44.xml.zlib</key>
 		<data>
-		QIO/crnsMICIpWu16QCFj+hJTAXD9Utl0Uz+c/h5q24=
+		X7fqk/CMlfq376AZOUOmKqCs6Cs=
 		</data>
 		<key>Resources/layout46.xml.zlib</key>
 		<data>
-		ehju7jFPloBcgXeDWr5mfpTFEHjgAWZBKfWrIwcrtTw=
+		fdziWzmLJwDzW4SKjsFBmxpolNE=
 		</data>
 		<key>Resources/layout48.xml.zlib</key>
 		<data>
-		Ee1KsnFGpZ+oj6DONpd+dLjbRxYgv095msjEXOo1Kx0=
+		vbr23z1EsmExbKnC+rIXEUZ9Kgo=
 		</data>
 		<key>Resources/layout5.xml.zlib</key>
 		<data>
-		MGgfnMS7HH+sJgRPmgverxbx7jZRbuldamBFVbwUbt4=
+		/2vQOMn9OCsPpfHKbfj9z8JAzZs=
 		</data>
 		<key>Resources/layout50.xml.zlib</key>
 		<data>
-		tWVS7hy2zTbOkO11hx7o7/F9sosW0LeMfZiLZUwS1eE=
-		</data>
-		<key>Resources/layout51.xml.zlib</key>
-		<data>
-		X8EJq1RyMRi/UrwDU/e2fOxjHwPaF1BGtGkQvd6vhuw=
+		F+cyPDRwMi/k6TzYjwFuyV1rWJQ=
 		</data>
 		<key>Resources/layout53.xml.zlib</key>
 		<data>
-		Kq+RljaW958v4q0fnsa/MGU/lSOeXUUxw6/RkjtuyAY=
-		</data>
-		<key>Resources/layout54.xml.zlib</key>
-		<data>
-		FM0KEZqmgNNjMLyRBRjqSqvwOk72mc1wdYjMWiiRhtE=
-		</data>
-		<key>Resources/layout55.xml.zlib</key>
-		<data>
-		2s0vhnNQhPC9vWIJ6rWNu53qNDP8MkHqch7bEGS0so0=
+		PL2Lisa9tm0K5aoyBNagvpt/GFg=
 		</data>
 		<key>Resources/layout56.xml.zlib</key>
 		<data>
-		pBRbkQnh1g+eYzHCFWm1TjKHzyjDnTCe1kVhZZgy3B0=
-		</data>
-		<key>Resources/layout57.xml.zlib</key>
-		<data>
-		d9FtwrPWBabwd4RbSLhc8qQbZIIq+ouql3JiDGwZX3Y=
+		Oz0Ch/sW617O/S+ic/K52Inrggo=
 		</data>
 		<key>Resources/layout58.xml.zlib</key>
 		<data>
-		t8aQdCtr8/0fLXrYB9jW2LmhzQMmF1qjGQZWxQT5VJ8=
+		YEQFFPiAfXV8zbIBEwNFgo9xJTY=
 		</data>
 		<key>Resources/layout59.xml.zlib</key>
 		<data>
-		bev2DrztWPr/4vTnbOJCVJnn7VGb8cZv+HLkACbbnM8=
+		qBQA5OdAhVjbIvmIg2gu/huuA3U=
 		</data>
 		<key>Resources/layout6.xml.zlib</key>
 		<data>
-		/C/i6i5B2aqrANSav5qOLH8do6VJgC7yD8lSCT0z/IE=
+		m7xMsqyxlj+lG1ttHud4FNX1vhQ=
 		</data>
 		<key>Resources/layout60.xml.zlib</key>
 		<data>
-		AdumWCMMpaYvpT8d6/nAY62/UW0RMfPb6ZfkarN8sPs=
+		2+RRcgddc0s6BdBAicH/rYcHDZA=
 		</data>
 		<key>Resources/layout61.xml.zlib</key>
 		<data>
-		NWiEF0YISKYrbiklHrVjj/NnWP5xji7i2LhIPGNt1P8=
+		52u+A97B1+6RRGT9A70o/+GZCNs=
 		</data>
 		<key>Resources/layout62.xml.zlib</key>
 		<data>
-		d64Xxw0U8nM9pYvWAmCfKnaBp1G9DBPQjkZqp/OyTOs=
+		glG4wxyNsmEBjRt8fJbD/4D8LSw=
 		</data>
 		<key>Resources/layout63.xml.zlib</key>
 		<data>
-		IiDKAMqaB8aZZ8iw7MH+9JCkXD3s1CjzODefloMqCuY=
+		s6jS2TN07JXwls/Bk3eaft9cytU=
 		</data>
 		<key>Resources/layout64.xml.zlib</key>
 		<data>
-		PG+WCVNmRFsocAtH7df9bC6QDzIBqih2JJSW0OmZdZ0=
+		656/v5TCfAo5251J4lkP6vaWJA0=
 		</data>
 		<key>Resources/layout65.xml.zlib</key>
 		<data>
-		9Jv6d7FEXFL5R3L1IV1cq20ejrglMEsaLuRzEsTY/DU=
+		SBWe7vedxW5M+vRQr9WEmdPMp7c=
 		</data>
 		<key>Resources/layout66.xml.zlib</key>
 		<data>
-		Si9MifivuVSmKn/lfXvZcvsCK5gIkWH1Z3MXCOCu1y0=
+		Ytu4KoXRmIRutU7eJnCiaKe9HhQ=
 		</data>
 		<key>Resources/layout67.xml.zlib</key>
 		<data>
-		1MMCPwI2Q00CjBIbrRCMpQvxzpgARahe/GvMkRIW4AQ=
+		jsM4nOksDg9bI1JYo1/fi7sH+EA=
 		</data>
 		<key>Resources/layout69.xml.zlib</key>
 		<data>
-		nuNM2VviV3IYw/qRoOhofLhKTTxRClq2BTccIFpptVw=
+		MkK5sBckEqy+dXTWSdsuAkIK1Ro=
 		</data>
 		<key>Resources/layout7.xml.zlib</key>
 		<data>
-		tgkBfxmonzc3woXda6tcbTlSKJELk4iPExg7zMtYZto=
+		oglyTro2oJF6M+ZrQuFioUlOi38=
 		</data>
 		<key>Resources/layout70.xml.zlib</key>
 		<data>
-		js5m/4uE2w1aPJLKMSrd7VS+NNNCunWHML2cNFOrRLU=
+		74RSYZ1X1vb9Sq+Q55w2CnC2C1Y=
 		</data>
 		<key>Resources/layout71.xml.zlib</key>
 		<data>
-		0YmHPDELduhKLs9fT+46n3ypN93+ENb6MwpiRzQdhrg=
+		bNmnMYkUId2/7Dq3Dz8jxCxUkMY=
 		</data>
 		<key>Resources/layout72.xml.zlib</key>
 		<data>
-		QgaHihJvfPmguES8s+Q+EGF77T1bEPXEMy4wXj/rqrQ=
+		lO173lIObYd5dpUoRpdAkEKUFxc=
 		</data>
 		<key>Resources/layout73.xml.zlib</key>
 		<data>
-		SIFtl2NSLskSmuoYBcguYU4pqYbXkt4xaV8NPfxVnMQ=
+		elk8/51uCXq65k4ydDuCn9YZsns=
 		</data>
 		<key>Resources/layout74.xml.zlib</key>
 		<data>
-		vVCnjdchi3zZkhH4u9M0pclWcrZhuEzNyWxtReEVY5E=
+		SJp3DobG4M4OGd78v+l/70G93cg=
 		</data>
 		<key>Resources/layout75.xml.zlib</key>
 		<data>
-		uVGXiMbuG/Oj9MQcKUDsgdZ3x/hD3BoYWf3xwN5g33Y=
+		CgGD5Uss5e7bYNPhL0JXo6GREH4=
 		</data>
 		<key>Resources/layout76.xml.zlib</key>
 		<data>
-		Z8M92BfRokPNiD/fMG0blbxYkDLbWKk5W+T3QJWkRTU=
+		51zmuBB3IL6GuWDxJBE6EJv2J9g=
 		</data>
 		<key>Resources/layout77.xml.zlib</key>
 		<data>
-		6PwBnrtORXnv5BuAvA7zDd2XpdFhJ/zZYgQAzjBO/tc=
+		vLtw6P2xmCRKB317NPD3pJDkceA=
 		</data>
 		<key>Resources/layout78.xml.zlib</key>
 		<data>
-		ZEtC/+z9srIGvGXtiiCvnFa04LsuGEuqeF54YVgOwBQ=
+		7tGByhqQRU4fvIx0viqQgLwVuh8=
 		</data>
 		<key>Resources/layout79.xml.zlib</key>
 		<data>
-		YwgGLwBM4yQGK+MhlBksN2GzK+a5PBRlJCLdncYs1K0=
+		u3MwnOoEgShSdyDKeAO1daJfSzA=
 		</data>
 		<key>Resources/layout80.xml.zlib</key>
 		<data>
-		Ce6ZHeF8Yd62yTldf8txtfthxK6ROA72okxnOmFj8fI=
+		Qo+Zqvca1sxg0pt6FQilfAYSeng=
 		</data>
 		<key>Resources/layout81.xml.zlib</key>
 		<data>
-		qMPmuMEW/Iir66830/5FAxZMq5eHfxq3eGH6Iu83kOk=
+		3t3k0IXlVcp0ymtLwZi1uobyjAU=
 		</data>
 		<key>Resources/layout82.xml.zlib</key>
 		<data>
-		iu2Xs3tKKbvKds5kqkjbzAifNFe6PWDRZN83Ls3XHoo=
+		MT6s8Iju1M4aQEjf11qzz0lmO5E=
 		</data>
 		<key>Resources/layout83.xml.zlib</key>
 		<data>
-		IQxp/cq0vJ/plCOdwrPCIAlwb985SeYmPP0fSpwfyEQ=
+		ltfBp/JXc77a/AUz1lAO6s/a4Tk=
 		</data>
 		<key>Resources/layout84.xml.zlib</key>
 		<data>
-		0N+3/2zOFHQwi/3EfRxGLSmOjwJEH5Lc13FRdPaDxbA=
+		k3hwLgErtogW4dhiFF7as9ATXd0=
 		</data>
 		<key>Resources/layout85.xml.zlib</key>
 		<data>
-		xWFZkjXaPTOW+lMxWauNtbOrRGuUM7irbDoav/RR9mw=
+		lG6VBffN63Z0YAYBIxgAH7NpUyQ=
 		</data>
 		<key>Resources/layout86.xml.zlib</key>
 		<data>
-		6VO9SrNKPlQXTQ+oE/7rd/EIPJ1LZyQnb9iy7uzEuEo=
+		qtPgnz5vO3zVftHYOS0e/vn2UpI=
 		</data>
 		<key>Resources/layout88.xml.zlib</key>
 		<data>
-		jWS35KNwQpm5aNNDktd5VUNvhECfhwMQSc/TfHTmYaY=
+		T8gs7YrvuICDYNI27snR2Z3Vsik=
 		</data>
 		<key>Resources/layout9.xml.zlib</key>
 		<data>
-		lBcciUs5MNHa1DUv5+iXgaAGn6EWP4kI6yy3s9oDQFc=
+		vB6nEAds8pkFG6xOYRjpfdDNr9Y=
 		</data>
 		<key>Resources/layout90.xml.zlib</key>
 		<data>
-		R0YDXJZHJ+JKX1oDp3zjlA5kHOtTGMdOxIBG9ouIINs=
+		x3YA9Axo+QdDj9kvvXM5nHdnS2Q=
 		</data>
 		<key>Resources/layout91.xml.zlib</key>
 		<data>
-		wHrvzO4LrJUqdI6hIcEETq0crkAzYFbd59NUeHRdtg8=
+		KwJXZt0BMogCylHp6SCssuIt2M4=
 		</data>
 		<key>Resources/layout92.xml.zlib</key>
 		<data>
-		/qQTmA/i+UBwkSVAw4qX+EItaVSeQ4iS8rfxLAMdS3Q=
+		olVQMUG8NY4Uo4l48N3+/uUqKcA=
 		</data>
 		<key>Resources/layout93.xml.zlib</key>
 		<data>
-		s3Qra7BumbHgJv4aLAExFvkDO77vmEXkH8CZJbj0ujs=
+		WWm2gqRRYj+4O1FTwiJPZZnAb6g=
 		</data>
 		<key>Resources/layout94.xml.zlib</key>
 		<data>
-		9wbMJ7fDhcNElSq7k3PXDr9Jp8Aqvw0qhcL5FYw4MTw=
+		6LOJcz3ZOOtqM66sEbv5Lbu+9SY=
 		</data>
 		<key>Resources/layout95.xml.zlib</key>
 		<data>
-		2uMCvJXIJL8tWHlQcDnVif7a6dzK9ioKenblfDYq9MU=
+		RoY+kadpNLX6S3NmGdmG5PXqPUE=
 		</data>
 		<key>Resources/layout98.xml.zlib</key>
 		<data>
-		zsK1iOu3tuygzX8i4oy1kZ8Lz2yGy+ID+DyLGOGFQjg=
+		DnNDHMzoG/qoUITHYCfAGIiRTjw=
 		</data>
 		<key>Resources/layout99.xml.zlib</key>
 		<data>
-		8AD7Xzxrl56wx2vwsKrTaU5pdpHar2AryNYSFB53KPo=
+		vD6FYY4+g5CpT90aWvzzGSJwK4g=
 		</data>
-		<key>Resources/ms.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			MrXaspZe9mrW0CHFgIq9tchS6GTObcVKBBpbJ98POJQ=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/no.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			pssim3eETcOI7tuZdce1l8Y7i573aweUJg9vYbn9aho=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/pl.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			I/S2NwHrrgorxwYr4dPiHe1IOD9xD/EAM/bHnJLfIHQ=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/pt.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			d6OudPtR3UehqNvYvh5o8eCGDZqtEaZCMv+NRYs9q6U=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/pt_PT.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			nJeQ5CVWRQTbTd1hQSKTNyIk51l3PUJyu8Ru6OVS9ts=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/ro.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			9sl7SlXccPo1YG9agrYHfn/c+jKn49jySn4L/+tisY8=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/ru.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			IbK1OjVvxq0UmoZjSmAFYfsQ02oftwPQTNcyfCUtEWY=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/sk.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QH15HrVgRwrY2w8xQrEvyUdchBkr5SZO8EmKcBoiLwo=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/sv.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			nAFOulfc4J9j+3wv1XGYVV3rJSlqidmS9hWp/M7DKBI=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/th.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			D3NIgoTCID6tDIrpxOnspprE4xfOVw8XFMZRtqhcnzs=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/tr.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			GP45zzI4P3XO05kIVq8Fz5xFlP0wiqBdZ96yfH2Sioo=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/uk.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			veymrh9w26HfjQFSTxmKq+Lieib6b09i2XoV5qfwanc=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/vi.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			XKcfV1nEoHxdIQLtmPX/G230D8K+nBvzqXLPta6wtFE=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/zh_CN.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			mDfQuSY/yMBw4PBanu2VC0uCHZ87/P6RuwpFhdRFoJc=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/zh_TW.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			vFnY7a2C2Ui9gbD0vlXfkhY1o0tR+H+KVT4lPL3hQCo=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>version.plist</key>
 		<data>
-		GsbZIa/sgGeprnOkpYPBdvnq6gx8z4WiTFTvPXaRTdI=
+		2KGlec+lazGih/y9FmI+JqZ6H60=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>PlugIns/AppleHDAController.kext</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			unjDvFLsajdj0oxl6KFY0ab3QCg=
-			</data>
-			<key>requirement</key>
-			<string>identifier "com.apple.driver.AppleHDAController" and anchor apple</string>
-		</dict>
-		<key>PlugIns/AppleHDAHALPlugIn.bundle</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			mSGjRrhmSUB+DVMaqnLIvrklhMA=
-			</data>
-			<key>requirement</key>
-			<string>identifier "com.apple.audio.AppleHDAHALPlugIn" and anchor apple</string>
-		</dict>
-		<key>PlugIns/AppleHDAHardwareConfigDriver.kext</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			CTN/VpRv4YGY8VilRsDG2BLQSAQ=
-			</data>
-			<key>requirement</key>
-			<string>identifier "com.apple.driver.AppleHDAHardwareConfigDriver" and anchor apple</string>
-		</dict>
-		<key>PlugIns/AppleMikeyDriver.kext</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			KsPrqUlFdVePQBRV2WfX9BlmRWc=
-			</data>
-			<key>requirement</key>
-			<string>identifier "com.apple.driver.AppleMikeyDriver" and anchor apple</string>
-		</dict>
-		<key>PlugIns/DspFuncLib.kext</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			9uFmQi+IDnGmFiTotVmnAZXVPlM=
-			</data>
-			<key>requirement</key>
-			<string>identifier "com.apple.driver.DspFuncLib" and anchor apple</string>
-		</dict>
-		<key>PlugIns/IOHDAFamily.kext</key>
-		<dict>
-			<key>cdhash</key>
-			<data>
-			OKKbS+W8E59fecA8hy4x3Rebn1Y=
-			</data>
-			<key>requirement</key>
-			<string>identifier "com.apple.iokit.IOHDAFamily" and anchor apple</string>
-		</dict>
-		<key>Resources/Dutch.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			4RVT+QGArgvZkYUFELlcwFfhOmxSGROAw6W1cnyZTos=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
+		<key>Info.plist</key>
+		<data>
+		0kdn7gIhRta59aUFcAns7NzDHjA=
+		</data>
 		<key>Resources/English.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			BDCXcUwZY27b4+2KmpTmul++WpKAV8KBluAr8YacKzQ=
+			qrBBM88LjrluZyeWm3VYCBzlco8=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
-		<key>Resources/French.lproj/Localizable.strings</key>
+		<key>Resources/English.lproj/locversion.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+3Sixqx5L57cqg/ivtLnFivRZ/+5n4BxQj01XFWjH/I=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/German.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ojmS+KEd9m5ZkRLyByISiAATI82hEBvulVCZUwBpV/k=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/Italian.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			UVd/+/cy0z0uEIvXP7HK6GbWOVBgu70U/KB2iOKcw7A=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/Japanese.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			MxH0wTLRv3g8MWFBgwjZhwhi1MYHLxRffOU6N0z9W5o=
+			bFmnVnb/Vp6jtuPdtDDh3aru78I=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
 		<key>Resources/Platforms.xml.zlib</key>
 		<data>
-		CTLNmT7eU0UAnwEMB/xH7lw44ddl8/5YmixCwuIJUjY=
+		7NHabPVFdydCwRz8QLqoaY8E0m8=
 		</data>
-		<key>Resources/Spanish.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			bhlhrz8TojQSOpsPGSSxMz5CJBvvkdeZ3shUj425Um4=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/ar.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			iA55wJsOG4i2mc5DdiMUq24t7FKn4nTD1rkprfC8oS4=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/ca.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			J/TFZ9Ru1ob2j7CKvvkquvt76DSpYqBUaq0Dyye8HGc=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/cs.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			ToHn1JGdPkomuSpT+PfVAFir9BAa/RDfK8lP5QLV3yM=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/da.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			yWjoyyMoYPTYgbaoEFHm81Bv9pei9yFnLNLvtkeB/lM=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/el.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			oM941ZQ/yKFLU1Ojs3zsLSzM4R3YuvxUZZ3dXtJn8TQ=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/es_419.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			y6MEzeo3lV6DrRb0lj8HkC1Kd8pUYFvKVYe25bf57/s=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/fi.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			3Y6JA4rVjmv0MAYj1MDdYPrFOSJ4L2N8aM7zOxpPc/E=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/he.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			dnxAYHok01Ixh6gSj5MrHm1fNR0bZB+AaMaUS6FDgwY=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/hr.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			k3ZjJ+BFANLO7wh6Wp8oSQX5xkzmaYDAcqtdABelFtQ=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/hu.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			m7VeOV0L7M3ncGRhuac2IF1R97/NlAkP2TrlJ8Rih0A=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/id.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			MzHC/8hEjhM/FVF8w2AEcE7PY7AVQQBmCR0gyltTiTQ=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/ko.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			2KljxsB8/N4AW+tjFOqAsk+D2PPoOakVfkdRuLK6RC0=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>Resources/layout0.xml.zlib</key>
 		<data>
-		nAiq5G3gY6rOIk7OBjSzYfQAfRYQ+kDrInxsPUX13BY=
+		PpxaBh1lwfg3ikSLg039TGnZNz8=
 		</data>
 		<key>Resources/layout1.xml.zlib</key>
 		<data>
-		bub2FVrx5Nmjwnb7l7H6Q2DZ0/V7h+6at3gRqklvqOw=
+		IX1anzSCBRmLw7hkwyzRtDu3ou0=
 		</data>
 		<key>Resources/layout10.xml.zlib</key>
 		<data>
-		8reLnMM4+WwwhrPzD/tAMPT+Rt8Xc8C+/WNBJZO8og4=
-		</data>
-		<key>Resources/layout100.xml.zlib</key>
-		<data>
-		q0CPTNOsVoaizDE+i4toNoU7/OXnO4aQWo/23Jt8REI=
-		</data>
-		<key>Resources/layout101.xml.zlib</key>
-		<data>
-		2mvIIQlf5cZ+ffD1tq0R6y4NrceP/I3VtHpW7NpcuAw=
-		</data>
-		<key>Resources/layout102.xml.zlib</key>
-		<data>
-		gS1RBrp96gJpDGER7al/L8UkmR9N6WLtZqDJf2KjKpM=
+		CXsJtNyaEfS7Hw9ccDO/d+xpCG0=
 		</data>
 		<key>Resources/layout107.xml.zlib</key>
 		<data>
-		g2bzEWdGQwOQe0CID3z/Y6L23087dyf9BIUxFMi/nCc=
-		</data>
-		<key>Resources/layout108.xml.zlib</key>
-		<data>
-		VB2lzAuDBkC4uJVYyvugjKisRyzsKx1nBrR7Nt3+gbM=
+		GyJlOCzLoDC6owptO55Yd6peOIQ=
 		</data>
 		<key>Resources/layout11.xml.zlib</key>
 		<data>
-		CCYEjtIUpIYDM568u0VfG0mJdW5E8nZIBgBqWUbG5Ow=
+		szo3lMzwZJmVXstcvhDzaSa0VDU=
 		</data>
 		<key>Resources/layout113.xml.zlib</key>
 		<data>
-		xnnBcMDHQ/xpOIy5sf0n0eH2xfiMfXPNV/9MZyYHI68=
+		B8qeTR/DUIqAaqZ9fzIdjah+f7U=
 		</data>
 		<key>Resources/layout114.xml.zlib</key>
 		<data>
-		njrc0wxg5Xy84ULwXqnYkpYYUzV6IIb88yGfttxmZOM=
+		SSetyOeZOUEdZXLoPoOPwjdM2wM=
 		</data>
 		<key>Resources/layout12.xml.zlib</key>
 		<data>
-		lxb2EerqvVRh4EcOOwQ3IoXi2gFrLCD6ySJV+p1DBzQ=
+		+02HLiR7TFbHOVn0vFib/9pA4zA=
 		</data>
 		<key>Resources/layout120.xml.zlib</key>
 		<data>
-		w0vLJ66O/icGNy+D0OQ3JUjshvTbs0Bla1lhRObd7Yc=
-		</data>
-		<key>Resources/layout121.xml.zlib</key>
-		<data>
-		qdsf7D5qr5Gy4FSM8M4mcSdD2c6vYbXD1WkfAWU5MGU=
-		</data>
-		<key>Resources/layout122.xml.zlib</key>
-		<data>
-		jnkfo3cTJ1FmS70PYlwSz+8wY3BAGPH1Cs9hftZIVM8=
-		</data>
-		<key>Resources/layout123.xml.zlib</key>
-		<data>
-		RWcXEfvLChGHKKulPxTkrvPnYh13wDeejnxoQ96pye0=
-		</data>
-		<key>Resources/layout124.xml.zlib</key>
-		<data>
-		XcAbiILhocMiyjd9CAhgMiWqIoqhi6/LR8YC0MsKDlQ=
-		</data>
-		<key>Resources/layout125.xml.zlib</key>
-		<data>
-		5izEuS88Y4k+W9Cdz1nNcbI7TnW/m6On9tdhrLZfSqI=
-		</data>
-		<key>Resources/layout126.xml.zlib</key>
-		<data>
-		FSzxFCZV5Jz8MASjCDPLvYTj1WtrEHjTouiH35tU7s4=
-		</data>
-		<key>Resources/layout127.xml.zlib</key>
-		<data>
-		qpzsq7VZHlTosMmT03U74J6jnLp1Sv66R6y5RwVb2gU=
-		</data>
-		<key>Resources/layout128.xml.zlib</key>
-		<data>
-		lMtvMKFo0Ix7x8+C2kljZrU1pnCwxitBCccnSX9hvDM=
-		</data>
-		<key>Resources/layout129.xml.zlib</key>
-		<data>
-		wHqTVx19GMGYv7BeYur8idfdMENihE+Po5KSQWC0qqY=
+		rtO+u9lVCFN0P59a9YsonfXTf+U=
 		</data>
 		<key>Resources/layout13.xml.zlib</key>
 		<data>
-		BtFJyXdT3b7s8IDSg7o1/egWHNybBTLWhK+rX3DuD3M=
-		</data>
-		<key>Resources/layout130.xml.zlib</key>
-		<data>
-		P7rQbRSqi5mVUcnM/UZBi3DnaQr0pB5iNlhpYNNhVs0=
-		</data>
-		<key>Resources/layout131.xml.zlib</key>
-		<data>
-		s+orQONOAo6uHF88PcHeIWz9XVmRLRw/XwhKpHkaeFQ=
-		</data>
-		<key>Resources/layout14.xml.zlib</key>
-		<data>
-		RzjJp0J7C/1c4fxwEYiu4dE1UqW+0EjFIfzNd8Vg/bk=
-		</data>
-		<key>Resources/layout15.xml.zlib</key>
-		<data>
-		SB0y7s5H6muBMJfXkROTvJBEiDsfHIC1EGMk5sCOttQ=
-		</data>
-		<key>Resources/layout16.xml.zlib</key>
-		<data>
-		QTx0KJ51/4v4J1o7N+YhoblVYSpUFlXDfpwn2QH5qd8=
+		HLqwEK7lhUJIdLnjoHZ5kLCI5xs=
 		</data>
 		<key>Resources/layout16392.xml.zlib</key>
 		<data>
-		9po9nu912jeuITUrCLQRA+fA++SpYUOTXmu7gxM9n0w=
+		Wtt7ofHghf8UGEqj9wZ4s7I1fRg=
 		</data>
 		<key>Resources/layout16394.xml.zlib</key>
 		<data>
-		bc9GacbY0AAv5YyMfNehB3CQi8jEPBH2pbJFJmEJTWk=
+		7XsLxJmciIZDjBq0sr6WxqhSiUA=
 		</data>
 		<key>Resources/layout17.xml.zlib</key>
 		<data>
-		VGRUPjzNrDv/KNWwigkj4llaemL/cwEUXpsS7QnxSS8=
+		77MJl+naQ3e9xx28fkoK/stCUis=
 		</data>
 		<key>Resources/layout18.xml.zlib</key>
 		<data>
-		Jq1Mgl6HBW8de0BojeqSr93CPdR9gj76HpoZFt2xpKc=
+		+M3hlmphwvuiXUm+oEf1d0hdTSg=
 		</data>
 		<key>Resources/layout19.xml.zlib</key>
 		<data>
-		k0rj/RtUWKlljGFZTZOe5bIpxaPyG49kyc10GCunOzI=
+		+2sMhOXsuMLVW+eSWTASkcUwV3k=
 		</data>
 		<key>Resources/layout2.xml.zlib</key>
 		<data>
-		sSliXto91dFMAXXQJFZskZIJteeXFEgbwAgo+TKZgiM=
+		RTLburGpi2eCvZwD2bX0e5dCM/0=
 		</data>
 		<key>Resources/layout20.xml.zlib</key>
 		<data>
-		5dY7nlJqJHf7v80BpsoQQapRz2InEKS8QelNQ8Urc1g=
+		0hmDkvS7ggZp2xkWSnd0iAIyRP4=
 		</data>
 		<key>Resources/layout21.xml.zlib</key>
 		<data>
-		4a/2mbBOfH4/B8KwkFW6dPe64hUMh/YYN8ekIXUnU3g=
+		nB+IU0ONUlyQUSK2DAhbBlifPww=
 		</data>
 		<key>Resources/layout24.xml.zlib</key>
 		<data>
-		FQ97eK05eBLUEqZ03hVWgE83tshhx8ElMdKr5MHxN+w=
+		/kpFTbOf/hnlrDN6scyQjUmOgB4=
 		</data>
 		<key>Resources/layout27.xml.zlib</key>
 		<data>
-		L8uhn0f6e/IpJwIZtuYYqc5YZ4L6ZzIUiGSgXu3pohc=
+		k3MqaA0KiWmVhoOpA9wfHkVt5QA=
 		</data>
 		<key>Resources/layout28.xml.zlib</key>
 		<data>
-		fi49MnRZQcRYh0O63iBzLu+6HpQ4YQTCHOQnfffbQEQ=
+		uXi5eYa87X6SfcWZDxJpJq7TmF0=
 		</data>
 		<key>Resources/layout29.xml.zlib</key>
 		<data>
-		z5vAq6EuLWMxfoiYN2l2+qVUMyMkcTknndv+tkNN7GE=
+		A3ySU0+jAlgSftt5iX6Yc/+y+a8=
 		</data>
 		<key>Resources/layout3.xml.zlib</key>
 		<data>
-		2qeGjzkSXIEYcvumV0aef5yV2DeSeYTtv4pCkVJXxqk=
+		yEMe7gw2YHb40wCIvszoeoh+RGY=
 		</data>
 		<key>Resources/layout31.xml.zlib</key>
 		<data>
-		ixYuFqKLWLAZrAyC2RrCqgg9UaekjHGbzgxbS0KH+Nc=
+		IdSimtw+JWTWUAMIrQVrdwjiJ/8=
 		</data>
 		<key>Resources/layout32.xml.zlib</key>
 		<data>
-		YUzKmENWdJN7idaM0OTOPNLo4HlX83FHgwWkqI9N0jo=
+		W14wjWPtFidGMZyt2beLsBSahJ8=
 		</data>
 		<key>Resources/layout33.xml.zlib</key>
 		<data>
-		un6U5gppHjLe69VSQugHjeHwRL1vJhAjq0jEo6DjObw=
+		WBLJ0Hv4LvFoY1bFIURCApe/Zik=
 		</data>
 		<key>Resources/layout35.xml.zlib</key>
 		<data>
-		yHwIUlKve9msCQTMU2SL7MT6fjBGHSF7q40qJ6XmciM=
+		CY5bf0GWqsca6doWzTZNmrYEpjQ=
 		</data>
 		<key>Resources/layout36.xml.zlib</key>
 		<data>
-		UAnbhlPmY29Z4/0dasvZEtLPlVcRtR7uDtC6a0Uch8M=
+		lS4Fr0CZk+H3pXIYlhFiKgSUQnk=
 		</data>
 		<key>Resources/layout38.xml.zlib</key>
 		<data>
-		Y0Ulqm9LhL3NmYu64H2aS3Z3L1syAF9A//u7ru+e2+c=
+		5rxBPcS9/qSlHtDpMiNUDGahczM=
 		</data>
 		<key>Resources/layout39.xml.zlib</key>
 		<data>
-		FJ3zYKff1vBHWW/o3K5kundHQWlPgB7ztC9h6tXzx/c=
+		FYivKtVbM+jxoEC0CDeqFrAIfo0=
 		</data>
 		<key>Resources/layout4.xml.zlib</key>
 		<data>
-		phngz5bvuwTAXYQfJzeyprZZHF9R+wbMTu2rBe2WEPc=
+		VZirlz8xgbX4j5TgHaukyNep1PQ=
 		</data>
 		<key>Resources/layout40.xml.zlib</key>
 		<data>
-		jEHRt8yL41ECkwaFPtHfbr0Wy85P3jHFkfXTp9AFX1E=
+		dsdg+bM437AOR7lpxbaEPNb59d8=
 		</data>
 		<key>Resources/layout42.xml.zlib</key>
 		<data>
-		YYJ4LeusgmIGQeaAMLGhqIAner3UhgDZ1vmfy2gUC84=
+		EYMZQXcg/c30Urz4v/cYqPJ+30M=
 		</data>
 		<key>Resources/layout44.xml.zlib</key>
 		<data>
-		QIO/crnsMICIpWu16QCFj+hJTAXD9Utl0Uz+c/h5q24=
+		X7fqk/CMlfq376AZOUOmKqCs6Cs=
 		</data>
 		<key>Resources/layout46.xml.zlib</key>
 		<data>
-		ehju7jFPloBcgXeDWr5mfpTFEHjgAWZBKfWrIwcrtTw=
+		fdziWzmLJwDzW4SKjsFBmxpolNE=
 		</data>
 		<key>Resources/layout48.xml.zlib</key>
 		<data>
-		Ee1KsnFGpZ+oj6DONpd+dLjbRxYgv095msjEXOo1Kx0=
+		vbr23z1EsmExbKnC+rIXEUZ9Kgo=
 		</data>
 		<key>Resources/layout5.xml.zlib</key>
 		<data>
-		MGgfnMS7HH+sJgRPmgverxbx7jZRbuldamBFVbwUbt4=
+		/2vQOMn9OCsPpfHKbfj9z8JAzZs=
 		</data>
 		<key>Resources/layout50.xml.zlib</key>
 		<data>
-		tWVS7hy2zTbOkO11hx7o7/F9sosW0LeMfZiLZUwS1eE=
-		</data>
-		<key>Resources/layout51.xml.zlib</key>
-		<data>
-		X8EJq1RyMRi/UrwDU/e2fOxjHwPaF1BGtGkQvd6vhuw=
+		F+cyPDRwMi/k6TzYjwFuyV1rWJQ=
 		</data>
 		<key>Resources/layout53.xml.zlib</key>
 		<data>
-		Kq+RljaW958v4q0fnsa/MGU/lSOeXUUxw6/RkjtuyAY=
-		</data>
-		<key>Resources/layout54.xml.zlib</key>
-		<data>
-		FM0KEZqmgNNjMLyRBRjqSqvwOk72mc1wdYjMWiiRhtE=
-		</data>
-		<key>Resources/layout55.xml.zlib</key>
-		<data>
-		2s0vhnNQhPC9vWIJ6rWNu53qNDP8MkHqch7bEGS0so0=
+		PL2Lisa9tm0K5aoyBNagvpt/GFg=
 		</data>
 		<key>Resources/layout56.xml.zlib</key>
 		<data>
-		pBRbkQnh1g+eYzHCFWm1TjKHzyjDnTCe1kVhZZgy3B0=
-		</data>
-		<key>Resources/layout57.xml.zlib</key>
-		<data>
-		d9FtwrPWBabwd4RbSLhc8qQbZIIq+ouql3JiDGwZX3Y=
+		Oz0Ch/sW617O/S+ic/K52Inrggo=
 		</data>
 		<key>Resources/layout58.xml.zlib</key>
 		<data>
-		t8aQdCtr8/0fLXrYB9jW2LmhzQMmF1qjGQZWxQT5VJ8=
+		YEQFFPiAfXV8zbIBEwNFgo9xJTY=
 		</data>
 		<key>Resources/layout59.xml.zlib</key>
 		<data>
-		bev2DrztWPr/4vTnbOJCVJnn7VGb8cZv+HLkACbbnM8=
+		qBQA5OdAhVjbIvmIg2gu/huuA3U=
 		</data>
 		<key>Resources/layout6.xml.zlib</key>
 		<data>
-		/C/i6i5B2aqrANSav5qOLH8do6VJgC7yD8lSCT0z/IE=
+		m7xMsqyxlj+lG1ttHud4FNX1vhQ=
 		</data>
 		<key>Resources/layout60.xml.zlib</key>
 		<data>
-		AdumWCMMpaYvpT8d6/nAY62/UW0RMfPb6ZfkarN8sPs=
+		2+RRcgddc0s6BdBAicH/rYcHDZA=
 		</data>
 		<key>Resources/layout61.xml.zlib</key>
 		<data>
-		NWiEF0YISKYrbiklHrVjj/NnWP5xji7i2LhIPGNt1P8=
+		52u+A97B1+6RRGT9A70o/+GZCNs=
 		</data>
 		<key>Resources/layout62.xml.zlib</key>
 		<data>
-		d64Xxw0U8nM9pYvWAmCfKnaBp1G9DBPQjkZqp/OyTOs=
+		glG4wxyNsmEBjRt8fJbD/4D8LSw=
 		</data>
 		<key>Resources/layout63.xml.zlib</key>
 		<data>
-		IiDKAMqaB8aZZ8iw7MH+9JCkXD3s1CjzODefloMqCuY=
+		s6jS2TN07JXwls/Bk3eaft9cytU=
 		</data>
 		<key>Resources/layout64.xml.zlib</key>
 		<data>
-		PG+WCVNmRFsocAtH7df9bC6QDzIBqih2JJSW0OmZdZ0=
+		656/v5TCfAo5251J4lkP6vaWJA0=
 		</data>
 		<key>Resources/layout65.xml.zlib</key>
 		<data>
-		9Jv6d7FEXFL5R3L1IV1cq20ejrglMEsaLuRzEsTY/DU=
+		SBWe7vedxW5M+vRQr9WEmdPMp7c=
 		</data>
 		<key>Resources/layout66.xml.zlib</key>
 		<data>
-		Si9MifivuVSmKn/lfXvZcvsCK5gIkWH1Z3MXCOCu1y0=
+		Ytu4KoXRmIRutU7eJnCiaKe9HhQ=
 		</data>
 		<key>Resources/layout67.xml.zlib</key>
 		<data>
-		1MMCPwI2Q00CjBIbrRCMpQvxzpgARahe/GvMkRIW4AQ=
+		jsM4nOksDg9bI1JYo1/fi7sH+EA=
 		</data>
 		<key>Resources/layout69.xml.zlib</key>
 		<data>
-		nuNM2VviV3IYw/qRoOhofLhKTTxRClq2BTccIFpptVw=
+		MkK5sBckEqy+dXTWSdsuAkIK1Ro=
 		</data>
 		<key>Resources/layout7.xml.zlib</key>
 		<data>
-		tgkBfxmonzc3woXda6tcbTlSKJELk4iPExg7zMtYZto=
+		oglyTro2oJF6M+ZrQuFioUlOi38=
 		</data>
 		<key>Resources/layout70.xml.zlib</key>
 		<data>
-		js5m/4uE2w1aPJLKMSrd7VS+NNNCunWHML2cNFOrRLU=
+		74RSYZ1X1vb9Sq+Q55w2CnC2C1Y=
 		</data>
 		<key>Resources/layout71.xml.zlib</key>
 		<data>
-		0YmHPDELduhKLs9fT+46n3ypN93+ENb6MwpiRzQdhrg=
+		bNmnMYkUId2/7Dq3Dz8jxCxUkMY=
 		</data>
 		<key>Resources/layout72.xml.zlib</key>
 		<data>
-		QgaHihJvfPmguES8s+Q+EGF77T1bEPXEMy4wXj/rqrQ=
+		lO173lIObYd5dpUoRpdAkEKUFxc=
 		</data>
 		<key>Resources/layout73.xml.zlib</key>
 		<data>
-		SIFtl2NSLskSmuoYBcguYU4pqYbXkt4xaV8NPfxVnMQ=
+		elk8/51uCXq65k4ydDuCn9YZsns=
 		</data>
 		<key>Resources/layout74.xml.zlib</key>
 		<data>
-		vVCnjdchi3zZkhH4u9M0pclWcrZhuEzNyWxtReEVY5E=
+		SJp3DobG4M4OGd78v+l/70G93cg=
 		</data>
 		<key>Resources/layout75.xml.zlib</key>
 		<data>
-		uVGXiMbuG/Oj9MQcKUDsgdZ3x/hD3BoYWf3xwN5g33Y=
+		CgGD5Uss5e7bYNPhL0JXo6GREH4=
 		</data>
 		<key>Resources/layout76.xml.zlib</key>
 		<data>
-		Z8M92BfRokPNiD/fMG0blbxYkDLbWKk5W+T3QJWkRTU=
+		51zmuBB3IL6GuWDxJBE6EJv2J9g=
 		</data>
 		<key>Resources/layout77.xml.zlib</key>
 		<data>
-		6PwBnrtORXnv5BuAvA7zDd2XpdFhJ/zZYgQAzjBO/tc=
+		vLtw6P2xmCRKB317NPD3pJDkceA=
 		</data>
 		<key>Resources/layout78.xml.zlib</key>
 		<data>
-		ZEtC/+z9srIGvGXtiiCvnFa04LsuGEuqeF54YVgOwBQ=
+		7tGByhqQRU4fvIx0viqQgLwVuh8=
 		</data>
 		<key>Resources/layout79.xml.zlib</key>
 		<data>
-		YwgGLwBM4yQGK+MhlBksN2GzK+a5PBRlJCLdncYs1K0=
+		u3MwnOoEgShSdyDKeAO1daJfSzA=
 		</data>
 		<key>Resources/layout80.xml.zlib</key>
 		<data>
-		Ce6ZHeF8Yd62yTldf8txtfthxK6ROA72okxnOmFj8fI=
+		Qo+Zqvca1sxg0pt6FQilfAYSeng=
 		</data>
 		<key>Resources/layout81.xml.zlib</key>
 		<data>
-		qMPmuMEW/Iir66830/5FAxZMq5eHfxq3eGH6Iu83kOk=
+		3t3k0IXlVcp0ymtLwZi1uobyjAU=
 		</data>
 		<key>Resources/layout82.xml.zlib</key>
 		<data>
-		iu2Xs3tKKbvKds5kqkjbzAifNFe6PWDRZN83Ls3XHoo=
+		MT6s8Iju1M4aQEjf11qzz0lmO5E=
 		</data>
 		<key>Resources/layout83.xml.zlib</key>
 		<data>
-		IQxp/cq0vJ/plCOdwrPCIAlwb985SeYmPP0fSpwfyEQ=
+		ltfBp/JXc77a/AUz1lAO6s/a4Tk=
 		</data>
 		<key>Resources/layout84.xml.zlib</key>
 		<data>
-		0N+3/2zOFHQwi/3EfRxGLSmOjwJEH5Lc13FRdPaDxbA=
+		k3hwLgErtogW4dhiFF7as9ATXd0=
 		</data>
 		<key>Resources/layout85.xml.zlib</key>
 		<data>
-		xWFZkjXaPTOW+lMxWauNtbOrRGuUM7irbDoav/RR9mw=
+		lG6VBffN63Z0YAYBIxgAH7NpUyQ=
 		</data>
 		<key>Resources/layout86.xml.zlib</key>
 		<data>
-		6VO9SrNKPlQXTQ+oE/7rd/EIPJ1LZyQnb9iy7uzEuEo=
+		qtPgnz5vO3zVftHYOS0e/vn2UpI=
 		</data>
 		<key>Resources/layout88.xml.zlib</key>
 		<data>
-		jWS35KNwQpm5aNNDktd5VUNvhECfhwMQSc/TfHTmYaY=
+		T8gs7YrvuICDYNI27snR2Z3Vsik=
 		</data>
 		<key>Resources/layout9.xml.zlib</key>
 		<data>
-		lBcciUs5MNHa1DUv5+iXgaAGn6EWP4kI6yy3s9oDQFc=
+		vB6nEAds8pkFG6xOYRjpfdDNr9Y=
 		</data>
 		<key>Resources/layout90.xml.zlib</key>
 		<data>
-		R0YDXJZHJ+JKX1oDp3zjlA5kHOtTGMdOxIBG9ouIINs=
+		x3YA9Axo+QdDj9kvvXM5nHdnS2Q=
 		</data>
 		<key>Resources/layout91.xml.zlib</key>
 		<data>
-		wHrvzO4LrJUqdI6hIcEETq0crkAzYFbd59NUeHRdtg8=
+		KwJXZt0BMogCylHp6SCssuIt2M4=
 		</data>
 		<key>Resources/layout92.xml.zlib</key>
 		<data>
-		/qQTmA/i+UBwkSVAw4qX+EItaVSeQ4iS8rfxLAMdS3Q=
+		olVQMUG8NY4Uo4l48N3+/uUqKcA=
 		</data>
 		<key>Resources/layout93.xml.zlib</key>
 		<data>
-		s3Qra7BumbHgJv4aLAExFvkDO77vmEXkH8CZJbj0ujs=
+		WWm2gqRRYj+4O1FTwiJPZZnAb6g=
 		</data>
 		<key>Resources/layout94.xml.zlib</key>
 		<data>
-		9wbMJ7fDhcNElSq7k3PXDr9Jp8Aqvw0qhcL5FYw4MTw=
+		6LOJcz3ZOOtqM66sEbv5Lbu+9SY=
 		</data>
 		<key>Resources/layout95.xml.zlib</key>
 		<data>
-		2uMCvJXIJL8tWHlQcDnVif7a6dzK9ioKenblfDYq9MU=
+		RoY+kadpNLX6S3NmGdmG5PXqPUE=
 		</data>
 		<key>Resources/layout98.xml.zlib</key>
 		<data>
-		zsK1iOu3tuygzX8i4oy1kZ8Lz2yGy+ID+DyLGOGFQjg=
+		DnNDHMzoG/qoUITHYCfAGIiRTjw=
 		</data>
 		<key>Resources/layout99.xml.zlib</key>
 		<data>
-		8AD7Xzxrl56wx2vwsKrTaU5pdpHar2AryNYSFB53KPo=
+		vD6FYY4+g5CpT90aWvzzGSJwK4g=
 		</data>
-		<key>Resources/ms.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			MrXaspZe9mrW0CHFgIq9tchS6GTObcVKBBpbJ98POJQ=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/no.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			pssim3eETcOI7tuZdce1l8Y7i573aweUJg9vYbn9aho=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/pl.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			I/S2NwHrrgorxwYr4dPiHe1IOD9xD/EAM/bHnJLfIHQ=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/pt.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			d6OudPtR3UehqNvYvh5o8eCGDZqtEaZCMv+NRYs9q6U=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/pt_PT.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			nJeQ5CVWRQTbTd1hQSKTNyIk51l3PUJyu8Ru6OVS9ts=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/ro.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			9sl7SlXccPo1YG9agrYHfn/c+jKn49jySn4L/+tisY8=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/ru.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			IbK1OjVvxq0UmoZjSmAFYfsQ02oftwPQTNcyfCUtEWY=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/sk.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			QH15HrVgRwrY2w8xQrEvyUdchBkr5SZO8EmKcBoiLwo=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/sv.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			nAFOulfc4J9j+3wv1XGYVV3rJSlqidmS9hWp/M7DKBI=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/th.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			D3NIgoTCID6tDIrpxOnspprE4xfOVw8XFMZRtqhcnzs=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/tr.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			GP45zzI4P3XO05kIVq8Fz5xFlP0wiqBdZ96yfH2Sioo=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/uk.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			veymrh9w26HfjQFSTxmKq+Lieib6b09i2XoV5qfwanc=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/vi.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			XKcfV1nEoHxdIQLtmPX/G230D8K+nBvzqXLPta6wtFE=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/zh_CN.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			mDfQuSY/yMBw4PBanu2VC0uCHZ87/P6RuwpFhdRFoJc=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
-		<key>Resources/zh_TW.lproj/Localizable.strings</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			vFnY7a2C2Ui9gbD0vlXfkhY1o0tR+H+KVT4lPL3hQCo=
-			</data>
-			<key>optional</key>
-			<true/>
-		</dict>
 		<key>version.plist</key>
 		<data>
-		GsbZIa/sgGeprnOkpYPBdvnq6gx8z4WiTFTvPXaRTdI=
+		2KGlec+lazGih/y9FmI+JqZ6H60=
 		</data>
 	</dict>
 	<key>rules</key>
 	<dict>
-		<key>^Resources/</key>
-		<true/>
-		<key>^Resources/.*\.lproj/</key>
+		<key>@[0-9]+</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>10</real>
+		</dict>
+		<key>\.licns$</key>
 		<dict>
 			<key>optional</key>
 			<true/>
 			<key>weight</key>
-			<real>1000</real>
+			<real>50</real>
+		</dict>
+		<key>^Resources/</key>
+		<true/>
+		<key>^Resources/.*\.lproj/</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>30</real>
 		</dict>
 		<key>^Resources/.*\.lproj/locversion.plist$</key>
 		<dict>
 			<key>omit</key>
 			<true/>
 			<key>weight</key>
-			<real>1100</real>
+			<real>30</real>
+		</dict>
+		<key>^Resources/.*\.nib/classes\.nib$</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>5</real>
+		</dict>
+		<key>^Resources/.*\.nib/data\.dependency$</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>5</real>
+		</dict>
+		<key>^Resources/.*\.nib/designable\.nib$</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>5</real>
+		</dict>
+		<key>^Resources/.*\.nib/info\.nib$</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>5</real>
+		</dict>
+		<key>^Resources/Base\.lproj/</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>35</real>
+		</dict>
+		<key>^Resources/BridgeSupport/[^/]*\.(bridgesupport|dylib)$</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>10</real>
+		</dict>
+		<key>^Resources/English\.lproj/</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>40</real>
 		</dict>
 		<key>^version.plist$</key>
 		<true/>
 	</dict>
 	<key>rules2</key>
 	<dict>
-		<key>.*\.dSYM($|/)</key>
-		<dict>
-			<key>weight</key>
-			<real>11</real>
-		</dict>
-		<key>^(.*/)?\.DS_Store$</key>
+		<key>@[0-9]+</key>
 		<dict>
 			<key>omit</key>
-			<true/>
-			<key>weight</key>
-			<real>2000</real>
-		</dict>
-		<key>^(Frameworks|SharedFrameworks|PlugIns|Plug-ins|XPCServices|Helpers|MacOS|Library/(Automator|Spotlight|LoginItems))/</key>
-		<dict>
-			<key>nested</key>
 			<true/>
 			<key>weight</key>
 			<real>10</real>
 		</dict>
-		<key>^.*</key>
-		<true/>
-		<key>^Info\.plist$</key>
-		<dict>
-			<key>omit</key>
-			<true/>
-			<key>weight</key>
-			<real>20</real>
-		</dict>
-		<key>^PkgInfo$</key>
-		<dict>
-			<key>omit</key>
-			<true/>
-			<key>weight</key>
-			<real>20</real>
-		</dict>
-		<key>^Resources/</key>
-		<dict>
-			<key>weight</key>
-			<real>20</real>
-		</dict>
-		<key>^Resources/.*\.lproj/</key>
+		<key>\.licns$</key>
 		<dict>
 			<key>optional</key>
 			<true/>
 			<key>weight</key>
-			<real>1000</real>
+			<real>50</real>
+		</dict>
+		<key>^(Frameworks|SharedFrameworks|Plugins|Plug-ins|XPCServices|Helpers|MacOS)/</key>
+		<dict>
+			<key>nested</key>
+			<true/>
+			<key>weight</key>
+			<real>0.0</real>
+		</dict>
+		<key>^Resources/</key>
+		<true/>
+		<key>^Resources/.*\.lproj/</key>
+		<dict>
+			<key>omit</key>
+			<true/>
+			<key>weight</key>
+			<real>30</real>
 		</dict>
 		<key>^Resources/.*\.lproj/locversion.plist$</key>
 		<dict>
 			<key>omit</key>
 			<true/>
 			<key>weight</key>
-			<real>1100</real>
+			<real>30</real>
 		</dict>
-		<key>^[^/]+$</key>
+		<key>^Resources/.*\.nib/classes\.nib$</key>
 		<dict>
-			<key>nested</key>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>5</real>
+		</dict>
+		<key>^Resources/.*\.nib/data\.dependency$</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>5</real>
+		</dict>
+		<key>^Resources/.*\.nib/designable\.nib$</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>5</real>
+		</dict>
+		<key>^Resources/.*\.nib/info\.nib$</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>5</real>
+		</dict>
+		<key>^Resources/Base\.lproj/</key>
+		<dict>
+			<key>optional</key>
+			<true/>
+			<key>weight</key>
+			<real>35</real>
+		</dict>
+		<key>^Resources/BridgeSupport/[^/]*\.(bridgesupport|dylib)$</key>
+		<dict>
+			<key>omit</key>
 			<true/>
 			<key>weight</key>
 			<real>10</real>
 		</dict>
-		<key>^embedded\.provisionprofile$</key>
+		<key>^Resources/English\.lproj/</key>
 		<dict>
+			<key>optional</key>
+			<true/>
 			<key>weight</key>
-			<real>20</real>
+			<real>40</real>
 		</dict>
-		<key>^version\.plist$</key>
+		<key>^[^/]+$</key>
 		<dict>
+			<key>top</key>
+			<true/>
 			<key>weight</key>
-			<real>20</real>
+			<real>0.0</real>
 		</dict>
+		<key>^version.plist$</key>
+		<true/>
 	</dict>
 </dict>
 </plist>
